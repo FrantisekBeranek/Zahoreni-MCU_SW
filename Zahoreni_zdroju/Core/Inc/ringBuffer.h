@@ -42,6 +42,9 @@ BUFFER_STATE getStatus(RING_BUFFER*);
 //_____Uloží znak do bufferu_____//
 BUFFER_STATE push(RING_BUFFER*, char);
 
+//_____Uloží řetězec do bufferu_____//
+BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+
 //_____Přečte a odstraní poslední znak z bufferu_____//
 //Znak bude uložen na adresu v argumentu
 BUFFER_STATE pop(RING_BUFFER*, char*);

@@ -41,7 +41,22 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+typedef struct{
+	//___TIME___//
+	unsigned int ten_ms	: 1;
+	unsigned int sec	: 1;
+	unsigned int min	: 1;
+	unsigned int hour	: 1;
 
+	//___BUTTONS___//
+	unsigned int butt0_int	: 1;	//butt0 interrupt
+	unsigned int butt0_ver	: 1;	//butt0 verified
+	unsigned int butt1_int	: 1;	//butt1 interrupt
+	unsigned int butt1_ver	: 1;	//butt1 verified
+
+	//___COMUNICATION___//
+	unsigned int data_received	: 1;
+} Flags;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

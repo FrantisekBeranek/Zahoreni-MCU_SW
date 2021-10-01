@@ -61,6 +61,23 @@ BUFFER_STATE push(RING_BUFFER* buffer, char character)
 	return BUFFER_OK;
 }
 
+//_____Uloží řetězec do bufferu_____//
+BUFFER_STATE pushStr(RING_BUFFER* buffer, char* str, int len)
+{
+	if(buffer->bufferSize < (buffer->filled + len))
+		return BUFFER_FULL;
+
+	buffer->filled += len;
+	for(int i = 0; i < len; i++)
+	{
+		buffer->last = (buffer->last + 1) % (buffer->bufferSize);
+		buffer->buffer[buffer->last] = str[i];
+	}
+	buffer->status = (buffer->filled >= buffer->bufferSize)? BUFFER_FULL : BUFFER_OK;
+
+	return BUFFER_OK;
+}
+
 //_____Přečte a odstraní poslední znak z bufferu_____//
 //Znak bude uložen na adresu v argumentu
 BUFFER_STATE pop(RING_BUFFER* buffer, char* character)

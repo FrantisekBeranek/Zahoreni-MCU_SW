@@ -65,8 +65,8 @@ all: main-build
 main-build: Zahoreni_zdroju.elf secondary-outputs
 
 # Tool invocations
-Zahoreni_zdroju.elf: $(OBJS) $(USER_OBJS) D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze\ 3\SW\pred_chvili_to_slo\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\pred_chvili_to_slo\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Zahoreni_zdroju.elf: $(OBJS) $(USER_OBJS) D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze\ 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

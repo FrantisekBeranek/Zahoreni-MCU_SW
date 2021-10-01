@@ -2,5 +2,6 @@ ringBuffer.c:14:14:createBuffer	24	static
 ringBuffer.c:38:6:destroyBuffer	16	static
 ringBuffer.c:45:14:getStatus	16	static
 ringBuffer.c:51:14:push	16	static
-ringBuffer.c:66:14:pop	16	static
-ringBuffer.c:80:14:at	32	static
+ringBuffer.c:65:14:pushStr	32	static
+ringBuffer.c:83:14:pop	16	static
+ringBuffer.c:97:14:at	32	static
