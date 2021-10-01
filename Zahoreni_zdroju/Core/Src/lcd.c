@@ -128,17 +128,17 @@ void dispInit(void)
 	HAL_Delay(5);
 
 	//_____Nastavit parametry_____//
-	sendByte(0x3A, INSTRUCTION);	//Function set
-	sendByte(0x09, INSTRUCTION);	//Extended function set
-	sendByte(0x06, INSTRUCTION);	//Entry mode set
-	sendByte(0x1E, INSTRUCTION);	//Bias setting
-	sendByte(0x39, INSTRUCTION);	//Function set
-	sendByte(0x1B, INSTRUCTION);	//Internal OSC
+	sendByte(0x31, INSTRUCTION);	//Function set
+	sendByte(0x01, INSTRUCTION);	//Clear display
+	sendByte(0x13, INSTRUCTION);	//Oscilator
+	sendByte(0x7F, INSTRUCTION);	//Contrast
+	sendByte(0x5C, INSTRUCTION);	//Power/Icon/Contrast
 	sendByte(0x6E, INSTRUCTION);	//Follower control
-	sendByte(0x57, INSTRUCTION);	//Power control
-	sendByte(0x72, INSTRUCTION);	//Contrast set
-	sendByte(0x38, INSTRUCTION);	//Function set
-	sendByte(0x0C, INSTRUCTION);	//Display on
+	sendByte(0x0F, INSTRUCTION);	//Display on
+	//sendByte(0x57, INSTRUCTION);	//Power control
+	//sendByte(0x72, INSTRUCTION);	//Contrast set
+	//sendByte(0x38, INSTRUCTION);	//Function set
+	//sendByte(0x0C, INSTRUCTION);	//Display on
 
 	//_____Zapnout podsvícení_____//
 	setColour(BACKLIGHT_WHITE);

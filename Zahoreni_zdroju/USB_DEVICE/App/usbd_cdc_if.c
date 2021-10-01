@@ -110,7 +110,8 @@ RING_BUFFER* USB_Rx_Buffer;
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
 /* USER CODE BEGIN EXPORTED_VARIABLES */
-extern uint16_t comFlags;
+//extern uint16_t comFlags;
+extern Flags flags;
 /* USER CODE END EXPORTED_VARIABLES */
 
 /**
@@ -261,7 +262,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
 
-  SetBit(comFlags, 0);
+  flags.data_received = 1;
 
   for(uint8_t i = 0; i < *Len; i++)
   {

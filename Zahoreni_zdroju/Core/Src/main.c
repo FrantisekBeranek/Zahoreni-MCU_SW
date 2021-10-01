@@ -66,13 +66,14 @@ uint32_t sysTime_min = 0;	//Proměnná pro časování
 uint32_t sysTime_hour = 0;	//Proměnná pro časování
 	//inkrementace každou hodinu
 
-uint16_t timeFlags = 0;	//Flagy časování
+//uint16_t flags = 0;	//Flagy časování
 	// 0 - 10 ms
 	// 1 - 1 s
 	// 2 - 1 min
 	// 3 - 1 hod
+Flags flags;
 
-uint16_t buttonFlags = 0;
+//uint16_t flags = 0;
 	// 0 - tlačítko 0 interrupt
 	// 1 - tlačítko 0 ověřeno
 	// 2 - tlačítko 1 interrupt
@@ -80,7 +81,7 @@ uint16_t buttonFlags = 0;
 uint8_t button0_Debounce = 0;
 uint8_t button1_Debounce = 0;
 
-uint16_t comFlags = 0;	//Flagy komunikace s PC
+//uint16_t flags = 0;	//Flagy komunikace s PC
 	// 0 - přijatý řetězec
 	//
 
@@ -108,11 +109,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == BUTTON_0_Pin)
 	{
-		SetBit(buttonFlags, 0);
+		flags.butt0_int = 1;
 	}
 	if(GPIO_Pin == BUTTON_1_Pin)
 	{
-		SetBit(buttonFlags, 2);
+		flags.butt1_int = 1;
 	}
 }
 
@@ -121,7 +122,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim == &htim14)	//Timer 14 -> každých 10 ms
 	{
-		SetBit(timeFlags, 0);
+		flags.ten_ms = 1;
 	}
 }
 
@@ -169,7 +170,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   //___Inicializace displeje___//
   dispInit();
-  //writeChar('a', 5, 1);
+  writeChar('a', 1, 5);
   // Start timer
   HAL_TIM_Base_Start_IT(&htim14);
 
@@ -183,10 +184,11 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	  if(MaskBit(timeFlags, 0))	// 10 ms
+	  if(flags.ten_ms)	// 10 ms
 	  {
 		  clkHandler();
 		  buttonDebounce();
+		  comHandler();
 	  }
 
   }
@@ -618,24 +620,27 @@ static void MX_GPIO_Init(void)
 
 void clkHandler(void)
 {
-	timeFlags &= ~(15);
+	flags.ten_ms = 0;
+	flags.sec	= 0;
+	flags.min	= 0;
+	flags.hour	= 0;
 	sysTime++;
 	if((sysTime % 100) == 0)	//1 s
 	{
 		sysTime_sec++;
-		SetBit(timeFlags, 1);
+		flags.sec = 1;
 	}
 
-	if(MaskBit(timeFlags, 1))
+	if(flags.sec)
 	{
 		if((sysTime_sec % 60) == 0 && sysTime_sec != 0)	//1 min
 		{
 			sysTime_sec = 0;
 			sysTime_min++;
-			SetBit(timeFlags, 2);
+			flags.min = 1;
 		}
 
-		if(MaskBit(timeFlags, 2))
+		if(flags.min)
 		{
 			if((sysTime_min % 60) == 0 && sysTime_min != 0)	//1 min
 			{
@@ -643,7 +648,7 @@ void clkHandler(void)
 				sysTime_sec = 0;
 				sysTime_min = 0;
 				sysTime_hour++;
-				SetBit(timeFlags, 3);
+				flags.hour = 1;
 				if(sysTime_hour >= 23)
 					sysTime_hour = 0;
 			}
@@ -651,7 +656,7 @@ void clkHandler(void)
 	}
 
 #ifdef __DEBUG_TIME__
-	if(MaskBit(timeFlags, 1))
+	if(flags.sec)
 	{
 		char timeStamp[30];
 		sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
@@ -662,7 +667,7 @@ void clkHandler(void)
 
 void buttonDebounce()
 {
-	if(MaskBit(buttonFlags, 0))
+	if(flags.butt0_int)
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port,BUTTON_0_Pin) == GPIO_PIN_SET)
 		{
@@ -671,22 +676,22 @@ void buttonDebounce()
 		else
 		{
 			button0_Debounce = 0;
-			ClearBit(buttonFlags,0);
+			flags.butt0_int = 0;
 		}
 		if(button0_Debounce >= 5)
 		{
-			SetBit(buttonFlags, 1);
-			ClearBit(buttonFlags, 0);
+			flags.butt0_ver = 1;
+			flags.butt0_int = 0;
 			button0_Debounce = 0;
 
 #ifdef __DEBUG_BUTT__
 			HAL_GPIO_TogglePin(BACKLIGHT_GREEN_GPIO_Port, BACKLIGHT_GREEN_Pin);
-			writeChar('a', 1, 5);
+			//writeChar('a', 1, 5);
 #endif
 		}
 	}
 
-	if(MaskBit(buttonFlags, 2))
+	if(flags.butt1_int)
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_1_GPIO_Port,BUTTON_1_Pin) == GPIO_PIN_SET)
 		{
@@ -695,12 +700,12 @@ void buttonDebounce()
 		else
 		{
 			button1_Debounce = 0;
-			ClearBit(buttonFlags,2);
+			flags.butt1_int = 0;
 		}
 		if(button1_Debounce >= 5)
 		{
-			SetBit(buttonFlags, 3);
-			ClearBit(buttonFlags, 2);
+			flags.butt1_ver = 1;
+			flags.butt1_int;
 			button1_Debounce = 0;
 
 #ifdef __DEBUG_BUTT__
@@ -713,7 +718,7 @@ void buttonDebounce()
 //_____Obsluha komunikace s PC přes USB_____//
 void comHandler()
 {
-	if(MaskBit(comFlags, 0))
+	if(flags.data_received)
 	{
 		char instruction;
 		while(pop(USB_Rx_Buffer, &instruction) != BUFFER_EMPTY)
@@ -763,7 +768,7 @@ void comHandler()
 				break;
 			}
 		}
-		ClearBit(comFlags, 0);
+		flags.data_received = 0;
 	}
 
 }
