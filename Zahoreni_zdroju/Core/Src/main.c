@@ -51,9 +51,10 @@ TIM_HandleTypeDef htim14;
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
-extern RING_BUFFER* dispBuffer;
-extern RING_BUFFER* regBuffer;
-extern RING_BUFFER* USB_Rx_Buffer;
+extern	RING_BUFFER* dispBuffer;
+extern	RING_BUFFER* regBuffer;
+extern	RING_BUFFER* USB_Rx_Buffer;
+		RING_BUFFER* USB_Tx_Buffer;
 
 extern uint8_t regCount;
 
@@ -149,6 +150,7 @@ int main(void)
   dispBuffer = createBuffer(100);
   regBuffer = createBuffer(100);
   USB_Rx_Buffer = createBuffer(500);
+  USB_Tx_Buffer = createBuffer(500);
 
   /* USER CODE END Init */
 
@@ -169,8 +171,8 @@ int main(void)
   MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
   //___Inicializace displeje___//
-  dispInit();
-  writeChar('a', 1, 5);
+  //dispInit();
+  //writeChar('a', 1, 5);
   // Start timer
   HAL_TIM_Base_Start_IT(&htim14);
 
@@ -660,7 +662,7 @@ void clkHandler(void)
 	{
 		char timeStamp[30];
 		sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
-		CDC_Transmit_FS(timeStamp, strlen(timeStamp));	//odešli čas
+		pushStr(USB_Tx_Buffer, timeStamp, strlen(timeStamp));	//odešli čas
 	}
 #endif
 }
@@ -718,6 +720,7 @@ void buttonDebounce()
 //_____Obsluha komunikace s PC přes USB_____//
 void comHandler()
 {
+	//___Příjem dat___//
 	if(flags.data_received)
 	{
 		char instruction;
@@ -731,7 +734,7 @@ void comHandler()
 				//___Start testu___//
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Start\n");
-				CDC_Transmit_FS(txt, strlen(txt));
+				pushStr(USB_Tx_Buffer, txt, strlen(txt));
 #endif
 				break;
 
@@ -739,7 +742,7 @@ void comHandler()
 				//___Ukončení___//
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Ukonceni\n");
-				CDC_Transmit_FS(txt, strlen(txt));
+				pushStr(USB_Tx_Buffer, txt, strlen(txt));
 #endif
 				break;
 
@@ -747,7 +750,7 @@ void comHandler()
 				//___Pauza___//
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Pauza\n");
-				CDC_Transmit_FS(txt, strlen(txt));
+				pushStr(USB_Tx_Buffer, txt, strlen(txt));
 #endif
 				break;
 
@@ -755,7 +758,7 @@ void comHandler()
 				//___Kalibrace___//
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Kalibrace\n");
-				CDC_Transmit_FS(txt, strlen(txt));
+				pushStr(USB_Tx_Buffer, txt, strlen(txt));
 #endif
 				break;
 
@@ -763,12 +766,27 @@ void comHandler()
 				//___Neplatný příkaz___//
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Neplatna instrukce\n");
-				CDC_Transmit_FS(txt, strlen(txt));
+				pushStr(USB_Tx_Buffer, txt, strlen(txt));
 #endif
 				break;
 			}
 		}
 		flags.data_received = 0;
+	}
+
+	//___Odesílání dat___//
+	if(USB_Tx_Buffer->status == BUFFER_FULL)
+	{
+		char msg[] = {"Buffer full\n"};
+		CDC_Transmit_FS(msg, strlen(msg));
+	}
+	if(USB_Tx_Buffer->filled)
+	{
+		char tmp;
+		while(pop(USB_Tx_Buffer, &tmp) != BUFFER_EMPTY)
+		{
+			CDC_Transmit_FS(&tmp, 1);
+		}
 	}
 
 }

@@ -508,3 +508,37 @@ Reason: (3) USB communication error. Please reconnect the ST-LINK USB cable and 
 !SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.stlink 4 0 2021-10-01 09:57:15.044
 !MESSAGE Error in initializing ST-LINK device.
 Reason: (3) USB communication error. Please reconnect the ST-LINK USB cable and try again.
+!SESSION 2021-10-01 15:58:08.408 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=cs_CZ
+Framework arguments:  D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\.cproject
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-10-01 15:58:12.258
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-10-01 15:58:16.432
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-10-01 15:58:16.512
+!MESSAGE Log4j initialized with config file D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-10-01 15:58:23.231
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-10-01 15:58:26.314
+!MESSAGE Indexed 'Zahoreni_zdroju' (41 sources, 124 headers) in 2,91 sec: 11 346 declarations; 72 413 references; 2 unresolved inclusions; 33 syntax errors; 188 unresolved names (0,22 %)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-10-01 16:40:57.832
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 13 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-10-01 16:40:57.832
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-10-01 16:40:57.832
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 13 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-10-01 16:40:57.832
+!MESSAGE Existing sessions are:
