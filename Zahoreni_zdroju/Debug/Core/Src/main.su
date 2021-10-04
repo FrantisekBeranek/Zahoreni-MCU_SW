@@ -10,5 +10,5 @@ main.c:529:13:MX_DMA_Init	16	static
 main.c:547:13:MX_GPIO_Init	56	static
 main.c:623:6:clkHandler	56	static
 main.c:670:6:buttonDebounce	8	static
-main.c:721:6:comHandler	72	static
-main.c:800:6:Error_Handler	8	static,ignoring_inline_asm
+main.c:721:6:comHandler	120	dynamic
+main.c:808:6:Error_Handler	8	static,ignoring_inline_asm

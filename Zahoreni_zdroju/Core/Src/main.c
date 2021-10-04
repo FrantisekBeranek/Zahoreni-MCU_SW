@@ -718,6 +718,15 @@ void buttonDebounce()
 }
 
 //_____Obsluha komunikace s PC přes USB_____//
+/*
+ * Funkce obsluhuje příjem i odesílání dat.
+ * V jakékoliv jiné části kódu by nemělo dojít k volání funkce CDC_Transmit_FS, která
+ * se stará o samotné odesílání. Data by se pouze měla ukládat do bufferu USB_Tx_Buffer
+ * metodou push nebo pushStr.
+ *
+ * Při přijmutí instrukce nedochází k zpracování, ale pouze k nastavení adekvátního flagu.
+ * Vykonání instrukce musí být zařízeno v jiné části hlavního programu.
+ */
 void comHandler()
 {
 	//___Příjem dat___//
@@ -732,6 +741,7 @@ void comHandler()
 			{
 			case 's': ;
 				//___Start testu___//
+				flags.startRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Start\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -740,6 +750,7 @@ void comHandler()
 
 			case'c': ;
 				//___Ukončení___//
+				flags.stopRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Ukonceni\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -748,6 +759,7 @@ void comHandler()
 
 			case'p': ;
 				//___Pauza___//
+				flags.pauseRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Pauza\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -756,6 +768,7 @@ void comHandler()
 
 			case'k': ;
 				//___Kalibrace___//
+				flags.calibRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Kalibrace\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -764,6 +777,7 @@ void comHandler()
 
 			default: ;
 				//___Neplatný příkaz___//
+				flags.unknownInst = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Neplatna instrukce\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -775,18 +789,22 @@ void comHandler()
 	}
 
 	//___Odesílání dat___//
+	//_Ošetření plného bufferu_//
 	if(USB_Tx_Buffer->status == BUFFER_FULL)
 	{
 		char msg[] = {"Buffer full\n"};
 		CDC_Transmit_FS(msg, strlen(msg));
 	}
+	//_Samotné odesílání_//
 	if(USB_Tx_Buffer->filled)
 	{
-		char tmp;
-		while(pop(USB_Tx_Buffer, &tmp) != BUFFER_EMPTY)
+		int size = USB_Tx_Buffer->filled;
+		char tmpStr[size+1];
+		for(int i = 0; i < size; i++)
 		{
-			CDC_Transmit_FS(&tmp, 1);
+			pop(USB_Tx_Buffer, &tmpStr[i]);
 		}
+		CDC_Transmit_FS(tmpStr, size);
 	}
 
 }
