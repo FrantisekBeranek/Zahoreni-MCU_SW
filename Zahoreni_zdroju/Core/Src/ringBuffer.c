@@ -67,13 +67,10 @@ BUFFER_STATE pushStr(RING_BUFFER* buffer, char* str, int len)
 	if(buffer->bufferSize < (buffer->filled + len))
 		return BUFFER_FULL;
 
-	buffer->filled += len;
 	for(int i = 0; i < len; i++)
 	{
-		buffer->last = (buffer->last + 1) % (buffer->bufferSize);
-		buffer->buffer[buffer->last] = str[i];
+		push(buffer, str[i]);
 	}
-	buffer->status = (buffer->filled >= buffer->bufferSize)? BUFFER_FULL : BUFFER_OK;
 
 	return BUFFER_OK;
 }

@@ -56,6 +56,13 @@ typedef struct{
 
 	//___COMUNICATION___//
 	unsigned int data_received	: 1;
+
+	//___INSTRUCTIONS___//
+	unsigned int startRequest	: 1;
+	unsigned int stopRequest	: 1;
+	unsigned int pauseRequest	: 1;
+	unsigned int calibRequest	: 1;
+	unsigned int unknownInst	: 1;
 } Flags;
 /* USER CODE END ET */
 
