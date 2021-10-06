@@ -43,16 +43,16 @@ extern "C" {
 /* USER CODE BEGIN ET */
 typedef struct{
 	//___TIME___//
-	unsigned int ten_ms	: 1;
-	unsigned int sec	: 1;
-	unsigned int min	: 1;
-	unsigned int hour	: 1;
+	unsigned int ten_ms			: 1;
+	unsigned int sec			: 1;
+	unsigned int min			: 1;
+	unsigned int hour			: 1;
 
 	//___BUTTONS___//
-	unsigned int butt0_int	: 1;	//butt0 interrupt
-	unsigned int butt0_ver	: 1;	//butt0 verified
-	unsigned int butt1_int	: 1;	//butt1 interrupt
-	unsigned int butt1_ver	: 1;	//butt1 verified
+	unsigned int butt0_int		: 1;	//butt0 interrupt
+	unsigned int butt0_ver		: 1;	//butt0 verified
+	unsigned int butt1_int		: 1;	//butt1 interrupt
+	unsigned int butt1_ver		: 1;	//butt1 verified
 
 	//___COMUNICATION___//
 	unsigned int data_received	: 1;
@@ -63,6 +63,14 @@ typedef struct{
 	unsigned int pauseRequest	: 1;
 	unsigned int calibRequest	: 1;
 	unsigned int unknownInst	: 1;
+
+	//___UI___//
+	unsigned int shortBeep		: 1;
+	unsigned int longBeep		: 1;
+	unsigned int error			: 1;
+	unsigned int notice			: 1;
+	unsigned int done			: 1;
+
 } Flags;
 /* USER CODE END ET */
 
@@ -84,6 +92,7 @@ void Error_Handler(void);
 void clkHandler(void);
 void buttonDebounce(void);
 void comHandler(void);
+void UI_Handler(void);
 
 /* USER CODE END EFP */
 
@@ -134,10 +143,26 @@ void comHandler(void);
 #define __DEBUG_BUTT__
 #define __DEBUG_INST__
 
+/* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x
 #define ClearBit(x,y) x&=~(1 << y)		//vynuluj bit y bajtu x
 #define NegBit(x,y) x^=(1 << y)		//neguj bit y bajtu x
 #define MaskBit(x,y) x&(1 << y)		//vymaskuj but y bajtu x
+
+/* Řízení zátěží */
+#define LOAD_MIN_ON HAL_GPIO_WritePin(LOAD_GPIO_MIN_Port, LOAD_MIN_Pin, GPIO_PIN_SET)
+#define LOAD_MIN_OFF HAL_GPIO_WritePin(LOAD_GPIO_MIN_Port, LOAD_MIN_Pin, GPIO_PIN_RESET)
+#define LOAD_MAX_ON HAL_GPIO_WritePin(LOAD_GPIO_MAX_Port, LOAD_MAX_Pin, GPIO_PIN_SET)
+#define LOAD_MAX_OFF HAL_GPIO_WritePin(LOAD_GPIO_MAX_Port, LOAD_MAX_Pin, GPIO_PIN_RESET)
+
+/* Piezo */
+#define BUZZER_ON HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET)
+#define BUZZER_OFF HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET)
+#define BUZZER_Toggle HAL_GPIO_TogglePin(BUZZER_GPIO_Port, BUZZER_Pin)
+
+/* Blikání podsvícení displeje */
+#define BACKLIGHT_RED_Toggle HAL_GPIO_TogglePin(BACKLIGHT_RED_GPIO_Port, BACKLIGHT_RED_Pin)
+#define BACKLIGHT_GREEN_Toggle HAL_GPIO_TogglePin(BACKLIGHT_GREEN_GPIO_Port, BACKLIGHT_GREEN_Pin)
 
 /* USER CODE END Private defines */
 

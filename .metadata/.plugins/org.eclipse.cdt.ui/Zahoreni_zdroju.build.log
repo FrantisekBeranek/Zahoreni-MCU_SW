@@ -1,10 +1,222 @@
-14:39:12 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+19:28:54 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'clkHandler':
+../Core/Src/main.c:667:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  667 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
+      |                       ~^               ~~~~~~~~~~~~
+      |                        |               |
+      |                        int             uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:667:29: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  667 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
+      |                            ~^                        ~~~~~~~~~~~
+      |                             |                        |
+      |                             int                      uint32_t {aka long unsigned int}
+      |                            %ld
+../Core/Src/main.c:667:34: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  667 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
+      |                                 ~^                                ~~~~~~~~~~~
+      |                                  |                                |
+      |                                  int                              uint32_t {aka long unsigned int}
+      |                                 %ld
+../Core/Src/main.c: In function 'buttonDebounce':
+../Core/Src/main.c:713:9: warning: statement with no effect [-Wunused-value]
+  713 |    flags.butt1_int;
+      |    ~~~~~^~~~~~~~~~
+../Core/Src/main.c: In function 'comHandler':
+../Core/Src/main.c:749:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  749 |     sprintf(txt, "Start\n");
+      |             ^~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:22:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:750:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  750 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                                        ^~~
+      |                                        |
+      |                                        uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Src/main.c:21:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:750:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  750 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                            ^~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:37,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/main.c:758:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  758 |     sprintf(txt, "Ukonceni\n");
+      |             ^~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:22:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:759:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  759 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                                        ^~~
+      |                                        |
+      |                                        uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Src/main.c:21:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:759:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  759 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                            ^~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:37,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/main.c:767:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  767 |     sprintf(txt, "Pauza\n");
+      |             ^~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:22:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:768:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  768 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                                        ^~~
+      |                                        |
+      |                                        uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Src/main.c:21:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:768:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  768 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                            ^~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:37,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/main.c:776:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  776 |     sprintf(txt, "Kalibrace\n");
+      |             ^~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:22:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:777:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  777 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                                        ^~~
+      |                                        |
+      |                                        uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Src/main.c:21:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:777:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  777 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                            ^~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:37,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/main.c:785:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  785 |     sprintf(txt, "Neplatna instrukce\n");
+      |             ^~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:22:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:786:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  786 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                                        ^~~
+      |                                        |
+      |                                        uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Src/main.c:21:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:786:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  786 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+      |                            ^~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:37,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/main.c:799:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  799 |   CDC_Transmit_FS(msg, strlen(msg));
+      |                   ^~~
+      |                   |
+      |                   char *
+In file included from ../Core/Src/main.c:26:
+../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+../Core/Src/main.c:810:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  810 |   CDC_Transmit_FS(tmpStr, size);
+      |                   ^~~~~~
+      |                   |
+      |                   char *
+In file included from ../Core/Src/main.c:26:
+../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
 arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  47268	    488	   6616	  54372	   d464	Zahoreni_zdroju.elf
+  48196	    488	   6616	  55300	   d804	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
 
-14:39:13 Build Finished. 0 errors, 0 warnings. (took 584ms)
+19:28:56 Build Finished. 0 errors, 21 warnings. (took 1s.325ms)
 

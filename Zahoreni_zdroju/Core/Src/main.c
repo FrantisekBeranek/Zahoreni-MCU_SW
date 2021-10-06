@@ -100,6 +100,7 @@ static void MX_TIM14_Init(void);
 void clkHandler();
 void buttonDebounce();
 void comHandler();
+void UI_Handler();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -176,6 +177,7 @@ int main(void)
   // Start timer
   HAL_TIM_Base_Start_IT(&htim14);
 
+  flags.longBeep = 1;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -191,6 +193,7 @@ int main(void)
 		  clkHandler();
 		  buttonDebounce();
 		  comHandler();
+		  UI_Handler();
 	  }
 
   }
@@ -667,7 +670,7 @@ void clkHandler(void)
 #endif
 }
 
-void buttonDebounce()
+void buttonDebounce(void)
 {
 	if(flags.butt0_int)
 	{
@@ -727,7 +730,7 @@ void buttonDebounce()
  * Při přijmutí instrukce nedochází k zpracování, ale pouze k nastavení adekvátního flagu.
  * Vykonání instrukce musí být zařízeno v jiné části hlavního programu.
  */
-void comHandler()
+void comHandler(void)
 {
 	//___Příjem dat___//
 	if(flags.data_received)
@@ -807,6 +810,107 @@ void comHandler()
 		CDC_Transmit_FS(tmpStr, size);
 	}
 
+}
+
+//_____Obsluha piezo + podsvícení displeje_____//
+void UI_Handler(void)
+{
+	static enum
+	{
+		OFF = 0U,
+		SHORT_BEEP,
+		LONG_BEEP,
+		ERROR,
+		NOTICE,
+		DONE,
+	}UI_State;
+
+	static uint32_t startTime;
+
+	if(flags.error && (UI_State != ERROR))
+	{
+		UI_State = ERROR;
+		startTime = sysTime;
+	}
+	else if(flags.notice)
+	{
+		UI_State = NOTICE;
+		startTime = sysTime;
+		flags.notice = 0;
+	}
+	else if(flags.done)
+	{
+		UI_State = DONE;
+		startTime = sysTime;
+		flags.done = 0;
+	}
+	else if(flags.longBeep)
+	{
+		UI_State = LONG_BEEP;
+		startTime = sysTime;
+		flags.longBeep = 0;
+	}
+	else if(flags.shortBeep)
+	{
+		UI_State = SHORT_BEEP;
+		startTime = sysTime;
+		flags.shortBeep = 0;
+	}
+
+	switch(UI_State)
+	{
+	/*case OFF:
+		BUZZER_OFF;
+		setColour(BACKLIGHT_OFF);
+		break;*/
+	case SHORT_BEEP:
+		BUZZER_ON;
+		if((sysTime - startTime) >= 50)
+		{
+			UI_State = OFF;
+			BUZZER_OFF;
+		}
+		break;
+	case LONG_BEEP:
+		BUZZER_ON;
+		if((sysTime - startTime) >= 100)
+		{
+			UI_State = OFF;
+			BUZZER_OFF;
+		}
+		break;
+	case ERROR:
+		if(!flags.error)
+			UI_State = OFF;
+		if(!((sysTime - startTime) % 50))
+		{
+			BUZZER_Toggle;
+			BACKLIGHT_RED_Toggle;
+		}
+			break;
+	case NOTICE:
+		if(!((sysTime - startTime) % 35))
+		{
+			BUZZER_Toggle;
+		}
+		if((sysTime - startTime) >= 209)
+			UI_State = OFF;
+		break;
+	case DONE:
+		if(!((sysTime - startTime) % 50))
+		{
+			BUZZER_Toggle;
+			BACKLIGHT_GREEN_Toggle;
+		}
+		if((sysTime - startTime) >= 299)
+			UI_State = OFF;
+		break;
+	default:	//Ošetřuje i UI_State == OFF
+		BUZZER_OFF;
+		setColour(BACKLIGHT_OFF);
+		break;
+
+	}
 }
 
 /* USER CODE END 4 */
