@@ -1,32 +1,179 @@
-19:28:54 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+11:29:29 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/Target/usbd_conf.c:25:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/Target/usbd_conf.c:25:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../USB_DEVICE/App/usb_device.c:24:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../USB_DEVICE/App/usb_device.c:24:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c:21:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c:21:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:29,
+                 from ../USB_DEVICE/App/usbd_desc.c:23:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:29,
+                 from ../USB_DEVICE/App/usbd_desc.c:23:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:29,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:31,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:23:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:29,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:31,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:23:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c:59:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c:59:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:21:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:21:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c:21:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../USB_DEVICE/Target/usbd_conf.h:34,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:29,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c:21:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_hal_msp.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_hal_msp.d" -MT"Core/Src/stm32f0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_it.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_it.d" -MT"Core/Src/stm32f0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+In file included from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/lcd.h:13,
+                 from ../Core/Src/lcd.c:1:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
 ../Core/Src/main.c: In function 'clkHandler':
-../Core/Src/main.c:667:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  667 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
+../Core/Src/main.c:662:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  662 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
       |                       ~^               ~~~~~~~~~~~~
       |                        |               |
       |                        int             uint32_t {aka long unsigned int}
       |                       %ld
-../Core/Src/main.c:667:29: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  667 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
+../Core/Src/main.c:662:29: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  662 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
       |                            ~^                        ~~~~~~~~~~~
       |                             |                        |
       |                             int                      uint32_t {aka long unsigned int}
       |                            %ld
-../Core/Src/main.c:667:34: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  667 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
+../Core/Src/main.c:662:34: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  662 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
       |                                 ~^                                ~~~~~~~~~~~
       |                                  |                                |
       |                                  int                              uint32_t {aka long unsigned int}
       |                                 %ld
 ../Core/Src/main.c: In function 'buttonDebounce':
-../Core/Src/main.c:713:9: warning: statement with no effect [-Wunused-value]
-  713 |    flags.butt1_int;
+../Core/Src/main.c:708:9: warning: statement with no effect [-Wunused-value]
+  708 |    flags.butt1_int;
       |    ~~~~~^~~~~~~~~~
 ../Core/Src/main.c: In function 'comHandler':
-../Core/Src/main.c:749:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  749 |     sprintf(txt, "Start\n");
+../Core/Src/main.c:744:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  744 |     sprintf(txt, "Start\n");
       |             ^~~
       |             |
       |             uint8_t * {aka unsigned char *}
@@ -37,8 +184,8 @@ In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
-../Core/Src/main.c:750:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  750 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:745:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  745 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                                        ^~~
       |                                        |
       |                                        uint8_t * {aka unsigned char *}
@@ -47,8 +194,8 @@ In file included from ../Core/Inc/main.h:36,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    41 | size_t  strlen (const char *);
       |                 ^~~~~~~~~~~~
-../Core/Src/main.c:750:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  750 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:745:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  745 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                            ^~~
       |                            |
       |                            uint8_t * {aka unsigned char *}
@@ -57,8 +204,19 @@ In file included from ../Core/Inc/main.h:37,
 ../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
       |                                    ^~~~~
-../Core/Src/main.c:758:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  758 |     sprintf(txt, "Ukonceni\n");
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f0xx_hal_msp.c:23:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Inc/shiftReg.h:15,
+                 from ../Core/Src/shiftReg.c:7:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+../Core/Src/main.c:753:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  753 |     sprintf(txt, "Ukonceni\n");
       |             ^~~
       |             |
       |             uint8_t * {aka unsigned char *}
@@ -69,8 +227,24 @@ In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
-../Core/Src/main.c:759:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  759 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+In file included from ../Core/Inc/main.h:40,
+                 from ../Core/Src/stm32f0xx_hal_msp.c:23:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/shiftReg.h:15,
+                 from ../Core/Src/shiftReg.c:7:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f0xx_it.c:22:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+../Core/Src/main.c:754:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  754 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                                        ^~~
       |                                        |
       |                                        uint8_t * {aka unsigned char *}
@@ -79,8 +253,13 @@ In file included from ../Core/Inc/main.h:36,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    41 | size_t  strlen (const char *);
       |                 ^~~~~~~~~~~~
-../Core/Src/main.c:759:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  759 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+In file included from ../Core/Inc/main.h:40,
+                 from ../Core/Src/stm32f0xx_it.c:22:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
+../Core/Src/main.c:754:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  754 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                            ^~~
       |                            |
       |                            uint8_t * {aka unsigned char *}
@@ -89,8 +268,13 @@ In file included from ../Core/Inc/main.h:37,
 ../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
       |                                    ^~~~~
-../Core/Src/main.c:767:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  767 |     sprintf(txt, "Pauza\n");
+In file included from ../Core/Inc/testHandle.h:11,
+                 from ../Core/Src/testHandle.c:8:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+../Core/Src/main.c:762:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  762 |     sprintf(txt, "Pauza\n");
       |             ^~~
       |             |
       |             uint8_t * {aka unsigned char *}
@@ -101,8 +285,8 @@ In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
-../Core/Src/main.c:768:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  768 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:763:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  763 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                                        ^~~
       |                                        |
       |                                        uint8_t * {aka unsigned char *}
@@ -111,8 +295,8 @@ In file included from ../Core/Inc/main.h:36,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    41 | size_t  strlen (const char *);
       |                 ^~~~~~~~~~~~
-../Core/Src/main.c:768:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  768 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:763:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  763 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                            ^~~
       |                            |
       |                            uint8_t * {aka unsigned char *}
@@ -121,8 +305,8 @@ In file included from ../Core/Inc/main.h:37,
 ../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
       |                                    ^~~~~
-../Core/Src/main.c:776:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  776 |     sprintf(txt, "Kalibrace\n");
+../Core/Src/main.c:771:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  771 |     sprintf(txt, "Kalibrace\n");
       |             ^~~
       |             |
       |             uint8_t * {aka unsigned char *}
@@ -133,8 +317,8 @@ In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
-../Core/Src/main.c:777:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  777 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:772:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  772 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                                        ^~~
       |                                        |
       |                                        uint8_t * {aka unsigned char *}
@@ -143,8 +327,8 @@ In file included from ../Core/Inc/main.h:36,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    41 | size_t  strlen (const char *);
       |                 ^~~~~~~~~~~~
-../Core/Src/main.c:777:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  777 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:772:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  772 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                            ^~~
       |                            |
       |                            uint8_t * {aka unsigned char *}
@@ -153,8 +337,8 @@ In file included from ../Core/Inc/main.h:37,
 ../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
       |                                    ^~~~~
-../Core/Src/main.c:785:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  785 |     sprintf(txt, "Neplatna instrukce\n");
+../Core/Src/main.c:780:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  780 |     sprintf(txt, "Neplatna instrukce\n");
       |             ^~~
       |             |
       |             uint8_t * {aka unsigned char *}
@@ -165,8 +349,8 @@ In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
-../Core/Src/main.c:786:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  786 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:781:40: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  781 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                                        ^~~
       |                                        |
       |                                        uint8_t * {aka unsigned char *}
@@ -175,8 +359,8 @@ In file included from ../Core/Inc/main.h:36,
 d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    41 | size_t  strlen (const char *);
       |                 ^~~~~~~~~~~~
-../Core/Src/main.c:786:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  786 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
+../Core/Src/main.c:781:28: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  781 |     pushStr(USB_Tx_Buffer, txt, strlen(txt));
       |                            ^~~
       |                            |
       |                            uint8_t * {aka unsigned char *}
@@ -185,8 +369,8 @@ In file included from ../Core/Inc/main.h:37,
 ../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
       |                                    ^~~~~
-../Core/Src/main.c:799:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  799 |   CDC_Transmit_FS(msg, strlen(msg));
+../Core/Src/main.c:794:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  794 |   CDC_Transmit_FS(msg, strlen(msg));
       |                   ^~~
       |                   |
       |                   char *
@@ -194,8 +378,8 @@ In file included from ../Core/Src/main.c:26:
 ../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
   110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
       |                         ~~~~~~~~~^~~
-../Core/Src/main.c:810:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  810 |   CDC_Transmit_FS(tmpStr, size);
+../Core/Src/main.c:805:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  805 |   CDC_Transmit_FS(tmpStr, size);
       |                   ^~~~~~
       |                   |
       |                   char *
@@ -203,6 +387,17 @@ In file included from ../Core/Src/main.c:26:
 ../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
   110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
       |                         ~~~~~~~~~^~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Src/main.c: At top level:
+../Core/Inc/lcd.h:115:19: warning: 'sendByte' declared 'static' but never defined [-Wunused-function]
+  115 | static DISP_STATE sendByte(char, START_BYTE);
+      |                   ^~~~~~~~
+In file included from ../Core/Inc/main.h:40,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/testHandle.h:26:13: warning: 'startTest' declared 'static' but never defined [-Wunused-function]
+   26 | static void startTest(/*doplnit ukazatel na konkrétní zdroj*/);
+      |             ^~~~~~~~~
 arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Zahoreni_zdroju.elf
  
@@ -210,7 +405,7 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  48196	    488	   6616	  55300	   d804	Zahoreni_zdroju.elf
+  48336	    488	   6616	  55440	   d890	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin
@@ -218,5 +413,5 @@ Finished building: Zahoreni_zdroju.bin
 Finished building: Zahoreni_zdroju.list
  
 
-19:28:56 Build Finished. 0 errors, 21 warnings. (took 1s.325ms)
+11:29:31 Build Finished. 0 errors, 47 warnings. (took 2s.129ms)
 

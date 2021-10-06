@@ -112,7 +112,7 @@ DISP_STATE readBusy(void);
 //_____Pošle byte dat_____//
 //-> argumenty: char - posílaný byte, Start_byte definuje zda jde o instrukci nebo data
 // !!! Pracuje v blokujícím módu !!!
-DISP_STATE sendByte(char, START_BYTE);
+static DISP_STATE sendByte(char, START_BYTE);
 
 //_____Rozvítí podsvícení dané argumentem_____//
 //-> argument: Barva podsvícení
@@ -150,6 +150,7 @@ DISP_STATE writeRow(char*, uint8_t, uint8_t, ALIGN);
 DISP_STATE writeString(char*, uint8_t, uint8_t, uint8_t);
 
 //_____Řídí obsluhu displeje v neblokujícím režimu_____//
+//Nedokončená funkce//
 void dispHandler(void);
 
 #endif /* INC_LCD_H_ */

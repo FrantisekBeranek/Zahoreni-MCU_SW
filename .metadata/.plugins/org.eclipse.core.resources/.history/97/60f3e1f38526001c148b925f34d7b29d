@@ -1,0 +1,18 @@
+/*
+ * testHandle.h
+ *
+ *  Created on: 6. 10. 2021
+ *      Author: František Beránek
+ */
+
+#ifndef TESTHANDLE_H_
+#define TESTHANDLE_H_
+
+typedef enum{
+	WAITING = 0U,
+	START, START_DONE,
+	MAIN_TEST, MAIN_TEST_DONE,
+	BATTERY_TEST, BATTERY_TEST_DONE
+}TEST_PHASE;
+
+#endif /* TESTHANDLE_H_ */

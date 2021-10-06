@@ -62,7 +62,7 @@ DISP_STATE readBusy(void)
 //_____Pošle byte dat_____//
 //-> argumenty: char - posílaný byte, Start_byte definuje zda jde o instrukci nebo data
 // !!! Pracuje v blokujícím módu !!!
-DISP_STATE sendByte(char byte, START_BYTE type)
+static DISP_STATE sendByte(char byte, START_BYTE type)
 {
 	while(readBusy() != SPI_OK)
 	{
@@ -232,6 +232,8 @@ DISP_STATE writeString(char* string, uint8_t lenght, uint8_t row, uint8_t col)
 	return DISP_OK;
 }
 
+//_____Řídí obsluhu displeje v neblokujícím režimu_____//
+//Nedokončená funkce//
 void dispHandler(void)
 {
 

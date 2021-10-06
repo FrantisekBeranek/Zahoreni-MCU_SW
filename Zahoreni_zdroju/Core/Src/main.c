@@ -58,6 +58,10 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 
 extern uint8_t regCount;
 
+//_____Enum pro uchování současného stavu testu_____//
+extern TEST_PHASE testPhase;
+
+//_____Proměnné času_____//
 uint32_t sysTime = 0;		//Proměnná pro časování
 	//inkrementace každých 10 ms
 uint32_t sysTime_sec = 0;	//Proměnná pro časování
@@ -67,24 +71,12 @@ uint32_t sysTime_min = 0;	//Proměnná pro časování
 uint32_t sysTime_hour = 0;	//Proměnná pro časování
 	//inkrementace každou hodinu
 
-//uint16_t flags = 0;	//Flagy časování
-	// 0 - 10 ms
-	// 1 - 1 s
-	// 2 - 1 min
-	// 3 - 1 hod
+//_____Bitové pole příznaků_____//
 Flags flags;
 
-//uint16_t flags = 0;
-	// 0 - tlačítko 0 interrupt
-	// 1 - tlačítko 0 ověřeno
-	// 2 - tlačítko 1 interrupt
-	// 3 - tlačítko 1 ověřeno
+//_____Proměnné pro debouncing_____//
 uint8_t button0_Debounce = 0;
 uint8_t button1_Debounce = 0;
-
-//uint16_t flags = 0;	//Flagy komunikace s PC
-	// 0 - přijatý řetězec
-	//
 
 /* USER CODE END PV */
 
@@ -178,6 +170,8 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim14);
 
   flags.longBeep = 1;
+  testPhase = WAITING;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -194,6 +188,7 @@ int main(void)
 		  buttonDebounce();
 		  comHandler();
 		  UI_Handler();
+		  testHandler();
 	  }
 
   }
@@ -832,25 +827,25 @@ void UI_Handler(void)
 		UI_State = ERROR;
 		startTime = sysTime;
 	}
-	else if(flags.notice)
+	else if(flags.notice && (UI_State == OFF))
 	{
 		UI_State = NOTICE;
 		startTime = sysTime;
 		flags.notice = 0;
 	}
-	else if(flags.done)
+	else if(flags.done && (UI_State == OFF))
 	{
 		UI_State = DONE;
 		startTime = sysTime;
 		flags.done = 0;
 	}
-	else if(flags.longBeep)
+	else if(flags.longBeep && (UI_State == OFF))
 	{
 		UI_State = LONG_BEEP;
 		startTime = sysTime;
 		flags.longBeep = 0;
 	}
-	else if(flags.shortBeep)
+	else if(flags.shortBeep && (UI_State == OFF))
 	{
 		UI_State = SHORT_BEEP;
 		startTime = sysTime;
@@ -859,10 +854,6 @@ void UI_Handler(void)
 
 	switch(UI_State)
 	{
-	/*case OFF:
-		BUZZER_OFF;
-		setColour(BACKLIGHT_OFF);
-		break;*/
 	case SHORT_BEEP:
 		BUZZER_ON;
 		if((sysTime - startTime) >= 50)
@@ -871,6 +862,7 @@ void UI_Handler(void)
 			BUZZER_OFF;
 		}
 		break;
+
 	case LONG_BEEP:
 		BUZZER_ON;
 		if((sysTime - startTime) >= 100)
@@ -879,6 +871,7 @@ void UI_Handler(void)
 			BUZZER_OFF;
 		}
 		break;
+
 	case ERROR:
 		if(!flags.error)
 			UI_State = OFF;
@@ -887,7 +880,8 @@ void UI_Handler(void)
 			BUZZER_Toggle;
 			BACKLIGHT_RED_Toggle;
 		}
-			break;
+		break;
+
 	case NOTICE:
 		if(!((sysTime - startTime) % 35))
 		{
@@ -896,6 +890,7 @@ void UI_Handler(void)
 		if((sysTime - startTime) >= 209)
 			UI_State = OFF;
 		break;
+
 	case DONE:
 		if(!((sysTime - startTime) % 50))
 		{
@@ -905,6 +900,7 @@ void UI_Handler(void)
 		if((sysTime - startTime) >= 299)
 			UI_State = OFF;
 		break;
+
 	default:	//Ošetřuje i UI_State == OFF
 		BUZZER_OFF;
 		setColour(BACKLIGHT_OFF);

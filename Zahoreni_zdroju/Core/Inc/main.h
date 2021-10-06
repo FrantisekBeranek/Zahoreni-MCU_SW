@@ -37,6 +37,7 @@ extern "C" {
 #include "ringBuffer.h"
 #include "lcd.h"
 #include "shiftReg.h"
+#include "testHandle.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -70,6 +71,11 @@ typedef struct{
 	unsigned int error			: 1;
 	unsigned int notice			: 1;
 	unsigned int done			: 1;
+
+	//___VOLTAGE MEASUREMENT___//
+
+	//___TEST CONTROL___//
+	unsigned int startConflict	: 1;
 
 } Flags;
 /* USER CODE END ET */
