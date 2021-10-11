@@ -26,7 +26,8 @@ typedef enum
 {
 	READ_BUSY = 0U,
 	INSTRUCTION,
-	DATA
+	DATA,
+	DATA_WRITE
 }START_BYTE;
 
 typedef enum
@@ -112,7 +113,7 @@ DISP_STATE readBusy(void);
 //_____Pošle byte dat_____//
 //-> argumenty: char - posílaný byte, Start_byte definuje zda jde o instrukci nebo data
 // !!! Pracuje v blokujícím módu !!!
-static DISP_STATE sendByte(char, START_BYTE);
+//static DISP_STATE sendByte(char, START_BYTE);
 
 //_____Rozvítí podsvícení dané argumentem_____//
 //-> argument: Barva podsvícení
