@@ -195,10 +195,12 @@ static void stopTest()
 	flags.ui.longBeep = 1;
 	testPhase = WAITING;
 
-	//Poslat data shift registrům
 	//Zobrazit text na displej
 	LOAD_MIN_OFF;
 	LOAD_MAX_OFF;
+
+	*sourceInTesting = 0;
+	sendData();
 
 	flags.instructions.stopRequest = 0;
 }
