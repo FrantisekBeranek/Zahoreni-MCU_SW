@@ -38,7 +38,14 @@ void testHandler()
 	{
 		if(testPhase == WAITING)
 		{
-			startTest();
+			if(flags.conErr)
+			{
+				//Pošli zprávu do PC
+			}
+			else
+			{
+				startTest();
+			}
 		}
 		else
 		{
@@ -87,7 +94,7 @@ void testHandler()
 			//writeRow(time, strlen(time), 0, LEFT);
 
 			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED2);	//blikání druhé progress led
-			//sendData();
+			sendData();
 		}
 		if(!(sysTime[SYSTIME_MIN] % 10) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých deset minut___//
 		{
@@ -142,7 +149,6 @@ void testHandler()
 			flags.ui.done = 1;
 			flags.testProgress = 1;
 
-			//poslat data shift registrům
 			//Zobrazit text na displej
 
 			LOAD_MIN_OFF;
@@ -166,7 +172,7 @@ static void startTest(/*ukazatel na zdroj*/)
 	testPhase = START;
 	flags.testProgress = 1;
 
-	/*sourceInTesting = &regValues[ukazatel na zdroj];*/
+	sourceInTesting = &regValues[0/*ukazatel na zdroj*/];
 	/*
 	 * for(int i = 0; i < regCount; i++)
 	 * {

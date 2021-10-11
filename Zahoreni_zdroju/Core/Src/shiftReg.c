@@ -28,15 +28,19 @@ extern Flags flags;
 //_____Zjistí počet registrů_____//
 static uint8_t getCount(void)
 {
-	uint8_t question = 42;
-	uint8_t answer = 0;
+	uint8_t question;
+	uint8_t answer;
 	regCount = 0;
 
 	do
 	{
+		question = 42;
+		answer = 0;
 		if(HAL_SPI_TransmitReceive(&hspi1, &question, &answer, 1, 100) != HAL_OK)
 			return 0;
 		regCount++;
+
+		HAL_Delay(1);
 
 		if(regCount >= 100)	//Ošetření nepřipojených relé desek
 		{
@@ -60,7 +64,7 @@ REG_STATE regInit(void)
 
 	REG_DISABLE;
 
-	if(!getCount())
+	if(getCount() == 0)
 	{
 		return REG_CON_ERR;	//Connection error
 	}

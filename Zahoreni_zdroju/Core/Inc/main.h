@@ -88,11 +88,11 @@ typedef struct{
 	}meas;
 
 	//___TEST CONTROL___//
-	unsigned int startConflict	: 1;
-	unsigned int testProgress	: 1;
+	unsigned int startConflict		: 1;
+	unsigned int testProgress		: 1;
 
 	//___SHIFT REGISTERS___//
-	unsigned int conErr			: 1;
+	unsigned int conErr				: 1;
 
 } Flags;
 /* USER CODE END ET */
@@ -165,7 +165,7 @@ void UI_Handler(void);
 //#define __DEBUG_TIME__
 //#define __DEBUG_BUTT__
 //#define __DEBUG_INST__
-#define __SILENT__
+//#define __SILENT__
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x
