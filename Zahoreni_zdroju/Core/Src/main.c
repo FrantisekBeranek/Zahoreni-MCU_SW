@@ -52,24 +52,22 @@ UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 extern	RING_BUFFER* dispBuffer;
-extern	RING_BUFFER* regBuffer;
+//extern	RING_BUFFER* regBuffer;
 extern	RING_BUFFER* USB_Rx_Buffer;
 		RING_BUFFER* USB_Tx_Buffer;
 
-extern uint8_t regCount;
-
-//_____Enum pro uchování současného stavu testu_____//
-extern TEST_PHASE testPhase;
+//extern const uint8_t regCount;
 
 //_____Proměnné času_____//
-uint32_t sysTime = 0;		//Proměnná pro časování
+uint32_t sysTime[4] = {0};
+/*uint32_t sysTime[SYSTIME_TEN_MS] = 0;		//Proměnná pro časování
 	//inkrementace každých 10 ms
-uint32_t sysTime_sec = 0;	//Proměnná pro časování
+uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_SEC] = 0;	//Proměnná pro časování
 	//inkrementace každou sekundu
-uint32_t sysTime_min = 0;	//Proměnná pro časování
+uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_MIN] = 0;	//Proměnná pro časování
 	//inkrementace každou minutu
-uint32_t sysTime_hour = 0;	//Proměnná pro časování
-	//inkrementace každou hodinu
+uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_HOUR] = 0;	//Proměnná pro časování
+	//inkrementace každou hodinu*/
 
 //_____Bitové pole příznaků_____//
 Flags flags;
@@ -103,11 +101,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == BUTTON_0_Pin)
 	{
-		flags.butt0_int = 1;
+		flags.buttons.butt0_int = 1;
 	}
 	if(GPIO_Pin == BUTTON_1_Pin)
 	{
-		flags.butt1_int = 1;
+		flags.buttons.butt1_int = 1;
 	}
 }
 
@@ -116,7 +114,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim == &htim14)	//Timer 14 -> každých 10 ms
 	{
-		flags.ten_ms = 1;
+		flags.time.ten_ms = 1;
 	}
 }
 
@@ -166,12 +164,14 @@ int main(void)
   //___Inicializace displeje___//
   //dispInit();
   //writeChar('a', 1, 5);
+
+  LOAD_MIN_OFF;
+  LOAD_MAX_OFF;
+
   // Start timer
   HAL_TIM_Base_Start_IT(&htim14);
 
-  flags.longBeep = 1;
-  testPhase = WAITING;
-
+  flags.ui.longBeep = 1;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -182,13 +182,20 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	  if(flags.ten_ms)	// 10 ms
+	  if(flags.time.ten_ms)	// 10 ms
 	  {
 		  clkHandler();
 		  buttonDebounce();
 		  comHandler();
 		  UI_Handler();
 		  testHandler();
+
+		  flags.meas.measComplete = 0;
+		  if(flags.meas.measRequest)
+		  {
+			  flags.meas.measRequest = 0;
+			  flags.meas.measComplete = 1;
+		  }
 	  }
 
   }
@@ -620,46 +627,46 @@ static void MX_GPIO_Init(void)
 
 void clkHandler(void)
 {
-	flags.ten_ms = 0;
-	flags.sec	= 0;
-	flags.min	= 0;
-	flags.hour	= 0;
-	sysTime++;
-	if((sysTime % 100) == 0)	//1 s
+	flags.time.ten_ms = 0;
+	flags.time.sec	= 0;
+	flags.time.min	= 0;
+	flags.time.hour	= 0;
+	sysTime[SYSTIME_TEN_MS]++;
+	if((sysTime[SYSTIME_TEN_MS] % 10) == 0)	//1 s
 	{
-		sysTime_sec++;
-		flags.sec = 1;
+		sysTime[SYSTIME_SEC]++;
+		flags.time.sec = 1;
 	}
 
-	if(flags.sec)
+	if(flags.time.sec)
 	{
-		if((sysTime_sec % 60) == 0 && sysTime_sec != 0)	//1 min
+		if((sysTime[SYSTIME_SEC] % 60) == 0 && sysTime[SYSTIME_TEN_MS] != 0)	//1 min
 		{
-			sysTime_sec = 0;
-			sysTime_min++;
-			flags.min = 1;
+			sysTime[SYSTIME_SEC] = 0;
+			sysTime[SYSTIME_MIN]++;
+			flags.time.min = 1;
 		}
 
-		if(flags.min)
+		if(flags.time.min)
 		{
-			if((sysTime_min % 60) == 0 && sysTime_min != 0)	//1 min
+			if((sysTime[SYSTIME_MIN] % 60) == 0 && sysTime[SYSTIME_TEN_MS] != 0)	//1 min
 			{
 
-				sysTime_sec = 0;
-				sysTime_min = 0;
-				sysTime_hour++;
-				flags.hour = 1;
-				if(sysTime_hour >= 23)
-					sysTime_hour = 0;
+				sysTime[SYSTIME_SEC] = 0;
+				sysTime[SYSTIME_MIN] = 0;
+				sysTime[SYSTIME_HOUR]++;
+				flags.time.hour = 1;
+				if(sysTime[SYSTIME_HOUR] >= 23)
+					sysTime[SYSTIME_HOUR] = 0;
 			}
 		}
 	}
 
 #ifdef __DEBUG_TIME__
-	if(flags.sec)
+	if(flags.time.sec)
 	{
 		char timeStamp[30];
-		sprintf(timeStamp, "%d : %d : %d\n", sysTime_hour, sysTime_min, sysTime_sec);
+		sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
 		pushStr(USB_Tx_Buffer, timeStamp, strlen(timeStamp));	//odešli čas
 	}
 #endif
@@ -667,7 +674,7 @@ void clkHandler(void)
 
 void buttonDebounce(void)
 {
-	if(flags.butt0_int)
+	if(flags.buttons.butt0_int)
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port,BUTTON_0_Pin) == GPIO_PIN_SET)
 		{
@@ -676,12 +683,12 @@ void buttonDebounce(void)
 		else
 		{
 			button0_Debounce = 0;
-			flags.butt0_int = 0;
+			flags.buttons.butt0_int = 0;
 		}
 		if(button0_Debounce >= 5)
 		{
-			flags.butt0_ver = 1;
-			flags.butt0_int = 0;
+			flags.buttons.butt0_ver = 1;
+			flags.buttons.butt0_int = 0;
 			button0_Debounce = 0;
 
 #ifdef __DEBUG_BUTT__
@@ -691,7 +698,7 @@ void buttonDebounce(void)
 		}
 	}
 
-	if(flags.butt1_int)
+	if(flags.buttons.butt1_int)
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_1_GPIO_Port,BUTTON_1_Pin) == GPIO_PIN_SET)
 		{
@@ -700,12 +707,12 @@ void buttonDebounce(void)
 		else
 		{
 			button1_Debounce = 0;
-			flags.butt1_int = 0;
+			flags.buttons.butt1_int = 0;
 		}
 		if(button1_Debounce >= 5)
 		{
-			flags.butt1_ver = 1;
-			flags.butt1_int;
+			flags.buttons.butt1_ver = 1;
+			flags.buttons.butt1_int = 0;
 			button1_Debounce = 0;
 
 #ifdef __DEBUG_BUTT__
@@ -733,13 +740,15 @@ void comHandler(void)
 		char instruction;
 		while(pop(USB_Rx_Buffer, &instruction) != BUFFER_EMPTY)
 		{
+#ifdef __DEBUG_INST__
 			uint8_t txt[30];
+#endif
 
 			switch(instruction)
 			{
 			case 's': ;
 				//___Start testu___//
-				flags.startRequest = 1;
+				flags.instructions.startRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Start\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -748,7 +757,7 @@ void comHandler(void)
 
 			case'c': ;
 				//___Ukončení___//
-				flags.stopRequest = 1;
+				flags.instructions.stopRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Ukonceni\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -757,7 +766,7 @@ void comHandler(void)
 
 			case'p': ;
 				//___Pauza___//
-				flags.pauseRequest = 1;
+				flags.instructions.pauseRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Pauza\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -766,7 +775,7 @@ void comHandler(void)
 
 			case'k': ;
 				//___Kalibrace___//
-				flags.calibRequest = 1;
+				flags.instructions.calibRequest = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Kalibrace\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -775,7 +784,7 @@ void comHandler(void)
 
 			default: ;
 				//___Neplatný příkaz___//
-				flags.unknownInst = 1;
+				flags.instructions.unknownInst = 1;
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Neplatna instrukce\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -784,6 +793,18 @@ void comHandler(void)
 			}
 		}
 		flags.data_received = 0;
+	}
+
+	if(flags.testProgress)
+	{
+		char txt[] = {"Test progress\n"};
+		pushStr(USB_Tx_Buffer, txt, strlen(txt));
+	}
+
+	if(flags.meas.measComplete)
+	{
+		char txt[] = {"Measure\n"};
+		pushStr(USB_Tx_Buffer, txt, strlen(txt));
 	}
 
 	//___Odesílání dat___//
@@ -822,41 +843,43 @@ void UI_Handler(void)
 
 	static uint32_t startTime;
 
-	if(flags.error && (UI_State != ERROR))
+	if(flags.ui.error && (UI_State != ERROR))
 	{
 		UI_State = ERROR;
-		startTime = sysTime;
+		startTime = sysTime[SYSTIME_TEN_MS];
 	}
-	else if(flags.notice && (UI_State == OFF))
+	else if(flags.ui.notice && (UI_State == OFF))
 	{
 		UI_State = NOTICE;
-		startTime = sysTime;
-		flags.notice = 0;
+		startTime = sysTime[SYSTIME_TEN_MS];
+		flags.ui.notice = 0;
 	}
-	else if(flags.done && (UI_State == OFF))
+	else if(flags.ui.done && (UI_State == OFF))
 	{
 		UI_State = DONE;
-		startTime = sysTime;
-		flags.done = 0;
+		startTime = sysTime[SYSTIME_TEN_MS];
+		flags.ui.done = 0;
 	}
-	else if(flags.longBeep && (UI_State == OFF))
+	else if(flags.ui.longBeep && (UI_State == OFF))
 	{
 		UI_State = LONG_BEEP;
-		startTime = sysTime;
-		flags.longBeep = 0;
+		startTime = sysTime[SYSTIME_TEN_MS];
+		flags.ui.longBeep = 0;
 	}
-	else if(flags.shortBeep && (UI_State == OFF))
+	else if(flags.ui.shortBeep && (UI_State == OFF))
 	{
 		UI_State = SHORT_BEEP;
-		startTime = sysTime;
-		flags.shortBeep = 0;
+		startTime = sysTime[SYSTIME_TEN_MS];
+		flags.ui.shortBeep = 0;
 	}
 
 	switch(UI_State)
 	{
 	case SHORT_BEEP:
-		BUZZER_ON;
-		if((sysTime - startTime) >= 50)
+#ifndef __SILENT__
+			BUZZER_ON;
+#endif
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 50)
 		{
 			UI_State = OFF;
 			BUZZER_OFF;
@@ -864,8 +887,10 @@ void UI_Handler(void)
 		break;
 
 	case LONG_BEEP:
-		BUZZER_ON;
-		if((sysTime - startTime) >= 100)
+#ifndef __SILENT__
+			BUZZER_ON;
+#endif
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 100)
 		{
 			UI_State = OFF;
 			BUZZER_OFF;
@@ -873,37 +898,45 @@ void UI_Handler(void)
 		break;
 
 	case ERROR:
-		if(!flags.error)
+		if(!flags.ui.error)
 			UI_State = OFF;
-		if(!((sysTime - startTime) % 50))
+		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 50))
 		{
+#ifndef __SILENT__
 			BUZZER_Toggle;
+#endif
 			BACKLIGHT_RED_Toggle;
 		}
 		break;
 
 	case NOTICE:
-		if(!((sysTime - startTime) % 35))
+		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 35))
 		{
+#ifndef __SILENT__
 			BUZZER_Toggle;
+#endif
 		}
-		if((sysTime - startTime) >= 209)
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 209)
 			UI_State = OFF;
 		break;
 
 	case DONE:
-		if(!((sysTime - startTime) % 50))
+		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 50))
 		{
+#ifndef __SILENT__
 			BUZZER_Toggle;
+#endif
 			BACKLIGHT_GREEN_Toggle;
 		}
-		if((sysTime - startTime) >= 299)
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 299)
 			UI_State = OFF;
 		break;
 
 	default:	//Ošetřuje i UI_State == OFF
 		BUZZER_OFF;
+#ifndef __DEBUG_BUTT__
 		setColour(BACKLIGHT_OFF);
+#endif
 		break;
 
 	}

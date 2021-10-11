@@ -80,7 +80,8 @@ static DISP_STATE sendByte(char byte, START_BYTE type)
 		case DATA:
 			buffer[0] = 0xFA;
 			break;
-		default:
+		default:	//neošetřené možnosti
+			return SPI_ERR;
 			break;
 	}
 	uint8_t tmp1 = 0U, tmp2 = 0U;

@@ -11,8 +11,8 @@
 
 #include "stm32f0xx_hal.h"
 #include "ringBuffer.h"
+#include "main.h"
 #include <stdlib.h>
-#include <main.h>
 
 
 #define REG_ENABLE HAL_GPIO_WritePin(SR_OE_GPIO_Port, SR_OE_Pin, GPIO_PIN_RESET)
@@ -29,6 +29,7 @@
 typedef enum
 {
 	REG_OK = 0U,
+	REG_CON_ERR,
 	REG_ERR,
 	REG_RESET,
 	REG_SET,
@@ -37,21 +38,24 @@ typedef enum
 	REG_READY
 }REG_STATE;
 
-REG_STATE regState;
+extern REG_STATE regState;
 
 //___BUFFER___//
-RING_BUFFER* regBuffer;
+extern RING_BUFFER* regBuffer;
 
 //___Pole hodnot k poslaní___//
 //velikost pole odpovídá počtu registrů v sérii
-uint8_t* regValues;
-uint8_t regCount;
+extern uint8_t* regValues;
+extern uint8_t regCount;
 
 //___Řídící struktura SPI___//
 extern SPI_HandleTypeDef hspi1;
 
+//___Importované proměnné z main.c___//
+//extern Flags flags;
+
 //_____Zjistí počet registrů_____//
-uint8_t getCount(void);
+//static uint8_t getCount(void);
 
 //_____Inicializuje registry_____//
 REG_STATE regInit(void);

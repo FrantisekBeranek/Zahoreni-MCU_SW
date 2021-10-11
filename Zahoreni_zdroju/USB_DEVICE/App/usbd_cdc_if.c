@@ -110,7 +110,6 @@ RING_BUFFER* USB_Rx_Buffer;
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
 /* USER CODE BEGIN EXPORTED_VARIABLES */
-//extern uint16_t comFlags;
 extern Flags flags;
 /* USER CODE END EXPORTED_VARIABLES */
 

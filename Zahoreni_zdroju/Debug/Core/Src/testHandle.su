@@ -1,2 +1,4 @@
-testHandle.c:15:6:testHandler	8	static
-testHandle.c:31:13:startTest	8	static
+testHandle.c:27:12:currentPhase	8	static
+testHandle.c:33:6:testHandler	56	static
+testHandle.c:163:13:startTest	8	static
+testHandle.c:187:13:stopTest	8	static
