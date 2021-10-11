@@ -1,4 +1,4 @@
-shiftReg.c:12:9:getCount	24	static
-shiftReg.c:32:11:regInit	16	static
-shiftReg.c:60:11:sendData	8	static
-shiftReg.c:81:6:regHandler	8	static
+shiftReg.c:29:16:getCount	24	static
+shiftReg.c:59:11:regInit	16	static
+shiftReg.c:91:11:sendData	8	static
+shiftReg.c:112:6:regHandler	8	static

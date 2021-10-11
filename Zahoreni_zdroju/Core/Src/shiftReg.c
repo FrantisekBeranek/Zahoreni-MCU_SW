@@ -7,19 +7,46 @@
 #include "shiftReg.h"
 
 
+REG_STATE regState;
+
+//___BUFFER___//
+RING_BUFFER* regBuffer;
+
+//___Pole hodnot k poslaní___//
+//velikost pole odpovídá počtu registrů v sérii
+uint8_t* regValues;
+uint8_t regCount;
+
+//___Řídící struktura SPI___//
+extern SPI_HandleTypeDef hspi1;
+
+//___Importované proměnné z main.c___//
+extern Flags flags;
+
+
 
 //_____Zjistí počet registrů_____//
-uint8_t getCount(void)
+static uint8_t getCount(void)
 {
-	uint8_t question = 42;
-	uint8_t answer = 0;
+	uint8_t question;
+	uint8_t answer;
 	regCount = 0;
 
 	do
 	{
+		question = 42;
+		answer = 0;
 		if(HAL_SPI_TransmitReceive(&hspi1, &question, &answer, 1, 100) != HAL_OK)
 			return 0;
 		regCount++;
+
+		HAL_Delay(1);
+
+		if(regCount >= 100)	//Ošetření nepřipojených relé desek
+		{
+			flags.conErr = 1;
+			return 0;
+		}
 	}
 	while(answer != question);
 
@@ -37,7 +64,11 @@ REG_STATE regInit(void)
 
 	REG_DISABLE;
 
-	getCount();
+	if(getCount() == 0)
+	{
+		return REG_CON_ERR;	//Connection error
+	}
+
 	regValues = (uint8_t*) malloc(regCount * sizeof(uint8_t));
 	if(regValues == NULL)
 	{
@@ -59,7 +90,7 @@ REG_STATE regInit(void)
 //_____Pošle data z regValues do registrů_____//
 REG_STATE sendData(void)
 {
-	if((HAL_SPI_Transmit(&hspi1, &regValues[0], regCount, 100) == HAL_OK))
+	if(HAL_SPI_Transmit(&hspi1, &regValues[0], regCount, 100) == HAL_OK)
 	{
 		//vytvoř pulz na RCLK¨
 		REG_RCLK_HIGH;
@@ -77,7 +108,7 @@ REG_STATE sendData(void)
 }
 
 //_____Řídí obsluhu registrů při neblokujícím módu_____//
-//Zavolat v sysCLK přerušení
+//Zavolat v main uvnitř časované smyčky
 void regHandler(void)
 {
 	switch(regState)
