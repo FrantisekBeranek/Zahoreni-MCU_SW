@@ -85,6 +85,10 @@ typedef struct{
 	struct{
 		unsigned int measRequest	: 1;
 		unsigned int measComplete	: 1;
+		unsigned int measDataReady	: 1;
+		unsigned int measRunning	: 1;
+		unsigned int measConflict	: 1;
+		unsigned int onlyBattery	: 1;
 	}meas;
 
 	//___TEST CONTROL___//
@@ -116,6 +120,7 @@ void clkHandler(void);
 void buttonDebounce(void);
 void comHandler(void);
 void UI_Handler(void);
+void measHandler(void);
 
 /* USER CODE END EFP */
 
@@ -162,10 +167,10 @@ void UI_Handler(void);
 #define BACKLIGHT_WHITE_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
-//#define __DEBUG_TIME__
+#define __DEBUG_TIME__
 //#define __DEBUG_BUTT__
 //#define __DEBUG_INST__
-//#define __SILENT__
+#define __SILENT__
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x
@@ -193,6 +198,24 @@ void UI_Handler(void);
 #define SYSTIME_SEC		1
 #define SYSTIME_MIN		2
 #define SYSTIME_HOUR	3
+
+/* Přiřazení kanálů ADC */
+/*#define U5VK_CURRENT	ADC_CHANNEL_0
+#define U5V_CURRENT		ADC_CHANNEL_1
+#define U24V_CURRENT	ADC_CHANNEL_2
+#define U48V_CURRENT	ADC_CHANNEL_3
+#define PAD9			ADC_CHANNEL_4
+#define U24VO2			ADC_CHANNEL_5
+#define U_BAT			ADC_CHANNEL_6
+#define U15V			ADC_CHANNEL_7
+#define U5V				ADC_CHANNEL_8
+#define U24V			ADC_CHANNEL_9
+#define U15V_CURRENT	ADC_CHANNEL_10
+#define U24VO2_CURRENT	ADC_CHANNEL_11
+#define U12V_CURRENT	ADC_CHANNEL_12
+#define PAD15			ADC_CHANNEL_13
+#define U12V			ADC_CHANNEL_14
+#define U5VK			ADC_CHANNEL_15*/
 
 /* USER CODE END Private defines */
 

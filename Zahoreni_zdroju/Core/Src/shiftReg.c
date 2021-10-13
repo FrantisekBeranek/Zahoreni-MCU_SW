@@ -94,7 +94,7 @@ REG_STATE sendData(void)
 	{
 		//vytvoř pulz na RCLK¨
 		REG_RCLK_HIGH;
-		HAL_Delay(5);
+		HAL_Delay(1);
 		REG_RCLK_LOW;
 
 		regState = REG_OK;

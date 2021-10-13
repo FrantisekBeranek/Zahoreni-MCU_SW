@@ -1,4 +1,40 @@
-16:12:58 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+13:55:17 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'comHandler':
+../Core/Src/main.c:828:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  828 |   CDC_Transmit_FS(msg, strlen(msg));
+      |                   ^~~
+      |                   |
+      |                   char *
+In file included from ../Core/Src/main.c:26:
+../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+../Core/Src/main.c:839:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  839 |   CDC_Transmit_FS(tmpStr, size);
+      |                   ^~~~~~
+      |                   |
+      |                   char *
+In file included from ../Core/Src/main.c:26:
+../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  53708	    488	   6800	  60996	   ee44	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+14:37:31 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
 arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
 arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
@@ -15,8 +51,8 @@ arm-none-eabi-gcc "../Core/Src/stm32f0xx_hal_msp.c" -mcpu=cortex-m0 -std=gnu11 -
 arm-none-eabi-gcc "../Core/Src/stm32f0xx_it.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_it.d" -MT"Core/Src/stm32f0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_it.o"
 arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
 ../Core/Src/main.c: In function 'comHandler':
-../Core/Src/main.c:821:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  821 |   CDC_Transmit_FS(msg, strlen(msg));
+../Core/Src/main.c:828:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  828 |   CDC_Transmit_FS(msg, strlen(msg));
       |                   ^~~
       |                   |
       |                   char *
@@ -24,8 +60,8 @@ In file included from ../Core/Src/main.c:26:
 ../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
   110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
       |                         ~~~~~~~~~^~~
-../Core/Src/main.c:832:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  832 |   CDC_Transmit_FS(tmpStr, size);
+../Core/Src/main.c:839:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  839 |   CDC_Transmit_FS(tmpStr, size);
       |                   ^~~~~~
       |                   |
       |                   char *
@@ -40,26 +76,33 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  51784	    488	   6648	  58920	   e628	Zahoreni_zdroju.elf
+  53632	    488	   6800	  60920	   edf8	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin
  
 Finished building: Zahoreni_zdroju.list
  
-16:13:17 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+14:38:52 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
 arm-none-eabi-size   Zahoreni_zdroju.elf 
    text	   data	    bss	    dec	    hex	filename
-  51784	    488	   6648	  58920	   e628	Zahoreni_zdroju.elf
+  53632	    488	   6800	  60920	   edf8	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
-16:14:22 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+14:47:48 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  53632	    488	   6800	  60920	   edf8	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+14:50:15 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'comHandler':
-../Core/Src/main.c:821:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  821 |   CDC_Transmit_FS(msg, strlen(msg));
+../Core/Src/main.c:828:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  828 |   CDC_Transmit_FS(msg, strlen(msg));
       |                   ^~~
       |                   |
       |                   char *
@@ -67,8 +110,8 @@ In file included from ../Core/Src/main.c:26:
 ../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
   110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
       |                         ~~~~~~~~~^~~
-../Core/Src/main.c:832:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  832 |   CDC_Transmit_FS(tmpStr, size);
+../Core/Src/main.c:839:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  839 |   CDC_Transmit_FS(tmpStr, size);
       |                   ^~~~~~
       |                   |
       |                   char *
@@ -83,20 +126,26 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  51784	    488	   6648	  58920	   e628	Zahoreni_zdroju.elf
+  52332	    488	   6800	  59620	   e8e4	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin
  
 Finished building: Zahoreni_zdroju.list
  
-16:17:49 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+15:01:42 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  52332	    488	   6800	  59620	   e8e4	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+15:04:55 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
 ../Core/Src/main.c: In function 'comHandler':
-../Core/Src/main.c:821:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  821 |   CDC_Transmit_FS(msg, strlen(msg));
+../Core/Src/main.c:828:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  828 |   CDC_Transmit_FS(msg, strlen(msg));
       |                   ^~~
       |                   |
       |                   char *
@@ -104,8 +153,8 @@ In file included from ../Core/Src/main.c:26:
 ../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
   110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
       |                         ~~~~~~~~~^~~
-../Core/Src/main.c:832:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  832 |   CDC_Transmit_FS(tmpStr, size);
+../Core/Src/main.c:839:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  839 |   CDC_Transmit_FS(tmpStr, size);
       |                   ^~~~~~
       |                   |
       |                   char *
@@ -120,134 +169,14 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
+  52332	    488	   6800	  59620	   e8e4	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin
  
 Finished building: Zahoreni_zdroju.list
  
-16:23:04 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-   text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-16:23:59 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-   text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-16:26:47 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-   text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-16:29:43 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
-arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Zahoreni_zdroju.elf
- 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
-arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
-   text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-Finished building: Zahoreni_zdroju.bin
- 
-Finished building: Zahoreni_zdroju.list
- 
-16:34:10 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
-arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Zahoreni_zdroju.elf
- 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
-arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
-   text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-Finished building: Zahoreni_zdroju.bin
- 
-Finished building: Zahoreni_zdroju.list
- 
-16:46:12 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
-arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Zahoreni_zdroju.elf
- 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
-arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
-   text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-Finished building: Zahoreni_zdroju.bin
- 
-Finished building: Zahoreni_zdroju.list
- 
-16:47:23 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-   text	   data	    bss	    dec	    hex	filename
-  51788	    488	   6648	  58924	   e62c	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-16:48:07 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
-arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Zahoreni_zdroju.elf
- 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
-arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
-   text	   data	    bss	    dec	    hex	filename
-  51792	    488	   6648	  58928	   e630	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-Finished building: Zahoreni_zdroju.bin
- 
-Finished building: Zahoreni_zdroju.list
- 
-16:49:00 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-   text	   data	    bss	    dec	    hex	filename
-  51792	    488	   6648	  58928	   e630	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-16:52:42 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
-arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Zahoreni_zdroju.elf
- 
-arm-none-eabi-size   Zahoreni_zdroju.elf 
-arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
-arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
-   text	   data	    bss	    dec	    hex	filename
-  51812	    488	   6648	  58948	   e644	Zahoreni_zdroju.elf
-Finished building: default.size.stdout
- 
-Finished building: Zahoreni_zdroju.bin
- 
-Finished building: Zahoreni_zdroju.list
- 
-16:53:35 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+15:15:47 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
 arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
 arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
@@ -263,9 +192,28 @@ arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBU
 arm-none-eabi-gcc "../Core/Src/stm32f0xx_hal_msp.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_hal_msp.d" -MT"Core/Src/stm32f0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_hal_msp.o"
 arm-none-eabi-gcc "../Core/Src/stm32f0xx_it.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_it.d" -MT"Core/Src/stm32f0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_it.o"
 arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+../Core/Src/main.c: In function 'clkHandler':
+../Core/Src/main.c:682:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  682 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
+      |                       ~^               ~~~~~~~~~~~~~~~~~~~~~
+      |                        |                      |
+      |                        int                    uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:682:29: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  682 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
+      |                            ~^                                 ~~~~~~~~~~~~~~~~~~~~
+      |                             |                                        |
+      |                             int                                      uint32_t {aka long unsigned int}
+      |                            %ld
+../Core/Src/main.c:682:34: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  682 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
+      |                                 ~^                                                  ~~~~~~~~~~~~~~~~~~~~
+      |                                  |                                                         |
+      |                                  int                                                       uint32_t {aka long unsigned int}
+      |                                 %ld
 ../Core/Src/main.c: In function 'comHandler':
-../Core/Src/main.c:821:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  821 |   CDC_Transmit_FS(msg, strlen(msg));
+../Core/Src/main.c:828:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  828 |   CDC_Transmit_FS(msg, strlen(msg));
       |                   ^~~
       |                   |
       |                   char *
@@ -273,8 +221,8 @@ In file included from ../Core/Src/main.c:26:
 ../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
   110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
       |                         ~~~~~~~~~^~~
-../Core/Src/main.c:832:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
-  832 |   CDC_Transmit_FS(tmpStr, size);
+../Core/Src/main.c:839:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  839 |   CDC_Transmit_FS(tmpStr, size);
       |                   ^~~~~~
       |                   |
       |                   char *
@@ -289,7 +237,104 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  51888	    488	   6648	  59024	   e690	Zahoreni_zdroju.elf
+  52424	    488	   6800	  59712	   e940	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+15:17:16 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  52420	    488	   6800	  59708	   e93c	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+15:17:49 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  52408	    488	   6800	  59696	   e930	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+15:18:28 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  52408	    488	   6800	  59696	   e930	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+15:36:14 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+../Core/Src/main.c: In function 'clkHandler':
+../Core/Src/main.c:682:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  682 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
+      |                       ~^               ~~~~~~~~~~~~~~~~~~~~~
+      |                        |                      |
+      |                        int                    uint32_t {aka long unsigned int}
+      |                       %ld
+../Core/Src/main.c:682:29: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  682 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
+      |                            ~^                                 ~~~~~~~~~~~~~~~~~~~~
+      |                             |                                        |
+      |                             int                                      uint32_t {aka long unsigned int}
+      |                            %ld
+../Core/Src/main.c:682:34: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  682 |   sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
+      |                                 ~^                                                  ~~~~~~~~~~~~~~~~~~~~
+      |                                  |                                                         |
+      |                                  int                                                       uint32_t {aka long unsigned int}
+      |                                 %ld
+../Core/Src/main.c: In function 'comHandler':
+../Core/Src/main.c:828:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  828 |   CDC_Transmit_FS(msg, strlen(msg));
+      |                   ^~~
+      |                   |
+      |                   char *
+In file included from ../Core/Src/main.c:26:
+../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+../Core/Src/main.c:839:19: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  839 |   CDC_Transmit_FS(tmpStr, size);
+      |                   ^~~~~~
+      |                   |
+      |                   char *
+In file included from ../Core/Src/main.c:26:
+../USB_DEVICE/App/usbd_cdc_if.h:110:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  110 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  52396	    488	   6800	  59684	   e924	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin

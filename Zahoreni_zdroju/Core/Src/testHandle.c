@@ -93,8 +93,8 @@ void testHandler()
 			sprintf(time, "%d:%d:%d", 60-sysTime[SYSTIME_SEC], 60-sysTime[SYSTIME_MIN], 3-sysTime[SYSTIME_HOUR]);
 			//writeRow(time, strlen(time), 0, LEFT);
 
-			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED2);	//blikání druhé progress led
-			sendData();
+			//PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED2);	//blikání druhé progress led
+			//sendData();
 		}
 		if(!(sysTime[SYSTIME_MIN] % 10) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých deset minut___//
 		{
@@ -115,7 +115,7 @@ void testHandler()
 
 			PROGRESS_ON(*sourceInTesting, PROGRESS_LED2);
 			PWR_OFF(*sourceInTesting);
-			sendData();
+			//sendData();
 
 			//___Nulování času___//
 			for(int i = 1; i < 4; i++)
@@ -132,7 +132,7 @@ void testHandler()
 			//writeRow(time, strlen(time), 0, LEFT);
 
 			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED3);	//blikání třetí progress led
-			sendData();
+			//sendData();
 		}
 		if(!(sysTime[SYSTIME_MIN] % 5) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých pět minut___//
 		{
@@ -156,7 +156,7 @@ void testHandler()
 
 			PROGRESS_ON(*sourceInTesting, PROGRESS_LED3);
 			PWR_ON(*sourceInTesting);
-			sendData();
+			//sendData();
 
 			testPhase = WAITING;
 		}

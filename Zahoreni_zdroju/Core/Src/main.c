@@ -56,6 +56,9 @@ extern	RING_BUFFER* dispBuffer;
 extern	RING_BUFFER* USB_Rx_Buffer;
 		RING_BUFFER* USB_Tx_Buffer;
 
+uint32_t ADC_Buffer[20];
+uint32_t ADC_Results[16];
+
 //extern const uint8_t regCount;
 
 //_____Proměnné času_____//
@@ -91,6 +94,10 @@ void clkHandler();
 void buttonDebounce();
 void comHandler();
 void UI_Handler();
+void measHandler();
+
+static void changeChannel(unsigned int);
+static uint32_t ADC_dataProcessing();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -116,6 +123,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
 		flags.time.ten_ms = 1;
 	}
+}
+
+//_____ADC data ready callback_____//
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+	flags.meas.measDataReady = 1;
 }
 
 /* USER CODE END 0 */
@@ -168,11 +181,11 @@ int main(void)
   LOAD_MIN_OFF;
   LOAD_MAX_OFF;
 
-  if(regInit() != REG_OK)	//inicializace shift registrů
+  /*if(regInit() != REG_OK)	//inicializace shift registrů
   {
 	  flags.conErr = 1;
 	  //Odešli zprávu do PC
-  }
+  }*/
 
   // Start timer
   HAL_TIM_Base_Start_IT(&htim14);
@@ -195,13 +208,7 @@ int main(void)
 		  comHandler();
 		  UI_Handler();
 		  testHandler();
-
-		  flags.meas.measComplete = 0;
-		  if(flags.meas.measRequest)
-		  {
-			  flags.meas.measRequest = 0;
-			  flags.meas.measComplete = 1;
-		  }
+		  measHandler();
 	  }
 
   }
@@ -284,7 +291,7 @@ static void MX_ADC_Init(void)
   hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc.Init.LowPowerAutoWait = DISABLE;
   hadc.Init.LowPowerAutoPowerOff = DISABLE;
-  hadc.Init.ContinuousConvMode = DISABLE;
+  hadc.Init.ContinuousConvMode = ENABLE;
   hadc.Init.DiscontinuousConvMode = DISABLE;
   hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
@@ -946,6 +953,156 @@ void UI_Handler(void)
 		break;
 
 	}
+}
+
+//_____Osluha AD převodníků_____//
+void measHandler(void)
+{
+	static enum{
+		WAITING = 0U,
+		U15V, U15V_CURRENT,		//kanál 7, 10
+		U12V, U12V_CURRENT,		//kanál 14, 12
+		U24VO2, U24VO2_CURRENT,	//kanál 5, 11
+		U24V, U24V_CURRENT,		//kanál 9, 2
+		U5VK, U5VK_CURRENT,		//kanál 15, 0
+		U5V, U5V_CURRENT,		//kanál 8, 1
+		U_BAT,					//kanál 6
+		PAD9, PAD15,			//kanál 4, 13
+		U48V_CURRENT			//kanál 3
+	}ADC_State;
+
+	flags.meas.measComplete = 0;
+	flags.meas.measConflict = 0;
+
+	if(flags.meas.measRequest)
+	{
+		if(ADC_State == WAITING)
+		{
+			flags.meas.measRunning = 1;
+			if(currentPhase() == BATTERY_TEST)	//probíhá battery test
+			{
+				flags.meas.onlyBattery = 1;
+				ADC_State = U_BAT;
+				changeChannel(ADC_CHANNEL_6);
+				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+			}
+			else
+			{
+				flags.meas.onlyBattery = 0;
+				ADC_State = U15V;
+				changeChannel(ADC_CHANNEL_7);
+				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+			}
+		}
+		else
+		{
+			flags.meas.measConflict = 1;
+		}
+		flags.meas.measRequest = 0;
+	}
+
+	if(ADC_State != WAITING)
+	{
+		if(flags.meas.measDataReady)
+		{
+			flags.meas.measDataReady = 0;
+
+			if(ADC_State == U_BAT)	//U_BAT je vždy měřeno jako poslední
+			{
+				ADC_Results[ADC_State-1] = ADC_dataProcessing();
+				flags.meas.measComplete = 1;
+				flags.meas.measRunning = 0;
+				ADC_State = WAITING;
+			}
+			else
+			{
+				ADC_Results[ADC_State-1] = ADC_dataProcessing();
+				ADC_State += 2;
+
+				switch(ADC_State)
+				{
+				case U15V:
+					changeChannel(ADC_CHANNEL_7);
+					break;
+				case U15V_CURRENT:
+					changeChannel(ADC_CHANNEL_10);
+					break;
+				case U12V:
+					changeChannel(ADC_CHANNEL_14);
+					break;
+				case U12V_CURRENT:
+					changeChannel(ADC_CHANNEL_12);
+					break;
+				case U24VO2:
+					changeChannel(ADC_CHANNEL_5);
+					break;
+				case U24VO2_CURRENT:
+					changeChannel(ADC_CHANNEL_11);
+					break;
+				case U24V:
+					changeChannel(ADC_CHANNEL_9);
+					break;
+				case U24V_CURRENT:
+					changeChannel(ADC_CHANNEL_2);
+					break;
+				case U5VK:
+					changeChannel(ADC_CHANNEL_15);
+					break;
+				case U5VK_CURRENT:
+					changeChannel(ADC_CHANNEL_0);
+					break;
+				case U5V:
+					changeChannel(ADC_CHANNEL_8);
+					break;
+				case U5V_CURRENT:
+					changeChannel(ADC_CHANNEL_1);
+					break;
+				case U_BAT:
+					changeChannel(ADC_CHANNEL_6);
+					break;
+				case PAD9:
+					changeChannel(ADC_CHANNEL_4);
+					break;
+				case PAD15:
+					changeChannel(ADC_CHANNEL_13);
+					break;
+				case U48V_CURRENT:
+					changeChannel(ADC_CHANNEL_3);
+					break;
+				default:
+					break;
+				}
+
+				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+			}
+		}
+	}
+}
+
+//_____Změna lanálu ADC_____//
+static void changeChannel(unsigned int channel)
+{
+	ADC_ChannelConfTypeDef sConfig = {0};
+	sConfig.Channel = channel;
+	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+	{
+		Error_Handler();
+	}
+}
+
+//_____Zpracování naměřených dat_____//
+static uint32_t ADC_dataProcessing()
+{
+	uint32_t mean = 0;
+	for(int i = 0; i < 20; i++)
+	{
+		mean += ADC_Buffer[i];
+	}
+	mean = mean/20;
+
+	return mean;
 }
 
 /* USER CODE END 4 */
