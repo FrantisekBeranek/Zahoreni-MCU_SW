@@ -57,7 +57,7 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 		RING_BUFFER* USB_Tx_Buffer;
 
 uint32_t ADC_Buffer[20];
-uint32_t ADC_Results[16];
+uint32_t ADC_Results[16] = {0};
 
 //extern const uint8_t regCount;
 
@@ -818,6 +818,14 @@ void comHandler(void)
 	{
 		char txt[] = {"Measure\n"};
 		pushStr(USB_Tx_Buffer, txt, strlen(txt));
+
+		uint8_t measResult[32];
+		for(int i = 0; i < 16; i++)
+		{
+			measResult[2*i] = ADC_Results[i] & 0x00FF;
+			measResult[2*i + 1] = (ADC_Results[i] & 0xFF00) >> 8;
+		}
+		pushStr(USB_Tx_Buffer, measResult, 32);
 	}
 
 	//___Odesílání dat___//

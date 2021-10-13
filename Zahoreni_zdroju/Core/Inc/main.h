@@ -167,7 +167,7 @@ void measHandler(void);
 #define BACKLIGHT_WHITE_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
-#define __DEBUG_TIME__
+//#define __DEBUG_TIME__
 //#define __DEBUG_BUTT__
 //#define __DEBUG_INST__
 #define __SILENT__
