@@ -74,6 +74,10 @@ void testHandler()
 		{
 			testPhase++;
 		}
+		else if(sysTime[SYSTIME_SEC] == 1)	//Pauza pro ustálení po sepnutí relé
+		{
+			flags.meas.measRequest = 1;
+		}
 		break;
 	case START_DONE:
 		//___Připojení zátěže___//
@@ -128,6 +132,9 @@ void testHandler()
 
 			testPhase++;
 
+			LOAD_MIN_OFF;
+			LOAD_MAX_OFF;
+
 			PROGRESS_ON(*sourceInTesting, PROGRESS_LED2);
 			PWR_OFF(*sourceInTesting);
 			sendData();
@@ -166,9 +173,6 @@ void testHandler()
 
 			//Zobrazit text na displej
 
-			LOAD_MIN_OFF;
-			LOAD_MAX_OFF;
-
 			PROGRESS_ON(*sourceInTesting, PROGRESS_LED3);
 			RELAY_OFF(*sourceInTesting);
 			PWR_ON(*sourceInTesting);
@@ -199,7 +203,12 @@ static void startTest(/*ukazatel na zdroj*/)
 
 	sendData();	//poslat konfiguraci shift registrům
 	//Zobrazit text na displej
-	flags.meas.measRequest = 1;	//spustit měření
+
+	//___Nulování času___//
+	for(int i = 1; i < 4; i++)
+	{
+		sysTime[i] = 0;
+	}
 
 	flags.instructions.startRequest = 0;
 }
