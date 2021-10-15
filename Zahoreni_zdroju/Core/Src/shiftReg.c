@@ -81,6 +81,8 @@ REG_STATE regInit(void)
 		regValues[i] = 0;
 	}
 
+	sendData();
+
 	REG_ENABLE;
 
 	regState = (HAL_SPI_Transmit(&hspi1, &regValues[0], regCount, 100) == HAL_OK)? REG_OK : REG_ERR;

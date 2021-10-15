@@ -181,11 +181,11 @@ int main(void)
   LOAD_MIN_OFF;
   LOAD_MAX_OFF;
 
-  /*if(regInit() != REG_OK)	//inicializace shift registrů
+  if(regInit() != REG_OK)	//inicializace shift registrů
   {
 	  flags.conErr = 1;
 	  //Odešli zprávu do PC
-  }*/
+  }
 
   // Start timer
   HAL_TIM_Base_Start_IT(&htim14);

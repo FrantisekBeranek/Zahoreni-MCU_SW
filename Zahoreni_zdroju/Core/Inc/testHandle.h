@@ -11,6 +11,7 @@
 #include "lcd.h"
 #include "main.h"
 #include "shiftReg.h"
+#include "ringBuffer.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -24,8 +25,8 @@
 #define ERROR_OFF(x) x&=~(1<<2)
 #define ERROR_ON(x) x|=(1<<2)
 //___Nastavení bitů pro řízení progress led___//
-#define PROGRESS_ON(x,y) x&=~(1<<y)
-#define PROGRESS_OFF(x,y) x|=(1<<y)
+#define PROGRESS_ON(x,y) x|=(1<<y)
+#define PROGRESS_OFF(x,y) x&=~(1<<y)
 #define PROGRESS_RUNNING(x,y) x^=(1<<y)
 
 #define PROGRESS_LED1 5
