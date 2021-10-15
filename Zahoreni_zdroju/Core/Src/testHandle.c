@@ -13,6 +13,8 @@ static TEST_PHASE testPhase = WAITING;
 extern Flags flags;
 extern int sysTime[4];
 
+extern RING_BUFFER* USB_Tx_Buffer;
+
 //___Proměnné z shiftReg.c___//
 extern uint8_t* regValues;
 extern uint8_t regCount;
@@ -40,7 +42,9 @@ void testHandler()
 		{
 			if(flags.conErr)
 			{
-				//Pošli zprávu do PC
+				char txt[] = {"Relay PCB connection error\n"};
+				pushStr(USB_Tx_Buffer, txt, strlen(txt));
+				flags.instructions.startRequest = 0;
 			}
 			else
 			{
@@ -78,7 +82,10 @@ void testHandler()
 
 		testPhase++;
 		flags.testProgress = 1;
-		flags.ui.shortBeep = 1;
+		//flags.ui.shortBeep = 1;
+
+		PROGRESS_ON(*sourceInTesting, PROGRESS_LED1);	//blikání druhé progress led
+		sendData();
 
 		//___Nulování času___//
 		for(int i = 1; i < 4; i++)
@@ -96,17 +103,25 @@ void testHandler()
 			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED2);	//blikání druhé progress led
 			sendData();
 		}
+#ifdef __DEBUG_TEST__
 		if(!(sysTime[SYSTIME_MIN] % 10) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých deset minut___//
+#else
+		if(!(sysTime[SYSTIME_MIN] % 10) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých deset minut___//
+#endif
 		{
 			flags.meas.measRequest = 1;
 		}
+#ifdef __DEBUG_TEST__
+		if(sysTime[SYSTIME_MIN] >= 30)	//___Po jedné hodině je měření u konce___//
+#else
 		if(sysTime[SYSTIME_HOUR] >= 3)	//___Po třech hodinách je měření u konce___//
+#endif
 		{
 			testPhase++;
 		}
 		break;
 	case MAIN_TEST_DONE:
-		if(flags.meas.measComplete)
+		if(!flags.meas.measRunning)
 		{
 			flags.ui.notice = 1;
 			flags.testProgress = 1;
@@ -144,7 +159,7 @@ void testHandler()
 		}
 		break;
 	case BATTERY_TEST_DONE:
-		if(flags.meas.measComplete)
+		if(!flags.meas.measRunning)
 		{
 			flags.ui.done = 1;
 			flags.testProgress = 1;
@@ -155,6 +170,7 @@ void testHandler()
 			LOAD_MAX_OFF;
 
 			PROGRESS_ON(*sourceInTesting, PROGRESS_LED3);
+			RELAY_OFF(*sourceInTesting);
 			PWR_ON(*sourceInTesting);
 			sendData();
 
@@ -173,16 +189,15 @@ static void startTest(/*ukazatel na zdroj*/)
 	flags.testProgress = 1;
 
 	sourceInTesting = &regValues[0/*ukazatel na zdroj*/];
-	/*
-	 * for(int i = 0; i < regCount; i++)
-	 * {
-	 * 		regValues[i] = 0;
-	 * }
-	 * PROGRESS_ON(*sourceInTesting, PROGRESS_LED1);	//rozsvítit první ledku progress
-	 * RELAY_ON(*sourceInTesting);	//připojit relé
-	 *
-	 * sendData();	//poslat konfiguraci shift registrům
-	 */
+
+	for(int i = 0; i < regCount; i++)
+	{
+		regValues[i] = 0;
+	}
+	PROGRESS_ON(*sourceInTesting, PROGRESS_LED1);	//rozsvítit první ledku progress
+	RELAY_ON(*sourceInTesting);	//připojit relé
+
+	sendData();	//poslat konfiguraci shift registrům
 	//Zobrazit text na displej
 	flags.meas.measRequest = 1;	//spustit měření
 
@@ -200,6 +215,7 @@ static void stopTest()
 	LOAD_MAX_OFF;
 
 	*sourceInTesting = 0;
+	ERROR_ON(*sourceInTesting);
 	sendData();
 
 	flags.instructions.stopRequest = 0;

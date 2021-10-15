@@ -81,6 +81,8 @@ REG_STATE regInit(void)
 		regValues[i] = 0;
 	}
 
+	sendData();
+
 	REG_ENABLE;
 
 	regState = (HAL_SPI_Transmit(&hspi1, &regValues[0], regCount, 100) == HAL_OK)? REG_OK : REG_ERR;
@@ -94,7 +96,7 @@ REG_STATE sendData(void)
 	{
 		//vytvoř pulz na RCLK¨
 		REG_RCLK_HIGH;
-		HAL_Delay(5);
+		HAL_Delay(1);
 		REG_RCLK_LOW;
 
 		regState = REG_OK;
