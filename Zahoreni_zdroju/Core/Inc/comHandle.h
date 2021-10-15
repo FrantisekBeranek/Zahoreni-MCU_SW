@@ -5,11 +5,13 @@
  *      Author: František Beránek
  */
 
-#ifndef INC_COMHANDLER_H_
-#define INC_COMHANDLER_H_
+#ifndef INC_COMHANDLE_H_
+#define INC_COMHANDLE_H_
 
 #include "ringBuffer.h"
 #include "main.h"
+#include "testHandle.h"
+#include <stdio.h>
 
 //___Buffer pro USB___//
 extern	RING_BUFFER* USB_Tx_Buffer;
@@ -23,4 +25,4 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 void comHandler(void);
 
 
-#endif /* INC_COMHANDLER_H_ */
+#endif /* INC_COMHANDLE_H_ */

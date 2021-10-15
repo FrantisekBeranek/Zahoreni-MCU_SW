@@ -10,9 +10,9 @@ main.c:513:13:MX_USART3_UART_Init	8	static
 main.c:546:13:MX_DMA_Init	16	static
 main.c:564:13:MX_GPIO_Init	56	static
 main.c:640:6:clkHandler	8	static
-main.c:687:6:buttonDebounce	8	static
-main.c:738:6:UI_Handler	8	static
-main.c:852:6:measHandler	16	static
-main.c:976:13:changeChannel	40	static
-main.c:989:17:ADC_dataProcessing	16	static
-main.c:1007:6:Error_Handler	8	static,ignoring_inline_asm
+main.c:691:6:buttonDebounce	8	static
+main.c:742:6:UI_Handler	8	static
+main.c:856:6:measHandler	16	static
+main.c:980:13:changeChannel	40	static
+main.c:993:17:ADC_dataProcessing	16	static
+main.c:1011:6:Error_Handler	8	static,ignoring_inline_asm

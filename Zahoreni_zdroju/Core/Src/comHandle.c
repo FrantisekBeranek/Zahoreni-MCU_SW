@@ -5,7 +5,7 @@
  *      Author: František Beránek
  */
 
-#include "comHandler.h"
+#include "comHandle.h"
 
 //___Buffery pro USB___//
 		RING_BUFFER* USB_Tx_Buffer;
@@ -14,6 +14,9 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 //___Importované proměnné z main.c___//
 extern Flags flags;
 extern uint32_t ADC_Results[16];
+
+//___Importované proměnné z testHandle.c___//
+extern int testNum;
 
 //_____Obsluha komunikace s PC přes USB_____//
 /*
@@ -90,13 +93,40 @@ void comHandler(void)
 
 	if(flags.testProgress)
 	{
-		char txt[] = {"Test progress\n"};
+		char testPhaseChr;
+		switch(currentPhase())
+		{
+		case START:
+			testPhaseChr = 's';
+			break;
+		case START_DONE:
+			testPhaseChr = 's';
+			break;
+		case MAIN_TEST:
+			testPhaseChr = 'm';
+			break;
+		case MAIN_TEST_DONE:
+			testPhaseChr = 'm';
+			break;
+		case BATTERY_TEST:
+			testPhaseChr = 'b';
+			break;
+		case BATTERY_TEST_DONE:
+			testPhaseChr = 'M';
+			break;
+		default:
+			testPhaseChr = 'e';
+			break;
+		}
+		char txt[30];
+		sprintf(txt, "Test progress #%c\n", testPhaseChr);
 		pushStr(USB_Tx_Buffer, txt, strlen(txt));
 	}
 
 	if(flags.meas.measComplete)
 	{
-		char txt[] = {"Measure\n"};
+		char txt[10];
+		sprintf(txt, "#%d\n", testNum);
 		pushStr(USB_Tx_Buffer, txt, strlen(txt));
 
 		uint8_t measResult[32];
@@ -106,6 +136,8 @@ void comHandler(void)
 			measResult[2*i + 1] = (ADC_Results[i] & 0xFF00) >> 8;
 		}
 		pushStr(USB_Tx_Buffer, measResult, 32);
+
+		testNum++;
 	}
 
 	//___Odesílání dat___//

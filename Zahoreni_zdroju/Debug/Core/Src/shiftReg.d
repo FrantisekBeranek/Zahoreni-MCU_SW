@@ -37,7 +37,7 @@ Core/Src/shiftReg.o: ../Core/Src/shiftReg.c ../Core/Inc/shiftReg.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h \
  ../Core/Inc/ringBuffer.h ../Core/Inc/main.h ../Core/Inc/lcd.h \
  ../Core/Inc/main.h ../Core/Inc/shiftReg.h ../Core/Inc/testHandle.h \
- ../Core/Inc/comHandler.h
+ ../Core/Inc/comHandle.h
 
 ../Core/Inc/shiftReg.h:
 
@@ -125,4 +125,4 @@ Core/Src/shiftReg.o: ../Core/Src/shiftReg.c ../Core/Inc/shiftReg.h \
 
 ../Core/Inc/testHandle.h:
 
-../Core/Inc/comHandler.h:
+../Core/Inc/comHandle.h:

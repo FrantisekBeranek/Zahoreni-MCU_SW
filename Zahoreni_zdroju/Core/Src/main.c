@@ -644,7 +644,11 @@ void clkHandler(void)
 	flags.time.min	= 0;
 	flags.time.hour	= 0;
 	sysTime[SYSTIME_TEN_MS]++;
-	if((sysTime[SYSTIME_TEN_MS] % 10) == 0)	//1 s
+#ifdef __DEBUG_FAST__
+	if((sysTime[SYSTIME_TEN_MS] % 10) == 0)	//0,1 s
+#else
+	if((sysTime[SYSTIME_TEN_MS] % 100) == 0)	//1 s
+#endif
 	{
 		sysTime[SYSTIME_SEC]++;
 		flags.time.sec = 1;

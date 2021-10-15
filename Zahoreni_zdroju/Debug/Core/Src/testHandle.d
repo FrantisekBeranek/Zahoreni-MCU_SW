@@ -36,7 +36,7 @@ Core/Src/testHandle.o: ../Core/Src/testHandle.c ../Core/Inc/testHandle.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h \
  ../Core/Inc/ringBuffer.h ../Core/Inc/main.h ../Core/Inc/shiftReg.h \
- ../Core/Inc/main.h ../Core/Inc/testHandle.h ../Core/Inc/comHandler.h
+ ../Core/Inc/main.h ../Core/Inc/testHandle.h ../Core/Inc/comHandle.h
 
 ../Core/Inc/testHandle.h:
 
@@ -124,4 +124,4 @@ Core/Src/testHandle.o: ../Core/Src/testHandle.c ../Core/Inc/testHandle.h \
 
 ../Core/Inc/testHandle.h:
 
-../Core/Inc/comHandler.h:
+../Core/Inc/comHandle.h:

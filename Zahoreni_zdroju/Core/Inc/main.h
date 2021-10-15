@@ -38,7 +38,7 @@ extern "C" {
 #include "lcd.h"
 #include "shiftReg.h"
 #include "testHandle.h"
-#include "comHandler.h"
+#include "comHandle.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -172,6 +172,7 @@ void measHandler(void);
 //#define __DEBUG_INST__
 //#define __SILENT__
 #define __DEBUG_TEST__
+//#define __DEBUG_FAST__
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x
