@@ -38,6 +38,7 @@ extern "C" {
 #include "lcd.h"
 #include "shiftReg.h"
 #include "testHandle.h"
+#include "comHandler.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -118,7 +119,6 @@ void Error_Handler(void);
 
 void clkHandler(void);
 void buttonDebounce(void);
-void comHandler(void);
 void UI_Handler(void);
 void measHandler(void);
 

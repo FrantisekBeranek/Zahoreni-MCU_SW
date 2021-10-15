@@ -1,10 +1,34 @@
-16:24:58 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+17:27:57 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandler.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandler.d" -MT"Core/Src/comHandler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandler.o"
+../Core/Src/comHandler.c: In function 'comHandler':
+../Core/Src/comHandler.c:108:26: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  108 |   pushStr(USB_Tx_Buffer, measResult, 32);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandler.h:11,
+                 from ../Core/Src/comHandler.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandler.c:116:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  116 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
 arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  53880	    488	   6800	  61168	   eef0	Zahoreni_zdroju.elf
+  53876	    488	   6800	  61164	   eeec	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
 
-16:24:58 Build Finished. 0 errors, 0 warnings. (took 392ms)
+17:27:58 Build Finished. 0 errors, 2 warnings. (took 1s.256ms)
 
