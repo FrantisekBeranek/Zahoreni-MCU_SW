@@ -140,23 +140,17 @@ void comHandler(void)
 
 	if(flags.meas.measComplete)
 	{
-		//char txt[10];
-		//sprintf(txt, "#%d\n", testNum);
-		//pushStr(USB_Tx_Buffer, txt, strlen(txt));
-		push(USB_Tx_Buffer, '#');
-		push(USB_Tx_Buffer, testNum);
-		push(USB_Tx_Buffer, '\n');
-
-		/*
-		uint8_t measResult[32];
-		for(int i = 0; i < 16; i++)
+		if(!flags.meas.calibMeas)
 		{
-			measResult[2*i] = ADC_Results[i] & 0x00FF;
-			measResult[2*i + 1] = (ADC_Results[i] & 0xFF00) >> 8;
+			push(USB_Tx_Buffer, '#');
+			push(USB_Tx_Buffer, testNum);
+			push(USB_Tx_Buffer, '\n');
+			testNum++;
 		}
-		pushStr(USB_Tx_Buffer, measResult, 32);
-		*/
-
+		else
+		{
+			flags.meas.calibMeas = 0;
+		}
 
 		if(flags.meas.onlyBattery)
 		{
@@ -174,8 +168,6 @@ void comHandler(void)
 			}
 			push(USB_Tx_Buffer, 0x0A);
 		}
-
-		testNum++;
 	}
 
 #ifdef __APP_COMPATIBILITY__

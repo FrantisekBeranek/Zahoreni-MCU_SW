@@ -66,7 +66,7 @@ void testHandler()
 	{
 	case WAITING:
 		flags.testProgress = 0;
-		flags.meas.measRequest = 0;
+		//flags.meas.measRequest = 0;
 		break;
 	case START:
 

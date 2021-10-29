@@ -90,6 +90,7 @@ typedef struct{
 		unsigned int measRunning	: 1;
 		unsigned int measConflict	: 1;
 		unsigned int onlyBattery	: 1;
+		unsigned int calibMeas		: 1;
 	}meas;
 
 	//___TEST CONTROL___//
@@ -181,7 +182,7 @@ void measHandler(void);
 #define NegBit(x,y) x^=(1 << y)		//neguj bit y bajtu x
 #define MaskBit(x,y) x&(1 << y)		//vymaskuj but y bajtu x
 
-/* Řízení zátěží */
+/* �?ízení zátěží */
 #define LOAD_MIN_ON HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_SET)
 #define LOAD_MIN_OFF HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_RESET)
 #define LOAD_MAX_ON HAL_GPIO_WritePin(LOAD_MAX_GPIO_Port, LOAD_MAX_Pin, GPIO_PIN_SET)

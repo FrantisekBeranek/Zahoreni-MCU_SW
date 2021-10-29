@@ -42,7 +42,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
-DMA_HandleTypeDef hdma_adc;
 
 SPI_HandleTypeDef hspi1;
 
@@ -93,7 +92,6 @@ uint8_t button1_Debounce = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_ADC_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
@@ -136,6 +134,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //_____ADC data ready callback_____//
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+	HAL_ADC_Stop_IT(&hadc);
 	flags.meas.measDataReady = 1;
 }
 
@@ -176,7 +175,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
-  MX_DMA_Init();
   MX_ADC_Init();
   MX_SPI1_Init();
   MX_USART3_UART_Init();
@@ -214,9 +212,16 @@ int main(void)
 		  clkHandler();
 		  buttonDebounce();
 		  comHandler();
+		  if(flags.instructions.calibRequest)
+		  {
+			  flags.meas.measRequest = 1;
+			  flags.meas.calibMeas = 1;
+			  flags.instructions.calibRequest = 0;
+		  }
 		  UI_Handler();
 		  testHandler();
 		  measHandler();
+
 	  }
 
   }
@@ -299,7 +304,7 @@ static void MX_ADC_Init(void)
   hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc.Init.LowPowerAutoWait = DISABLE;
   hadc.Init.LowPowerAutoPowerOff = DISABLE;
-  hadc.Init.ContinuousConvMode = ENABLE;
+  hadc.Init.ContinuousConvMode = DISABLE;
   hadc.Init.DiscontinuousConvMode = DISABLE;
   hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
@@ -309,11 +314,12 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+  //ADC1->CFGR1 ^= (1 << CHSELRMOD);
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_55CYCLES_5;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -546,22 +552,6 @@ static void MX_USART3_UART_Init(void)
   /* USER CODE BEGIN USART3_Init 2 */
 
   /* USER CODE END USART3_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
 }
 
@@ -885,22 +875,22 @@ void measHandler(void)
 
 	if(flags.meas.measRequest)
 	{
-		if(ADC_State == WAITING)
+		if(!flags.meas.measRunning)
 		{
 			flags.meas.measRunning = 1;
 			if(currentPhase() == BATTERY_TEST)	//probíhá battery test
 			{
 				flags.meas.onlyBattery = 1;
 				ADC_State = U_BAT;
-				changeChannel(ADC_CHANNEL_6);
-				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+				changeChannel(ADC_CHSELR_CHSEL6);
+				HAL_ADC_Start_IT(&hadc);
 			}
 			else
 			{
 				flags.meas.onlyBattery = 0;
 				ADC_State = U15V;
-				changeChannel(ADC_CHANNEL_7);
-				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+				changeChannel(ADC_CHSELR_CHSEL7);
+				HAL_ADC_Start_IT(&hadc);
 			}
 		}
 		else
@@ -918,71 +908,71 @@ void measHandler(void)
 
 			if(ADC_State == U_BAT)	//U_BAT je vždy měřeno jako poslední
 			{
-				ADC_Results[ADC_State-1] = ADC_dataProcessing();
+				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
 				flags.meas.measComplete = 1;
 				flags.meas.measRunning = 0;
 				ADC_State = WAITING;
 			}
 			else
 			{
-				ADC_Results[ADC_State-1] = ADC_dataProcessing();
+				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
 				ADC_State += 2;
 
 				switch(ADC_State)
 				{
 				case U15V:
-					changeChannel(ADC_CHANNEL_7);
+					changeChannel(ADC_CHSELR_CHSEL7);
 					break;
 				case U15V_CURRENT:
-					changeChannel(ADC_CHANNEL_10);
+					changeChannel(ADC_CHSELR_CHSEL10);
 					break;
 				case U12V:
-					changeChannel(ADC_CHANNEL_14);
+					changeChannel(ADC_CHSELR_CHSEL14);
 					break;
 				case U12V_CURRENT:
-					changeChannel(ADC_CHANNEL_12);
+					changeChannel(ADC_CHSELR_CHSEL12);
 					break;
 				case U24VO2:
-					changeChannel(ADC_CHANNEL_5);
+					changeChannel(ADC_CHSELR_CHSEL5);
 					break;
 				case U24VO2_CURRENT:
-					changeChannel(ADC_CHANNEL_11);
+					changeChannel(ADC_CHSELR_CHSEL11);
 					break;
 				case U24V:
-					changeChannel(ADC_CHANNEL_9);
+					changeChannel(ADC_CHSELR_CHSEL9);
 					break;
 				case U24V_CURRENT:
-					changeChannel(ADC_CHANNEL_2);
+					changeChannel(ADC_CHSELR_CHSEL2);
 					break;
 				case U5VK:
-					changeChannel(ADC_CHANNEL_15);
+					changeChannel(ADC_CHSELR_CHSEL15);
 					break;
 				case U5VK_CURRENT:
-					changeChannel(ADC_CHANNEL_0);
+					changeChannel(ADC_CHSELR_CHSEL0);
 					break;
 				case U5V:
-					changeChannel(ADC_CHANNEL_8);
+					changeChannel(ADC_CHSELR_CHSEL8);
 					break;
 				case U5V_CURRENT:
-					changeChannel(ADC_CHANNEL_1);
+					changeChannel(ADC_CHSELR_CHSEL1);
 					break;
 				case U_BAT:
-					changeChannel(ADC_CHANNEL_6);
+					changeChannel(ADC_CHSELR_CHSEL6);
 					break;
 				case PAD9:
-					changeChannel(ADC_CHANNEL_4);
+					changeChannel(ADC_CHSELR_CHSEL4);
 					break;
 				case PAD15:
-					changeChannel(ADC_CHANNEL_13);
+					changeChannel(ADC_CHSELR_CHSEL13);
 					break;
 				case U48V_CURRENT:
-					changeChannel(ADC_CHANNEL_3);
+					changeChannel(ADC_CHSELR_CHSEL3);
 					break;
 				default:
 					break;
 				}
 
-				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+				HAL_ADC_Start_IT(&hadc);
 			}
 		}
 	}
@@ -991,14 +981,9 @@ void measHandler(void)
 //_____Změna lanálu ADC_____//
 static void changeChannel(unsigned int channel)
 {
-	ADC_ChannelConfTypeDef sConfig = {0};
-	sConfig.Channel = channel;
-	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
-	{
-		Error_Handler();
-	}
+	//ADC_CHSELR_CHSEL0
+	//ADC_CFGR1_CHSELRMOD is reset
+	ADC1->CHSELR = channel;
 }
 
 //_____Zpracování naměřených dat_____//
