@@ -38,6 +38,7 @@ extern "C" {
 #include "lcd.h"
 #include "shiftReg.h"
 #include "testHandle.h"
+#include "comHandle.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -89,6 +90,7 @@ typedef struct{
 		unsigned int measRunning	: 1;
 		unsigned int measConflict	: 1;
 		unsigned int onlyBattery	: 1;
+		unsigned int calibMeas		: 1;
 	}meas;
 
 	//___TEST CONTROL___//
@@ -118,7 +120,6 @@ void Error_Handler(void);
 
 void clkHandler(void);
 void buttonDebounce(void);
-void comHandler(void);
 void UI_Handler(void);
 void measHandler(void);
 
@@ -170,8 +171,10 @@ void measHandler(void);
 //#define __DEBUG_TIME__
 #define __DEBUG_BUTT__
 //#define __DEBUG_INST__
-//#define __SILENT__
+#define __SILENT__
 #define __DEBUG_TEST__
+//#define __DEBUG_FAST__
+//#define __APP_COMPATIBILITY__
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x
@@ -179,7 +182,7 @@ void measHandler(void);
 #define NegBit(x,y) x^=(1 << y)		//neguj bit y bajtu x
 #define MaskBit(x,y) x&(1 << y)		//vymaskuj but y bajtu x
 
-/* Řízení zátěží */
+/* �?ízení zátěží */
 #define LOAD_MIN_ON HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_SET)
 #define LOAD_MIN_OFF HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_RESET)
 #define LOAD_MAX_ON HAL_GPIO_WritePin(LOAD_MAX_GPIO_Port, LOAD_MAX_Pin, GPIO_PIN_SET)

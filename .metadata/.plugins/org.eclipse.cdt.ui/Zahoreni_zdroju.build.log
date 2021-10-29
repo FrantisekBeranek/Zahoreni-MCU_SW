@@ -1,10 +1,36 @@
-16:24:58 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+16:40:40 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:158:19: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  158 |    sprintf(res, "%d;\n", ADC_Results[12]);
+      |                  ~^      ~~~~~~~~~~~~~~~
+      |                   |                 |
+      |                   int               uint32_t {aka long unsigned int}
+      |                  %ld
+../Core/Src/comHandle.c:166:20: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  166 |     sprintf(res, "%d;", ADC_Results[2*i]);
+      |                   ~^    ~~~~~~~~~~~~~~~~
+      |                    |               |
+      |                    int             uint32_t {aka long unsigned int}
+      |                   %ld
+../Core/Src/comHandle.c:186:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  186 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
 arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  53880	    488	   6800	  61168	   eef0	Zahoreni_zdroju.elf
+  53816	    488	   6736	  61040	   ee70	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
 
-16:24:58 Build Finished. 0 errors, 0 warnings. (took 392ms)
+16:40:42 Build Finished. 0 errors, 3 warnings. (took 1s.351ms)
 

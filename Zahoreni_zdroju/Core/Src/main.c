@@ -42,7 +42,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
-DMA_HandleTypeDef hdma_adc;
 
 SPI_HandleTypeDef hspi1;
 
@@ -54,23 +53,32 @@ UART_HandleTypeDef huart3;
 extern	RING_BUFFER* dispBuffer;
 //extern	RING_BUFFER* regBuffer;
 extern	RING_BUFFER* USB_Rx_Buffer;
-		RING_BUFFER* USB_Tx_Buffer;
+extern	RING_BUFFER* USB_Tx_Buffer;
 
-uint32_t ADC_Buffer[20];
-uint32_t ADC_Results[16] = {0};
+volatile uint32_t ADC_Buffer[20];
+volatile uint32_t ADC_Results[16] = {0};
+/*
+ * 		U15V, U15V_CURRENT,
+ *		U12V, U12V_CURRENT,
+ *		U24VO2, U24VO2_CURRENT,
+ *		U24V, U24V_CURRENT,
+ *		U5VK, U5VK_CURRENT,
+ *		U5V, U5V_CURRENT,
+ *		U_BAT,
+ *		PAD9, PAD15,
+ *		U48V_CURRENT
+ */
 
 //extern const uint8_t regCount;
 
 //_____Proměnné času_____//
 uint32_t sysTime[4] = {0};
-/*uint32_t sysTime[SYSTIME_TEN_MS] = 0;		//Proměnná pro časování
-	//inkrementace každých 10 ms
-uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_SEC] = 0;	//Proměnná pro časování
-	//inkrementace každou sekundu
-uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_MIN] = 0;	//Proměnná pro časování
-	//inkrementace každou minutu
-uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_HOUR] = 0;	//Proměnná pro časování
-	//inkrementace každou hodinu*/
+/*
+ * SYSTIME_TEN_MS	0
+ * SYSTIME_SEC		1
+ * SYSTIME_MIN		2
+ * SYSTIME_HOUR		3
+ */
 
 //_____Bitové pole příznaků_____//
 Flags flags;
@@ -84,7 +92,6 @@ uint8_t button1_Debounce = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_ADC_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
@@ -92,7 +99,6 @@ static void MX_TIM14_Init(void);
 /* USER CODE BEGIN PFP */
 void clkHandler();
 void buttonDebounce();
-void comHandler();
 void UI_Handler();
 void measHandler();
 
@@ -128,6 +134,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //_____ADC data ready callback_____//
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+	HAL_ADC_Stop_IT(&hadc);
 	flags.meas.measDataReady = 1;
 }
 
@@ -168,7 +175,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
-  MX_DMA_Init();
   MX_ADC_Init();
   MX_SPI1_Init();
   MX_USART3_UART_Init();
@@ -206,9 +212,16 @@ int main(void)
 		  clkHandler();
 		  buttonDebounce();
 		  comHandler();
+		  if(flags.instructions.calibRequest)
+		  {
+			  flags.meas.measRequest = 1;
+			  flags.meas.calibMeas = 1;
+			  flags.instructions.calibRequest = 0;
+		  }
 		  UI_Handler();
 		  testHandler();
 		  measHandler();
+
 	  }
 
   }
@@ -291,7 +304,7 @@ static void MX_ADC_Init(void)
   hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc.Init.LowPowerAutoWait = DISABLE;
   hadc.Init.LowPowerAutoPowerOff = DISABLE;
-  hadc.Init.ContinuousConvMode = ENABLE;
+  hadc.Init.ContinuousConvMode = DISABLE;
   hadc.Init.DiscontinuousConvMode = DISABLE;
   hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
@@ -301,11 +314,12 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+  //ADC1->CFGR1 ^= (1 << CHSELRMOD);
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_55CYCLES_5;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -542,22 +556,6 @@ static void MX_USART3_UART_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -645,7 +643,11 @@ void clkHandler(void)
 	flags.time.min	= 0;
 	flags.time.hour	= 0;
 	sysTime[SYSTIME_TEN_MS]++;
-	if((sysTime[SYSTIME_TEN_MS] % 10) == 0)	//1 s
+#ifdef __DEBUG_FAST__
+	if((sysTime[SYSTIME_TEN_MS] % 10) == 0)	//0,1 s
+#else
+	if((sysTime[SYSTIME_TEN_MS] % 100) == 0)	//1 s
+#endif
 	{
 		sysTime[SYSTIME_SEC]++;
 		flags.time.sec = 1;
@@ -687,6 +689,9 @@ void clkHandler(void)
 
 void buttonDebounce(void)
 {
+	flags.buttons.butt0_ver = 0;
+	flags.buttons.butt1_ver = 0;
+
 	if(flags.buttons.butt0_int)
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port,BUTTON_0_Pin) == GPIO_PIN_SET)
@@ -733,120 +738,6 @@ void buttonDebounce(void)
 #endif
 		}
 	}
-}
-
-//_____Obsluha komunikace s PC přes USB_____//
-/*
- * Funkce obsluhuje příjem i odesílání dat.
- * V jakékoliv jiné části kódu by nemělo dojít k volání funkce CDC_Transmit_FS, která
- * se stará o samotné odesílání. Data by se pouze měla ukládat do bufferu USB_Tx_Buffer
- * metodou push nebo pushStr.
- *
- * Při přijmutí instrukce nedochází k zpracování, ale pouze k nastavení adekvátního flagu.
- * Vykonání instrukce musí být zařízeno v jiné části hlavního programu.
- */
-void comHandler(void)
-{
-	//___Příjem dat___//
-	if(flags.data_received)
-	{
-		char instruction;
-		while(pop(USB_Rx_Buffer, &instruction) != BUFFER_EMPTY)
-		{
-#ifdef __DEBUG_INST__
-			uint8_t txt[30];
-#endif
-
-			switch(instruction)
-			{
-			case 's': ;
-				//___Start testu___//
-				flags.instructions.startRequest = 1;
-#ifdef __DEBUG_INST__
-				sprintf(txt, "Start\n");
-				pushStr(USB_Tx_Buffer, txt, strlen(txt));
-#endif
-				break;
-
-			case'c': ;
-				//___Ukončení___//
-				flags.instructions.stopRequest = 1;
-#ifdef __DEBUG_INST__
-				sprintf(txt, "Ukonceni\n");
-				pushStr(USB_Tx_Buffer, txt, strlen(txt));
-#endif
-				break;
-
-			case'p': ;
-				//___Pauza___//
-				flags.instructions.pauseRequest = 1;
-#ifdef __DEBUG_INST__
-				sprintf(txt, "Pauza\n");
-				pushStr(USB_Tx_Buffer, txt, strlen(txt));
-#endif
-				break;
-
-			case'k': ;
-				//___Kalibrace___//
-				flags.instructions.calibRequest = 1;
-#ifdef __DEBUG_INST__
-				sprintf(txt, "Kalibrace\n");
-				pushStr(USB_Tx_Buffer, txt, strlen(txt));
-#endif
-				break;
-
-			default: ;
-				//___Neplatný příkaz___//
-				flags.instructions.unknownInst = 1;
-#ifdef __DEBUG_INST__
-				sprintf(txt, "Neplatna instrukce\n");
-				pushStr(USB_Tx_Buffer, txt, strlen(txt));
-#endif
-				break;
-			}
-		}
-		flags.data_received = 0;
-	}
-
-	if(flags.testProgress)
-	{
-		char txt[] = {"Test progress\n"};
-		pushStr(USB_Tx_Buffer, txt, strlen(txt));
-	}
-
-	if(flags.meas.measComplete)
-	{
-		char txt[] = {"Measure\n"};
-		pushStr(USB_Tx_Buffer, txt, strlen(txt));
-
-		uint8_t measResult[32];
-		for(int i = 0; i < 16; i++)
-		{
-			measResult[2*i] = ADC_Results[i] & 0x00FF;
-			measResult[2*i + 1] = (ADC_Results[i] & 0xFF00) >> 8;
-		}
-		pushStr(USB_Tx_Buffer, measResult, 32);
-	}
-
-	//___Odesílání dat___//
-	//_Ošetření plného bufferu_//
-	if(USB_Tx_Buffer->status == BUFFER_FULL)
-	{
-		char msg[] = {"Buffer full\n"};
-		CDC_Transmit_FS(msg, strlen(msg));
-	}
-	//_Samotné odesílání_//
-	if(USB_Tx_Buffer->filled)
-	{
-		int size = USB_Tx_Buffer->filled;
-		char tmpStr[size+1];
-		for(int i = 0; i < size; i++)
-		{
-			pop(USB_Tx_Buffer, &tmpStr[i]);
-		}
-		CDC_Transmit_FS(tmpStr, size);
-	}
-
 }
 
 //_____Obsluha piezo + podsvícení displeje_____//
@@ -984,22 +875,22 @@ void measHandler(void)
 
 	if(flags.meas.measRequest)
 	{
-		if(ADC_State == WAITING)
+		if(!flags.meas.measRunning)
 		{
 			flags.meas.measRunning = 1;
 			if(currentPhase() == BATTERY_TEST)	//probíhá battery test
 			{
 				flags.meas.onlyBattery = 1;
 				ADC_State = U_BAT;
-				changeChannel(ADC_CHANNEL_6);
-				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+				changeChannel(ADC_CHSELR_CHSEL6);
+				HAL_ADC_Start_IT(&hadc);
 			}
 			else
 			{
 				flags.meas.onlyBattery = 0;
 				ADC_State = U15V;
-				changeChannel(ADC_CHANNEL_7);
-				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+				changeChannel(ADC_CHSELR_CHSEL7);
+				HAL_ADC_Start_IT(&hadc);
 			}
 		}
 		else
@@ -1017,71 +908,71 @@ void measHandler(void)
 
 			if(ADC_State == U_BAT)	//U_BAT je vždy měřeno jako poslední
 			{
-				ADC_Results[ADC_State-1] = ADC_dataProcessing();
+				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
 				flags.meas.measComplete = 1;
 				flags.meas.measRunning = 0;
 				ADC_State = WAITING;
 			}
 			else
 			{
-				ADC_Results[ADC_State-1] = ADC_dataProcessing();
+				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
 				ADC_State += 2;
 
 				switch(ADC_State)
 				{
 				case U15V:
-					changeChannel(ADC_CHANNEL_7);
+					changeChannel(ADC_CHSELR_CHSEL7);
 					break;
 				case U15V_CURRENT:
-					changeChannel(ADC_CHANNEL_10);
+					changeChannel(ADC_CHSELR_CHSEL10);
 					break;
 				case U12V:
-					changeChannel(ADC_CHANNEL_14);
+					changeChannel(ADC_CHSELR_CHSEL14);
 					break;
 				case U12V_CURRENT:
-					changeChannel(ADC_CHANNEL_12);
+					changeChannel(ADC_CHSELR_CHSEL12);
 					break;
 				case U24VO2:
-					changeChannel(ADC_CHANNEL_5);
+					changeChannel(ADC_CHSELR_CHSEL5);
 					break;
 				case U24VO2_CURRENT:
-					changeChannel(ADC_CHANNEL_11);
+					changeChannel(ADC_CHSELR_CHSEL11);
 					break;
 				case U24V:
-					changeChannel(ADC_CHANNEL_9);
+					changeChannel(ADC_CHSELR_CHSEL9);
 					break;
 				case U24V_CURRENT:
-					changeChannel(ADC_CHANNEL_2);
+					changeChannel(ADC_CHSELR_CHSEL2);
 					break;
 				case U5VK:
-					changeChannel(ADC_CHANNEL_15);
+					changeChannel(ADC_CHSELR_CHSEL15);
 					break;
 				case U5VK_CURRENT:
-					changeChannel(ADC_CHANNEL_0);
+					changeChannel(ADC_CHSELR_CHSEL0);
 					break;
 				case U5V:
-					changeChannel(ADC_CHANNEL_8);
+					changeChannel(ADC_CHSELR_CHSEL8);
 					break;
 				case U5V_CURRENT:
-					changeChannel(ADC_CHANNEL_1);
+					changeChannel(ADC_CHSELR_CHSEL1);
 					break;
 				case U_BAT:
-					changeChannel(ADC_CHANNEL_6);
+					changeChannel(ADC_CHSELR_CHSEL6);
 					break;
 				case PAD9:
-					changeChannel(ADC_CHANNEL_4);
+					changeChannel(ADC_CHSELR_CHSEL4);
 					break;
 				case PAD15:
-					changeChannel(ADC_CHANNEL_13);
+					changeChannel(ADC_CHSELR_CHSEL13);
 					break;
 				case U48V_CURRENT:
-					changeChannel(ADC_CHANNEL_3);
+					changeChannel(ADC_CHSELR_CHSEL3);
 					break;
 				default:
 					break;
 				}
 
-				HAL_ADC_Start_DMA(&hadc, ADC_Buffer, 20);
+				HAL_ADC_Start_IT(&hadc);
 			}
 		}
 	}
@@ -1090,14 +981,9 @@ void measHandler(void)
 //_____Změna lanálu ADC_____//
 static void changeChannel(unsigned int channel)
 {
-	ADC_ChannelConfTypeDef sConfig = {0};
-	sConfig.Channel = channel;
-	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-	if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
-	{
-		Error_Handler();
-	}
+	//ADC_CHSELR_CHSEL0
+	//ADC_CFGR1_CHSELRMOD is reset
+	ADC1->CHSELR = channel;
 }
 
 //_____Zpracování naměřených dat_____//
@@ -1111,6 +997,7 @@ static uint32_t ADC_dataProcessing()
 	mean = mean/20;
 
 	return mean;
+	//return ADC_Buffer[10];
 }
 
 /* USER CODE END 4 */

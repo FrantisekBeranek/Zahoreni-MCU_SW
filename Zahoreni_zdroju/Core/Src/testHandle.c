@@ -7,7 +7,8 @@
 
 #include "testHandle.h"
 
-static TEST_PHASE testPhase = WAITING;
+static	TEST_PHASE testPhase = WAITING;
+		int testNum = 0;
 
 //___Proměnné z main.c___//
 extern Flags flags;
@@ -65,7 +66,7 @@ void testHandler()
 	{
 	case WAITING:
 		flags.testProgress = 0;
-		flags.meas.measRequest = 0;
+		//flags.meas.measRequest = 0;
 		break;
 	case START:
 
@@ -108,7 +109,7 @@ void testHandler()
 			sendData();
 		}
 #ifdef __DEBUG_TEST__
-		if(!(sysTime[SYSTIME_MIN] % 10) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých deset minut___//
+		if(sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každou minutu___//
 #else
 		if(!(sysTime[SYSTIME_MIN] % 10) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých deset minut___//
 #endif
@@ -116,7 +117,7 @@ void testHandler()
 			flags.meas.measRequest = 1;
 		}
 #ifdef __DEBUG_TEST__
-		if(sysTime[SYSTIME_MIN] >= 30)	//___Po jedné hodině je měření u konce___//
+		if(sysTime[SYSTIME_MIN] >= 10)	//___Po deseti minutách je měření u konce___//
 #else
 		if(sysTime[SYSTIME_HOUR] >= 3)	//___Po třech hodinách je měření u konce___//
 #endif
@@ -156,11 +157,19 @@ void testHandler()
 			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED3);	//blikání třetí progress led
 			sendData();
 		}
+#ifdef __DEBUG_TEST__
+		if(sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každou minutu___//
+#else
 		if(!(sysTime[SYSTIME_MIN] % 5) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých pět minut___//
+#endif
 		{
 			flags.meas.measRequest = 1;
 		}
-		if(sysTime[SYSTIME_MIN] >= 15)	//___Po třech hodinách je měření u konce___//
+#ifdef __DEBUG_TEST__
+		if(sysTime[SYSTIME_MIN] >= 3)	//___Po třech minutách je měření u konce___//
+#else
+		if(sysTime[SYSTIME_MIN] >= 15)	//___Po patnácti minutách je měření u konce___//
+#endif
 		{
 			testPhase++;
 		}
@@ -190,6 +199,7 @@ static void startTest(/*ukazatel na zdroj*/)
 {
 	flags.ui.shortBeep = 1;
 	testPhase = START;
+	testNum = 0;
 	flags.testProgress = 1;
 
 	sourceInTesting = &regValues[0/*ukazatel na zdroj*/];

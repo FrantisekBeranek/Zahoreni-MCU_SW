@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/comHandle.c \
 ../Core/Src/lcd.c \
 ../Core/Src/main.c \
 ../Core/Src/ringBuffer.c \
@@ -17,6 +18,7 @@ C_SRCS += \
 ../Core/Src/testHandle.c 
 
 OBJS += \
+./Core/Src/comHandle.o \
 ./Core/Src/lcd.o \
 ./Core/Src/main.o \
 ./Core/Src/ringBuffer.o \
@@ -29,6 +31,7 @@ OBJS += \
 ./Core/Src/testHandle.o 
 
 C_DEPS += \
+./Core/Src/comHandle.d \
 ./Core/Src/lcd.d \
 ./Core/Src/main.d \
 ./Core/Src/ringBuffer.d \
