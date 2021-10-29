@@ -14,6 +14,17 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 //___Importované proměnné z main.c___//
 extern Flags flags;
 extern uint32_t ADC_Results[16];
+/*
+ * 		U15V, U15V_CURRENT,
+ *		U12V, U12V_CURRENT,
+ *		U24VO2, U24VO2_CURRENT,
+ *		U24V, U24V_CURRENT,
+ *		U5VK, U5VK_CURRENT,
+ *		U5V, U5V_CURRENT,
+ *		U_BAT,
+ *		PAD9, PAD15,
+ *		U48V_CURRENT
+ */
 
 //___Importované proměnné z testHandle.c___//
 extern int testNum;
@@ -119,16 +130,24 @@ void comHandler(void)
 			break;
 		}
 		char txt[30];
+#ifdef __APP_COMPATIBILITY__
+		sprintf(txt, "#%c\n", testPhaseChr);
+#else
 		sprintf(txt, "Test progress #%c\n", testPhaseChr);
+#endif
 		pushStr(USB_Tx_Buffer, txt, strlen(txt));
 	}
 
 	if(flags.meas.measComplete)
 	{
-		char txt[10];
-		sprintf(txt, "#%d\n", testNum);
-		pushStr(USB_Tx_Buffer, txt, strlen(txt));
+		//char txt[10];
+		//sprintf(txt, "#%d\n", testNum);
+		//pushStr(USB_Tx_Buffer, txt, strlen(txt));
+		push(USB_Tx_Buffer, '#');
+		push(USB_Tx_Buffer, testNum);
+		push(USB_Tx_Buffer, '\n');
 
+		/*
 		uint8_t measResult[32];
 		for(int i = 0; i < 16; i++)
 		{
@@ -136,9 +155,36 @@ void comHandler(void)
 			measResult[2*i + 1] = (ADC_Results[i] & 0xFF00) >> 8;
 		}
 		pushStr(USB_Tx_Buffer, measResult, 32);
+		*/
+
+
+		if(flags.meas.onlyBattery)
+		{
+			char res[20] = {0};
+			sprintf(res, "%d;\n", ADC_Results[12]);
+			pushStr(USB_Tx_Buffer, res, strlen(res));
+		}
+		else
+		{
+			for(int i = 0; i < 7; i++)
+			{
+				char res[20];
+				sprintf(res, "%d;", ADC_Results[2*i]);
+				pushStr(USB_Tx_Buffer, res, strlen(res));
+			}
+			push(USB_Tx_Buffer, 0x0A);
+		}
 
 		testNum++;
 	}
+
+#ifdef __APP_COMPATIBILITY__
+	if(flags.time.sec)
+	{
+		char txt[] = {"#Hi\n"};
+		pushStr(USB_Tx_Buffer, txt, strlen(txt));
+	}
+#endif
 
 	//___Odesílání dat___//
 	//_Ošetření plného bufferu_//

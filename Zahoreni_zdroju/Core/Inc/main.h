@@ -170,9 +170,10 @@ void measHandler(void);
 //#define __DEBUG_TIME__
 #define __DEBUG_BUTT__
 //#define __DEBUG_INST__
-//#define __SILENT__
+#define __SILENT__
 #define __DEBUG_TEST__
 //#define __DEBUG_FAST__
+//#define __APP_COMPATIBILITY__
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x

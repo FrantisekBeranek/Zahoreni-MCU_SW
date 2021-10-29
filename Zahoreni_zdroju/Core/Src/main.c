@@ -56,21 +56,30 @@ extern	RING_BUFFER* dispBuffer;
 extern	RING_BUFFER* USB_Rx_Buffer;
 extern	RING_BUFFER* USB_Tx_Buffer;
 
-uint32_t ADC_Buffer[20];
-uint32_t ADC_Results[16] = {0};
+volatile uint32_t ADC_Buffer[20];
+volatile uint32_t ADC_Results[16] = {0};
+/*
+ * 		U15V, U15V_CURRENT,
+ *		U12V, U12V_CURRENT,
+ *		U24VO2, U24VO2_CURRENT,
+ *		U24V, U24V_CURRENT,
+ *		U5VK, U5VK_CURRENT,
+ *		U5V, U5V_CURRENT,
+ *		U_BAT,
+ *		PAD9, PAD15,
+ *		U48V_CURRENT
+ */
 
 //extern const uint8_t regCount;
 
 //_____Proměnné času_____//
 uint32_t sysTime[4] = {0};
-/*uint32_t sysTime[SYSTIME_TEN_MS] = 0;		//Proměnná pro časování
-	//inkrementace každých 10 ms
-uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_SEC] = 0;	//Proměnná pro časování
-	//inkrementace každou sekundu
-uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_MIN] = 0;	//Proměnná pro časování
-	//inkrementace každou minutu
-uint32_t sysTime[SYSTIME_TEN_MS][sysTime[SYSTIME_TEN_MS]_HOUR] = 0;	//Proměnná pro časování
-	//inkrementace každou hodinu*/
+/*
+ * SYSTIME_TEN_MS	0
+ * SYSTIME_SEC		1
+ * SYSTIME_MIN		2
+ * SYSTIME_HOUR		3
+ */
 
 //_____Bitové pole příznaků_____//
 Flags flags;
@@ -690,6 +699,9 @@ void clkHandler(void)
 
 void buttonDebounce(void)
 {
+	flags.buttons.butt0_ver = 0;
+	flags.buttons.butt1_ver = 0;
+
 	if(flags.buttons.butt0_int)
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port,BUTTON_0_Pin) == GPIO_PIN_SET)
@@ -1000,6 +1012,7 @@ static uint32_t ADC_dataProcessing()
 	mean = mean/20;
 
 	return mean;
+	//return ADC_Buffer[10];
 }
 
 /* USER CODE END 4 */
