@@ -57,22 +57,21 @@ extern	RING_BUFFER* USB_Tx_Buffer;
 
 volatile uint32_t ADC_Buffer[20];
 volatile uint32_t ADC_Results[16] = {0};
-/*
- * 		U15V, U15V_CURRENT,
- *		U12V, U12V_CURRENT,
- *		U24VO2, U24VO2_CURRENT,
- *		U24V, U24V_CURRENT,
- *		U5VK, U5VK_CURRENT,
- *		U5V, U5V_CURRENT,
- *		U_BAT,
- *		PAD9, PAD15,
- *		U48V_CURRENT
- */
+
+const uint32_t ADC_ChannelConf[16] = {U15V_CHANNEL, U15V_CURRENT_CHANNEL,
+		 	 	 	 	 	 	 	 U12V_CHANNEL, U12V_CURRENT_CHANNEL,
+									 U24VO2_CHANNEL, U24VO2_CURRENT_CHANNEL,
+									 U24V_CHANNEL, U24V_CURRENT_CHANNEL,
+									 U5VK_CHANNEL, U5VK_CURRENT_CHANNEL,
+									 U5V_CHANNEL, U5V_CURRENT_CHANNEL,
+									 U_BAT_CHANNEL,
+									 PAD9_CHANNEL, PAD15_CHANNEL,
+									 U48V_CURRENT_CHANNEL};
 
 //extern const uint8_t regCount;
 
 //_____Proměnné času_____//
-uint32_t sysTime[4] = {0};
+volatile uint32_t sysTime[4] = {0};
 /*
  * SYSTIME_TEN_MS	0
  * SYSTIME_SEC		1
@@ -81,11 +80,11 @@ uint32_t sysTime[4] = {0};
  */
 
 //_____Bitové pole příznaků_____//
-Flags flags;
+volatile Flags flags;
 
 //_____Proměnné pro debouncing_____//
-uint8_t button0_Debounce = 0;
-uint8_t button1_Debounce = 0;
+volatile uint8_t button0_Debounce = 0;
+volatile uint8_t button1_Debounce = 0;
 
 /* USER CODE END PV */
 
@@ -102,7 +101,6 @@ void buttonDebounce();
 void UI_Handler();
 void measHandler();
 
-static void changeChannel(unsigned int);
 static uint32_t ADC_dataProcessing();
 /* USER CODE END PFP */
 
@@ -314,7 +312,6 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
-  //ADC1->CFGR1 ^= (1 << CHSELRMOD);
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_0;
@@ -857,18 +854,7 @@ void UI_Handler(void)
 //_____Osluha AD převodníků_____//
 void measHandler(void)
 {
-	static enum{
-		WAITING = 0U,
-		U15V, U15V_CURRENT,		//kanál 7, 10
-		U12V, U12V_CURRENT,		//kanál 14, 12
-		U24VO2, U24VO2_CURRENT,	//kanál 5, 11
-		U24V, U24V_CURRENT,		//kanál 9, 2
-		U5VK, U5VK_CURRENT,		//kanál 15, 0
-		U5V, U5V_CURRENT,		//kanál 8, 1
-		U_BAT,					//kanál 6
-		PAD9, PAD15,			//kanál 4, 13
-		U48V_CURRENT			//kanál 3
-	}ADC_State;
+	static ADC_State_Type ADC_State;
 
 	flags.meas.measComplete = 0;
 	flags.meas.measConflict = 0;
@@ -878,18 +864,18 @@ void measHandler(void)
 		if(!flags.meas.measRunning)
 		{
 			flags.meas.measRunning = 1;
-			if(currentPhase() == BATTERY_TEST)	//probíhá battery test
+			if(currentPhase() == BATTERY_TEST || currentPhase() == BATTERY_TEST_DONE)	//probíhá battery test
 			{
 				flags.meas.onlyBattery = 1;
 				ADC_State = U_BAT;
-				changeChannel(ADC_CHSELR_CHSEL6);
+				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
 				HAL_ADC_Start_IT(&hadc);
 			}
 			else
 			{
 				flags.meas.onlyBattery = 0;
 				ADC_State = U15V;
-				changeChannel(ADC_CHSELR_CHSEL7);
+				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
 				HAL_ADC_Start_IT(&hadc);
 			}
 		}
@@ -900,7 +886,7 @@ void measHandler(void)
 		flags.meas.measRequest = 0;
 	}
 
-	if(ADC_State != WAITING)
+	if(ADC_State != ADC_WAITING)
 	{
 		if(flags.meas.measDataReady)
 		{
@@ -911,79 +897,19 @@ void measHandler(void)
 				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
 				flags.meas.measComplete = 1;
 				flags.meas.measRunning = 0;
-				ADC_State = WAITING;
+				ADC_State = ADC_WAITING;
 			}
 			else
 			{
 				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
 				ADC_State += 2;
 
-				switch(ADC_State)
-				{
-				case U15V:
-					changeChannel(ADC_CHSELR_CHSEL7);
-					break;
-				case U15V_CURRENT:
-					changeChannel(ADC_CHSELR_CHSEL10);
-					break;
-				case U12V:
-					changeChannel(ADC_CHSELR_CHSEL14);
-					break;
-				case U12V_CURRENT:
-					changeChannel(ADC_CHSELR_CHSEL12);
-					break;
-				case U24VO2:
-					changeChannel(ADC_CHSELR_CHSEL5);
-					break;
-				case U24VO2_CURRENT:
-					changeChannel(ADC_CHSELR_CHSEL11);
-					break;
-				case U24V:
-					changeChannel(ADC_CHSELR_CHSEL9);
-					break;
-				case U24V_CURRENT:
-					changeChannel(ADC_CHSELR_CHSEL2);
-					break;
-				case U5VK:
-					changeChannel(ADC_CHSELR_CHSEL15);
-					break;
-				case U5VK_CURRENT:
-					changeChannel(ADC_CHSELR_CHSEL0);
-					break;
-				case U5V:
-					changeChannel(ADC_CHSELR_CHSEL8);
-					break;
-				case U5V_CURRENT:
-					changeChannel(ADC_CHSELR_CHSEL1);
-					break;
-				case U_BAT:
-					changeChannel(ADC_CHSELR_CHSEL6);
-					break;
-				case PAD9:
-					changeChannel(ADC_CHSELR_CHSEL4);
-					break;
-				case PAD15:
-					changeChannel(ADC_CHSELR_CHSEL13);
-					break;
-				case U48V_CURRENT:
-					changeChannel(ADC_CHSELR_CHSEL3);
-					break;
-				default:
-					break;
-				}
+				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
 
 				HAL_ADC_Start_IT(&hadc);
 			}
 		}
 	}
-}
-
-//_____Změna lanálu ADC_____//
-static void changeChannel(unsigned int channel)
-{
-	//ADC_CHSELR_CHSEL0
-	//ADC_CFGR1_CHSELRMOD is reset
-	ADC1->CHSELR = channel;
 }
 
 //_____Zpracování naměřených dat_____//

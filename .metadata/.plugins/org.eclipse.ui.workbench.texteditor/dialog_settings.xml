@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="sysTime[SYSTIME_TEN_MS]"/>
+		<item key="selection" value="ADC1-&gt;CHSELR = "/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="changeChannel("/>
+			<item value="ADC_CHANNEL_"/>
 			<item value="sysTime"/>
 			<item value="sysTime_sec"/>
 			<item value="sysTime_min"/>
@@ -17,6 +19,8 @@
 			<item value="CDC_Transmit_FS("/>
 		</list>
 		<list key="replacehistory">
+			<item value="ADC1-&gt;CHSELR = "/>
+			<item value="ADC_CHSELR_CHSEL"/>
 			<item value="sysTime[SYSTIME_TEN_MS]"/>
 			<item value="sysTime[SYSTIME_SEC]"/>
 			<item value="sysTime[SYSTIME_MIN]"/>

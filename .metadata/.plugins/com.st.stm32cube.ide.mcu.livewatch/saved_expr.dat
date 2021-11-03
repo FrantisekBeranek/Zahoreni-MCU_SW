@@ -1,2 +1,4 @@
-USB_Tx_Buffer->status
-USB_Tx_Buffer->buffer
+ADC_Results
+hadc->Instance->CHSELR
+hadc->Instance->DR
+ADC_State

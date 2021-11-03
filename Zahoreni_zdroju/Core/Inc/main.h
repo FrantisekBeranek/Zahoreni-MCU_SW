@@ -39,6 +39,7 @@ extern "C" {
 #include "shiftReg.h"
 #include "testHandle.h"
 #include "comHandle.h"
+#include "ADC_defines.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -202,6 +203,19 @@ void measHandler(void);
 #define SYSTIME_SEC		1
 #define SYSTIME_MIN		2
 #define SYSTIME_HOUR	3
+
+typedef enum{
+	ADC_WAITING = 0U,
+	U15V, U15V_CURRENT,		//kanál 7, 10
+	U12V, U12V_CURRENT,		//kanál 14, 12
+	U24VO2, U24VO2_CURRENT,	//kanál 5, 11
+	U24V, U24V_CURRENT,		//kanál 9, 2
+	U5VK, U5VK_CURRENT,		//kanál 15, 0
+	U5V, U5V_CURRENT,		//kanál 8, 1
+	U_BAT,					//kanál 6
+	PAD9, PAD15,			//kanál 4, 13
+	U48V_CURRENT			//kanál 3
+}ADC_State_Type;
 
 /* Přiřazení kanálů ADC */
 /*#define U5VK_CURRENT	ADC_CHANNEL_0
