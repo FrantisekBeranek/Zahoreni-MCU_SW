@@ -21,6 +21,32 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 //extern Flags flags;
 //extern uint32_t ADC_Results[16] = {0};
 
+typedef struct{
+	//uint8_t startSequence[9];
+	uint8_t type;
+	uint8_t* data;
+	uint8_t dataLength;
+	uint8_t CA_value;	//control addiction
+	//uint8_t endSequence[9];
+}Paket;
+
+typedef enum{
+	DATA_PAKET = 1,
+	DATA_BAT_PAKET,
+	TEST_NUM_PAKET,
+	TEST_PHASE_PAKET,
+	ACK_PAKET,
+	REFRESH_PAKET
+}outPaketType;
+
+typedef enum{
+	START_PAKET = 's',
+	CANCEL_PAKET = 'c',
+	PAUSE_PAKET = 'p',
+	CALIB_PAKET = 'k',
+	CON_PAKET = 'a'
+}inPaketType;
+
 
 void comHandler(void);
 

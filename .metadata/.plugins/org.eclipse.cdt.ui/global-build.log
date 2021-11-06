@@ -1,23 +1,64 @@
-20:57:37 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+09:59:54 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
-../Core/Src/main.c:135:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
-  135 |  HAL_ADC_Stop_IT(&hadc);
-      |                  ^~~~~
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:167:19: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  167 |    sprintf(res, "%d;\n", ADC_Results[12]);
+      |                  ~^      ~~~~~~~~~~~~~~~
+      |                   |                 |
+      |                   int               uint32_t {aka long unsigned int}
+      |                  %ld
+../Core/Src/comHandle.c:175:20: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  175 |     sprintf(res, "%d;", ADC_Results[2*i]);
+      |                   ~^    ~~~~~~~~~~~~~~~~
+      |                    |               |
+      |                    int             uint32_t {aka long unsigned int}
+      |                   %ld
+../Core/Src/comHandle.c:199:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  199 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:239:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  239 |  sprintf(toSend, "%s%s%s\n", str, msg, end);
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:240:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  240 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:240:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  240 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
       |                  |
-      |                  ADC_HandleTypeDef ** {aka struct __ADC_HandleTypeDef **}
-In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
-                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
-                 from ../Core/Inc/main.h:31,
-                 from ../Core/Src/main.c:21:
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:956:60: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
-  956 | HAL_StatusTypeDef       HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
-      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:247:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  247 | }
+      | ^
 At top level:
-../Core/Src/main.c:916:17: warning: 'ADC_dataProcessing' defined but not used [-Wunused-function]
-  916 | static uint32_t ADC_dataProcessing()
-      |                 ^~~~~~~~~~~~~~~~~~
+../Core/Src/comHandle.c:244:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  244 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
 arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Zahoreni_zdroju.elf
  
@@ -25,23 +66,494 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  53648	    488	   6736	  60872	   edc8	Zahoreni_zdroju.elf
+  54528	    488	   6736	  61752	   f138	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin
  
 Finished building: Zahoreni_zdroju.list
  
-20:59:49 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+10:11:51 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_hal_msp.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_hal_msp.d" -MT"Core/Src/stm32f0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_it.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_it.d" -MT"Core/Src/stm32f0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:167:19: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  167 |    sprintf(res, "%d;\n", ADC_Results[12]);
+      |                  ~^      ~~~~~~~~~~~~~~~
+      |                   |                 |
+      |                   int               uint32_t {aka long unsigned int}
+      |                  %ld
+../Core/Src/comHandle.c:175:20: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  175 |     sprintf(res, "%d;", ADC_Results[2*i]);
+      |                   ~^    ~~~~~~~~~~~~~~~~
+      |                    |               |
+      |                    int             uint32_t {aka long unsigned int}
+      |                   %ld
+../Core/Src/comHandle.c:199:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  199 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:239:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  239 |  sprintf(toSend, "%s%s%s\n", str, msg, end);
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:240:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  240 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:240:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  240 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:247:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  247 | }
+      | ^
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+At top level:
+../Core/Src/comHandle.c:244:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  244 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+../Core/Src/main.c:135:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  135 |  HAL_ADC_Stop_IT(&hadc);
+      |                  ^~~~~
+      |                  |
+      |                  ADC_HandleTypeDef ** {aka struct __ADC_HandleTypeDef **}
+In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:956:60: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
+  956 | HAL_StatusTypeDef       HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+At top level:
+../Core/Src/main.c:916:17: warning: 'ADC_dataProcessing' defined but not used [-Wunused-function]
+  916 | static uint32_t ADC_dataProcessing()
+      |                 ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54528	    488	   6736	  61752	   f138	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+10:12:07 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
 arm-none-eabi-size   Zahoreni_zdroju.elf 
    text	   data	    bss	    dec	    hex	filename
-  53648	    488	   6736	  60872	   edc8	Zahoreni_zdroju.elf
+  54528	    488	   6736	  61752	   f138	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
-21:26:36 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+10:33:09 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:146:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  146 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:34:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   34 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:147:28: error: incompatible type for argument 2 of 'pushPaket'
+  147 |   pushPaket(USB_Tx_Buffer, paket);
+      |                            ^~~~~
+      |                            |
+      |                            Paket {aka struct <anonymous>}
+../Core/Src/comHandle.c:35:51: note: expected 'Paket *' {aka 'struct <anonymous> *'} but argument is of type 'Paket' {aka 'struct <anonymous>'}
+   35 | static void pushPaket(RING_BUFFER* buffer, Paket* data);
+      |                                            ~~~~~~~^~~~
+../Core/Src/comHandle.c:138:8: warning: unused variable 'txt' [-Wunused-variable]
+  138 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:162:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  162 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:34:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   34 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:163:29: error: incompatible type for argument 2 of 'pushPaket'
+  163 |    pushPaket(USB_Tx_Buffer, paket);
+      |                             ^~~~~
+      |                             |
+      |                             Paket {aka struct <anonymous>}
+../Core/Src/comHandle.c:35:51: note: expected 'Paket *' {aka 'struct <anonymous> *'} but argument is of type 'Paket' {aka 'struct <anonymous>'}
+   35 | static void pushPaket(RING_BUFFER* buffer, Paket* data);
+      |                                            ~~~~~~~^~~~
+../Core/Src/comHandle.c:174:19: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  174 |    sprintf(res, "%d;\n", ADC_Results[12]);
+      |                  ~^      ~~~~~~~~~~~~~~~
+      |                   |                 |
+      |                   int               uint32_t {aka long unsigned int}
+      |                  %ld
+../Core/Src/comHandle.c:182:20: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  182 |     sprintf(res, "%d;", ADC_Results[2*i]);
+      |                   ~^    ~~~~~~~~~~~~~~~~
+      |                    |               |
+      |                    int             uint32_t {aka long unsigned int}
+      |                   %ld
+../Core/Src/comHandle.c:206:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  206 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:246:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  246 |  sprintf(toSend, "%s%s%s\n", str, msg, end);
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:247:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  247 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:247:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  247 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:254:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  254 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:251:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  251 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/comHandle.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:33:31 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:146:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  146 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:34:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   34 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:138:8: warning: unused variable 'txt' [-Wunused-variable]
+  138 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:162:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  162 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:34:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   34 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:174:19: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  174 |    sprintf(res, "%d;\n", ADC_Results[12]);
+      |                  ~^      ~~~~~~~~~~~~~~~
+      |                   |                 |
+      |                   int               uint32_t {aka long unsigned int}
+      |                  %ld
+../Core/Src/comHandle.c:182:20: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  182 |     sprintf(res, "%d;", ADC_Results[2*i]);
+      |                   ~^    ~~~~~~~~~~~~~~~~
+      |                    |               |
+      |                    int             uint32_t {aka long unsigned int}
+      |                   %ld
+../Core/Src/comHandle.c:206:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  206 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:246:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  246 |  sprintf(toSend, "%s%s%s\n", str, msg, end);
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:247:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  247 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:247:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  247 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:254:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  254 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:251:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  251 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54524	    488	   6736	  61748	   f134	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+10:38:51 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:146:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  146 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:34:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   34 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:138:8: warning: unused variable 'txt' [-Wunused-variable]
+  138 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:162:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  162 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:34:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   34 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:174:19: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  174 |    sprintf(res, "%d;\n", ADC_Results[12]);
+      |                  ~^      ~~~~~~~~~~~~~~~
+      |                   |                 |
+      |                   int               uint32_t {aka long unsigned int}
+      |                  %ld
+../Core/Src/comHandle.c:182:20: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  182 |     sprintf(res, "%d;", ADC_Results[2*i]);
+      |                   ~^    ~~~~~~~~~~~~~~~~
+      |                    |               |
+      |                    int             uint32_t {aka long unsigned int}
+      |                   %ld
+../Core/Src/comHandle.c:206:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  206 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:247:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  247 |  sprintf(toSend, "%s%s%s\n", str, msg, end);
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:248:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  248 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:248:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  248 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:255:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  255 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:252:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  252 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54536	    488	   6736	  61760	   f140	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:14:20 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_hal_msp.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_hal_msp.d" -MT"Core/Src/stm32f0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_it.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_it.d" -MT"Core/Src/stm32f0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:220:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  220 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:271:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  271 |  sprintf(toSend, "%s%s%s\n", str, msg, end); //pro testNum = 0 se vytiskne jen paket->type, jelikož sprintf pak narazí na nulu
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:272:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  272 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:272:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  272 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:279:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  279 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:276:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  276 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
 ../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
 ../Core/Src/main.c:135:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
   135 |  HAL_ADC_Stop_IT(&hadc);
@@ -66,7 +578,629 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  53656	    488	   6736	  60880	   edd0	Zahoreni_zdroju.elf
+  54368	    488	   6752	  61608	   f0a8	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:14:52 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_hal_msp.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_hal_msp.d" -MT"Core/Src/stm32f0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_it.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_it.d" -MT"Core/Src/stm32f0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:220:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  220 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:271:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  271 |  sprintf(toSend, "%s%s%s\n", str, msg, end); //pro testNum = 0 se vytiskne jen paket->type, jelikož sprintf pak narazí na nulu
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:272:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  272 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:272:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  272 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:279:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  279 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:276:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  276 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/main.c:135:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  135 |  HAL_ADC_Stop_IT(&hadc);
+      |                  ^~~~~
+      |                  |
+      |                  ADC_HandleTypeDef ** {aka struct __ADC_HandleTypeDef **}
+In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:956:60: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
+  956 | HAL_StatusTypeDef       HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+At top level:
+../Core/Src/main.c:916:17: warning: 'ADC_dataProcessing' defined but not used [-Wunused-function]
+  916 | static uint32_t ADC_dataProcessing()
+      |                 ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54304	    488	   6752	  61544	   f068	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:16:35 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/shiftReg.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shiftReg.d" -MT"Core/Src/shiftReg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/shiftReg.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_hal_msp.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_hal_msp.d" -MT"Core/Src/stm32f0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f0xx_it.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f0xx_it.d" -MT"Core/Src/stm32f0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/testHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/testHandle.d" -MT"Core/Src/testHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/testHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/main.c:135:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  135 |  HAL_ADC_Stop_IT(&hadc);
+      |                  ^~~~~
+      |                  |
+      |                  ADC_HandleTypeDef ** {aka struct __ADC_HandleTypeDef **}
+In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:956:60: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
+  956 | HAL_StatusTypeDef       HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+At top level:
+../Core/Src/main.c:916:17: warning: 'ADC_dataProcessing' defined but not used [-Wunused-function]
+  916 | static uint32_t ADC_dataProcessing()
+      |                 ^~~~~~~~~~~~~~~~~~
+../Core/Src/comHandle.c:220:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  220 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:271:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  271 |  sprintf(toSend, "%s%s%s\n", str, msg, end); //pro testNum = 0 se vytiskne jen paket->type, jelikož sprintf pak narazí na nulu
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/testHandle.h:15,
+                 from ../Core/Inc/main.h:40,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/comHandle.c:272:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  272 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:272:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  272 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:279:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  279 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:276:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  276 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54304	    488	   6752	  61544	   f068	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:22:02 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:220:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  220 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:275:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  275 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:275:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  275 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:282:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  282 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:279:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  279 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54300	    488	   6752	  61540	   f064	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:24:25 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:220:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  220 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:275:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  275 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:275:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  275 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:282:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  282 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:279:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  279 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54288	    488	   6752	  61528	   f058	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:27:13 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:220:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  220 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:275:33: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  275 |  pushStr(buffer, toSend, strlen(toSend));
+      |                                 ^~~~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/main.h:36,
+                 from ../Core/Inc/comHandle.h:12,
+                 from ../Core/Src/comHandle.c:8:
+d:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/comHandle.c:275:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  275 |  pushStr(buffer, toSend, strlen(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:282:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  282 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:279:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  279 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54296	    488	   6752	  61536	   f060	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:34:39 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  54296	    488	   6752	  61536	   f060	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+11:44:26 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:219:3: error: 'fl' undeclared (first use in this function); did you mean 'fls'?
+  219 |   fl
+      |   ^~
+      |   fls
+../Core/Src/comHandle.c:219:3: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/comHandle.c:219:5: error: expected ';' before 'char'
+  219 |   fl
+      |     ^
+      |     ;
+  220 |   char msg[] = {"Buffer full\n"};
+      |   ~~~~
+../Core/Src/comHandle.c:221:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  221 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c:221:19: error: 'msg' undeclared (first use in this function)
+  221 |   CDC_Transmit_FS(msg, strlen(msg));
+      |                   ^~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:276:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  276 |  pushStr(buffer, toSend, sizeof(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:283:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  283 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:280:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  280 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/comHandle.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:44:54 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:221:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  221 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:276:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  276 |  pushStr(buffer, toSend, sizeof(toSend));
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:283:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  283 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:280:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  280 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54296	    488	   6752	  61536	   f060	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+11:46:46 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
+../Core/Src/comHandle.c: In function 'comHandler':
+../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
+  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
+      |                                       ^~~~~~~~~~~~~
+      |                                       |
+      |                                       char *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
+  142 |   char txt[30];
+      |        ^~~
+../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:221:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  221 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:276:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  276 |  pushStr(buffer, toSend, sizeof(toSend)-1);
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
+../Core/Src/comHandle.c: In function 'decodePaket':
+../Core/Src/comHandle.c:283:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  283 | }
+      | ^
+At top level:
+../Core/Src/comHandle.c:280:16: warning: 'decodePaket' defined but not used [-Wunused-function]
+  280 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+      |                ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  54300	    488	   6752	  61540	   f064	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin
