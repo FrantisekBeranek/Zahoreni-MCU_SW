@@ -21,7 +21,6 @@ extern uint8_t* regValues;
 extern uint8_t regCount;
 
 uint8_t* sourceInTesting;
-uint8_t tmp;
 
 static void startTest();
 static void stopTest();
@@ -55,6 +54,7 @@ void testHandler()
 		else
 		{
 			flags.startConflict = 1;
+			flags.instructions.startRequest = 0;
 		}
 	}
 	if(flags.instructions.stopRequest)

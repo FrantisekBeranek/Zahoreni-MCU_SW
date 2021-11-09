@@ -4189,3 +4189,1244 @@
 
 
 2021-11-03 20:27:52,109 [INFO] Activator:178 - !SESSION log4j initialized
+2021-11-05 10:38:54,334 [INFO] Activator:177 - 
+
+
+2021-11-05 10:38:54,336 [INFO] Activator:178 - !SESSION log4j initialized
+2021-11-05 15:12:43,669 [INFO] McuFinderGlobals:39 - Set McuFinder mode to 2 (CubeIDE integrated)
+2021-11-05 15:12:43,880 [INFO] ApplicationProperties:181 - Using Application install path: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111
+2021-11-05 15:12:43,900 [INFO] DbMcusXml:74 - Set database path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/mcu/
+2021-11-05 15:12:43,905 [INFO] DbBoardsPdsc:56 - Set plugin database path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/boardmanager/
+2021-11-05 15:12:43,905 [INFO] DbMcus:258 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:43,906 [INFO] DbBoards:264 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:43,909 [INFO] DbExamples:333 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:43,918 [INFO] DbMcusAds:119 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:43,919 [INFO] DbMcusDocs:110 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:43,922 [INFO] DbMcusJson:64 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:43,923 [INFO] DbBoardsDocs:110 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:43,924 [INFO] DbBoardsJson:57 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:43,972 [INFO] CrossReferenceDbSqlite:196 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/cs/
+2021-11-05 15:12:43,985 [INFO] DbExamplesSqlite:767 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,098 [INFO] RulesReader:57 - Compatibility file has been processed (242 Rules)
+2021-11-05 15:12:44,202 [INFO] DbMcusXml:74 - Set database path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/mcu/
+2021-11-05 15:12:44,203 [INFO] DbBoardsPdsc:56 - Set plugin database path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/boardmanager/
+2021-11-05 15:12:44,204 [INFO] DbMcus:258 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:44,204 [INFO] DbBoards:264 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:44,204 [INFO] DbExamples:333 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:44,205 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,205 [INFO] DbMcusAds:119 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,205 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,205 [INFO] DbMcusDocs:110 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,205 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,205 [INFO] DbMcusJson:64 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,205 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,206 [INFO] DbBoardsDocs:110 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,206 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,206 [INFO] DbBoardsJson:57 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,206 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,206 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,206 [INFO] CrossReferenceDbSqlite:196 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/cs/
+2021-11-05 15:12:44,206 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,207 [INFO] DbExamplesSqlite:767 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,291 [INFO] MainPanel:214 - HeapMemory: 429916160
+2021-11-05 15:12:44,431 [INFO] DbMcusXml:74 - Set database path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/mcu/
+2021-11-05 15:12:44,431 [INFO] DbBoardsPdsc:56 - Set plugin database path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/boardmanager/
+2021-11-05 15:12:44,432 [INFO] DbMcus:258 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:44,432 [INFO] DbBoards:264 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:44,432 [INFO] DbExamples:333 - Set plugin images path to: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/plugins/mcufinder/images/
+2021-11-05 15:12:44,433 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,433 [INFO] DbMcusAds:119 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,433 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,433 [INFO] DbMcusDocs:110 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,433 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,433 [INFO] DbMcusJson:64 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,433 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,433 [INFO] DbBoardsDocs:110 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,434 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,434 [INFO] DbBoardsJson:57 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,434 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,434 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,434 [INFO] CrossReferenceDbSqlite:196 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/cs/
+2021-11-05 15:12:44,434 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder/ => C:\Users\František Beránek\.stmcufinder\plugins\mcufinder
+2021-11-05 15:12:44,434 [INFO] DbExamplesSqlite:767 - Set database path to: C:\Users\František Beránek\.stmcufinder\plugins\mcufinder//mcu/
+2021-11-05 15:12:44,454 [INFO] ApplicationProperties:181 - Using Application install path: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111
+2021-11-05 15:12:44,455 [INFO] PluginManage:188 - Search for loadable plugins [exclusion list=, ]
+2021-11-05 15:12:44,457 [INFO] PluginManage:302 - Check plugin analytics
+2021-11-05 15:12:44,657 [INFO] AnalyticsPlugin:257 - Accepted Software Licenses: STM32CubeMX.6.3.0
+2021-11-05 15:12:44,658 [INFO] AnalyticsPlugin:259 - Accepted CMSIS Pack Licenses: 
+2021-11-05 15:12:44,658 [INFO] AnalyticsPlugin:261 - Accepted Firmware Licenses: 
+2021-11-05 15:12:44,659 [INFO] PluginManage:352 - Loaded plugin analytics (category:tool,tabindex:-1)
+2021-11-05 15:12:44,659 [INFO] PluginManage:302 - Check plugin clock
+2021-11-05 15:12:44,676 [INFO] PluginManage:352 - Loaded plugin clock (category:base,tabindex:2)
+2021-11-05 15:12:44,676 [INFO] PluginManage:302 - Check plugin ddr
+2021-11-05 15:12:44,680 [INFO] PluginManage:352 - Loaded plugin ddr (category:tool,tabindex:6)
+2021-11-05 15:12:44,680 [INFO] PluginManage:302 - Check plugin filemanager
+2021-11-05 15:12:44,828 [INFO] PluginManage:352 - Loaded plugin filemanager (category:base,tabindex:10)
+2021-11-05 15:12:44,829 [INFO] PluginManage:302 - Check plugin ipmanager
+2021-11-05 15:12:44,838 [INFO] PluginManage:352 - Loaded plugin ipmanager (category:base,tabindex:5)
+2021-11-05 15:12:44,839 [INFO] PluginManage:302 - Check plugin pinoutandconfiguration
+2021-11-05 15:12:44,850 [INFO] PluginManage:352 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2021-11-05 15:12:44,850 [INFO] PluginManage:302 - Check plugin pinoutconfig
+2021-11-05 15:12:44,883 [INFO] PluginManage:352 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2021-11-05 15:12:44,883 [INFO] PluginManage:302 - Check plugin power
+2021-11-05 15:12:44,901 [INFO] PluginManage:352 - Loaded plugin power (category:power,tabindex:4)
+2021-11-05 15:12:44,901 [INFO] PluginManage:302 - Check plugin projectmanager
+2021-11-05 15:12:44,919 [INFO] PluginManage:352 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2021-11-05 15:12:44,919 [INFO] PluginManage:302 - Check plugin thirdparty
+2021-11-05 15:12:45,058 [WARN] IntegrityCheckThread:78 - waiting for thirdparty lock release [integrity check]
+2021-11-05 15:12:45,059 [INFO] PluginManage:352 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2021-11-05 15:12:45,060 [INFO] PluginManage:302 - Check plugin tools
+2021-11-05 15:12:45,060 [INFO] IntegrityCheckThread:80 - entering critical section [integrity check]
+2021-11-05 15:12:45,060 [INFO] ThirdPartyUpdaterWithRetryManager:66 - Updater plugin not ready yet. [1/15]
+2021-11-05 15:12:45,063 [INFO] PluginManage:352 - Loaded plugin tools (category:base,tabindex:7)
+2021-11-05 15:12:45,063 [INFO] PluginManage:302 - Check plugin tutovideos
+2021-11-05 15:12:45,302 [INFO] PluginManage:352 - Loaded plugin tutovideos (category:base,tabindex:-1)
+2021-11-05 15:12:45,302 [INFO] PluginManage:302 - Check plugin updater
+2021-11-05 15:12:45,317 [INFO] PluginManage:352 - Loaded plugin updater (category:base,tabindex:12)
+2021-11-05 15:12:45,317 [INFO] PluginManage:275 - PluginManage : Loaded plugins [13]
+2021-11-05 15:12:45,544 [INFO] PinOutPanel:1463 - setPackage(No Configuration,No Configuration)
+2021-11-05 15:12:45,636 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,637 [INFO] PluginManager:213 - loadIPPluginJar : add adc
+2021-11-05 15:12:45,642 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,642 [INFO] PluginManager:213 - loadIPPluginJar : add aes
+2021-11-05 15:12:45,644 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,645 [INFO] PluginManager:213 - loadIPPluginJar : add can
+2021-11-05 15:12:45,647 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,647 [INFO] PluginManager:213 - loadIPPluginJar : add comp
+2021-11-05 15:12:45,650 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,650 [INFO] PluginManager:213 - loadIPPluginJar : add cryp
+2021-11-05 15:12:45,654 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,655 [INFO] PluginManager:213 - loadIPPluginJar : add dfsdm
+2021-11-05 15:12:45,662 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,662 [INFO] PluginManager:213 - loadIPPluginJar : add dma
+2021-11-05 15:12:45,666 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,666 [INFO] PluginManager:213 - loadIPPluginJar : add dma3
+2021-11-05 15:12:45,667 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,668 [INFO] PluginManager:213 - loadIPPluginJar : add fatfs
+2021-11-05 15:12:45,673 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,674 [INFO] PluginManager:213 - loadIPPluginJar : add fmc
+2021-11-05 15:12:45,682 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,682 [INFO] PluginManager:213 - loadIPPluginJar : add freertos
+2021-11-05 15:12:45,684 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,685 [INFO] PluginManager:213 - loadIPPluginJar : add genericplugin
+2021-11-05 15:12:45,688 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,689 [INFO] PluginManager:213 - loadIPPluginJar : add gfxmmu
+2021-11-05 15:12:45,696 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,696 [INFO] PluginManager:213 - loadIPPluginJar : add gic
+2021-11-05 15:12:45,701 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,701 [INFO] PluginManager:213 - loadIPPluginJar : add gpio
+2021-11-05 15:12:45,704 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,705 [INFO] PluginManager:213 - loadIPPluginJar : add gtzc
+2021-11-05 15:12:45,708 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,709 [INFO] PluginManager:213 - loadIPPluginJar : add hash
+2021-11-05 15:12:45,713 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,714 [INFO] PluginManager:213 - loadIPPluginJar : add i2c
+2021-11-05 15:12:45,717 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,717 [INFO] PluginManager:213 - loadIPPluginJar : add i2s
+2021-11-05 15:12:45,720 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,720 [INFO] PluginManager:213 - loadIPPluginJar : add ipddr
+2021-11-05 15:12:45,728 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,728 [INFO] PluginManager:213 - loadIPPluginJar : add linkedlist
+2021-11-05 15:12:45,732 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,733 [INFO] PluginManager:213 - loadIPPluginJar : add lorawan
+2021-11-05 15:12:45,735 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,735 [INFO] PluginManager:213 - loadIPPluginJar : add ltdc
+2021-11-05 15:12:45,741 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,741 [INFO] PluginManager:213 - loadIPPluginJar : add mdma
+2021-11-05 15:12:45,745 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,746 [INFO] PluginManager:213 - loadIPPluginJar : add nvic
+2021-11-05 15:12:45,750 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,751 [INFO] PluginManager:213 - loadIPPluginJar : add opamp
+2021-11-05 15:12:45,754 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,755 [INFO] PluginManager:213 - loadIPPluginJar : add openamp
+2021-11-05 15:12:45,759 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,759 [INFO] PluginManager:213 - loadIPPluginJar : add pdm2pcm
+2021-11-05 15:12:45,766 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,769 [INFO] PluginManager:213 - loadIPPluginJar : add plateformsettings
+2021-11-05 15:12:45,773 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,773 [INFO] PluginManager:213 - loadIPPluginJar : add quadspi
+2021-11-05 15:12:45,779 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,780 [INFO] PluginManager:213 - loadIPPluginJar : add resmgrutility
+2021-11-05 15:12:45,784 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,784 [INFO] PluginManager:213 - loadIPPluginJar : add sai
+2021-11-05 15:12:45,787 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,787 [INFO] PluginManager:213 - loadIPPluginJar : add spi
+2021-11-05 15:12:45,800 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,801 [INFO] PluginManager:213 - loadIPPluginJar : add stm32_wpan
+2021-11-05 15:12:45,805 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,805 [INFO] PluginManager:213 - loadIPPluginJar : add tim
+2021-11-05 15:12:45,811 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,812 [INFO] PluginManager:213 - loadIPPluginJar : add touchsensing
+2021-11-05 15:12:45,814 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,815 [INFO] PluginManager:213 - loadIPPluginJar : add tracer_emb
+2021-11-05 15:12:45,818 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,818 [INFO] PluginManager:213 - loadIPPluginJar : add ts
+2021-11-05 15:12:45,821 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,821 [INFO] PluginManager:213 - loadIPPluginJar : add tsc
+2021-11-05 15:12:45,824 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,824 [INFO] PluginManager:213 - loadIPPluginJar : add ucpd
+2021-11-05 15:12:45,828 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,828 [INFO] PluginManager:213 - loadIPPluginJar : add usart
+2021-11-05 15:12:45,832 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:45,833 [INFO] PluginManager:213 - loadIPPluginJar : add usbx
+2021-11-05 15:12:46,226 [FATAL] Updater:294 - Updater called before beeing initialized
+2021-11-05 15:12:46,348 [FATAL] Updater:294 - Updater called before beeing initialized
+2021-11-05 15:12:46,353 [INFO] DbMcusAds:47 - JSON generation date=Wed Aug 18 16:24:26 CEST 2021 (1629296666117)
+2021-11-05 15:12:46,353 [FATAL] Updater:294 - Updater called before beeing initialized
+2021-11-05 15:12:46,399 [WARN] DetailPanel:314 - Failed to get advertising image, set to default
+2021-11-05 15:12:46,511 [FATAL] Updater:294 - Updater called before beeing initialized
+2021-11-05 15:12:46,514 [FATAL] Updater:294 - Updater called before beeing initialized
+2021-11-05 15:12:46,514 [FATAL] Updater:294 - Updater called before beeing initialized
+2021-11-05 15:12:46,514 [WARN] DetailPanel:314 - Failed to get advertising image, set to default
+2021-11-05 15:12:46,515 [FATAL] Updater:294 - Updater called before beeing initialized
+2021-11-05 15:12:46,572 [ERROR] Updater:1075 - MainUpdater not yet initialized. External WinMGr cannot be set.
+2021-11-05 15:12:46,576 [INFO] Updater:1012 - Updater Version found : 6.3.0
+2021-11-05 15:12:46,598 [INFO] ApplicationProperties:181 - Using Application install path: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111
+2021-11-05 15:12:46,788 [INFO] MainUpdater:2671 - connection check result : 10
+2021-11-05 15:12:46,788 [INFO] MainUpdater:3359 - Updater definition file requires update
+2021-11-05 15:12:46,790 [INFO] MainUpdater:265 - Updater Check For Update Now.
+2021-11-05 15:12:46,790 [INFO] MicroXplorer:478 - Change Database Version : DB.6.0.30
+2021-11-05 15:12:46,900 [INFO] ServerAccessManage:362 - Download File updaters.zip
+2021-11-05 15:12:46,986 [INFO] FileExtend:235 - Unzip File : updaters.zip
+2021-11-05 15:12:46,986 [INFO] FileExtend:250 - Standard Zip Deflate
+2021-11-05 15:12:47,447 [INFO] ServerAccessManage:362 - Download File PacksControlFlags.xml
+2021-11-05 15:12:47,598 [INFO] ServerAccessManage:362 - Download File cubemx.pidx
+2021-11-05 15:12:47,885 [INFO] ServerAccessManage:362 - Download File STMicroelectronics.X-CUBE-BLE1.pdsc
+2021-11-05 15:12:48,075 [WARN] MainUpdater:1122 - Updater busy. Cannot search thirdparties
+2021-11-05 15:12:48,075 [INFO] ThirdPartyUpdaterWithRetryManager:92 - Updater plugin is busy. [1/15]
+2021-11-05 15:12:48,225 [ERROR] ServerAccessManage:974 - Problem, file not found on Server
+2021-11-05 15:12:48,337 [INFO] ServerAccessManage:362 - Download File STMicroelectronics.X-CUBE-DISPLAY.pdsc
+2021-11-05 15:12:48,407 [ERROR] ServerAccessManage:1024 - Warning during Server Connexion :  Invalid URL no protocol: Release_Notes.html
+2021-11-05 15:12:48,409 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] java.net.MalformedURLException: no protocol: Release_Notes.html
+2021-11-05 15:12:48,409 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.net.URL.<init>(URL.java:645)
+2021-11-05 15:12:48,410 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.net.URL.<init>(URL.java:541)
+2021-11-05 15:12:48,411 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.net.URL.<init>(URL.java:488)
+2021-11-05 15:12:48,414 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.ServerAccessManage.openHttpConnexion(ServerAccessManage.java:884)
+2021-11-05 15:12:48,416 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.ServerAccessManage.getHttpFileSize(ServerAccessManage.java:586)
+2021-11-05 15:12:48,418 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.LoadServerUpdatesThread.addUpdaterFile(LoadServerUpdatesThread.java:1265)
+2021-11-05 15:12:48,422 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.LoadServerUpdatesThread.processPackIndexEntries(LoadServerUpdatesThread.java:1070)
+2021-11-05 15:12:48,425 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.LoadServerUpdatesThread.processThirdPartyUpdaterIndexUrls(LoadServerUpdatesThread.java:1014)
+2021-11-05 15:12:48,428 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.LoadServerUpdatesThread.processThirdParties(LoadServerUpdatesThread.java:779)
+2021-11-05 15:12:48,430 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.LoadServerUpdatesThread.performFullUpdate(LoadServerUpdatesThread.java:395)
+2021-11-05 15:12:48,433 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.updater.engine.LoadServerUpdatesThread.run(LoadServerUpdatesThread.java:280)
+2021-11-05 15:12:48,541 [INFO] ServerAccessManage:362 - Download File STMicroelectronics.X-CUBE-MEMS1.pdsc
+2021-11-05 15:12:49,119 [INFO] ServerAccessManage:362 - Download File STMicroelectronics.X-CUBE-TOUCHGFX.pdsc
+2021-11-05 15:12:49,456 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.6.2.2
+2021-11-05 15:12:49,464 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.2.0.0
+2021-11-05 15:12:49,518 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.9.1.0
+2021-11-05 15:12:49,557 [INFO] CheckServerUpdateThread:112 - End of CheckServer Thread
+2021-11-05 15:12:49,649 [INFO] MainUpdater:2671 - connection check result : 10
+2021-11-05 15:12:49,650 [INFO] MainUpdater:2671 - connection check result : 10
+2021-11-05 15:12:49,675 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.18.0
+2021-11-05 15:12:49,676 [INFO] PopulateThirdPartyThread:60 - Ending populate Thread
+2021-11-05 15:12:49,677 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.2
+2021-11-05 15:12:49,678 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 2.0.0
+2021-11-05 15:12:49,678 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.1.0
+2021-11-05 15:12:49,678 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.18.0
+2021-11-05 15:12:49,678 [INFO] LoadServerUpdatesThread:339 - End of LoadServerUpdate Thread
+2021-11-05 15:12:49,756 [INFO] MicroXplorer:448 - Change Database Path : 
+2021-11-05 15:12:49,756 [INFO] MicroXplorer:478 - Change Database Version : DB.6.0.30
+2021-11-05 15:12:49,756 [WARN] ThirdParty:813 - waiting for thirdparty lock release [close project]
+2021-11-05 15:12:51,209 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7.1.1.0
+2021-11-05 15:12:51,227 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.6.2.1
+2021-11-05 15:12:51,233 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.6.2.2
+2021-11-05 15:12:51,241 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE2.3.2.1
+2021-11-05 15:12:51,246 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE2.3.2.2
+2021-11-05 15:12:51,252 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC4.2.0.3
+2021-11-05 15:12:51,257 [WARN] PackLoader:238 - Cannot read IP mode file for wolfSSL.I-CUBE-wolfSSL.4.8.0
+2021-11-05 15:12:51,263 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SFXS2LP1.3.1.0
+2021-11-05 15:12:51,284 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-F4.1.0.0
+2021-11-05 15:12:51,292 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOF1.2.0.0
+2021-11-05 15:12:51,303 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SUBG2.4.2.0
+2021-11-05 15:12:51,330 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7.1.0.0
+2021-11-05 15:12:51,340 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ALGOBUILD.1.2.1
+2021-11-05 15:12:51,343 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.1.0.0
+2021-11-05 15:12:51,346 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.18.0
+2021-11-05 15:12:51,354 [WARN] PackLoader:238 - Cannot read IP mode file for RoweBots.I-CUBE-UNISONRTOS.5.5.0-4
+2021-11-05 15:12:51,392 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.9.0.0
+2021-11-05 15:12:51,569 [WARN] PackLoader:238 - Cannot read IP mode file for SEGGER.I-CUBE-embOS.1.2.0
+2021-11-05 15:12:51,604 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.17.0
+2021-11-05 15:12:51,622 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7.2.0.0
+2021-11-05 15:12:51,641 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-L4.1.0.0
+2021-11-05 15:12:51,677 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.9.1.0
+2021-11-05 15:12:51,807 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ALS.1.0.1
+2021-11-05 15:12:51,810 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AI.7.0.0
+2021-11-05 15:12:51,814 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-EEPRMA1.3.1.0
+2021-11-05 15:12:51,821 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-GNSS1.5.2.0
+2021-11-05 15:12:51,825 [WARN] PackLoader:238 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.2.0.0
+2021-11-05 15:12:51,826 [INFO] ThirdParty:915 - Integrity check success = true
+2021-11-05 15:12:51,826 [INFO] IntegrityCheckThread:94 - exiting critical section [integrity check]
+2021-11-05 15:12:51,827 [INFO] IntegrityCheckThread:97 - End integrity checks thread
+2021-11-05 15:12:51,827 [INFO] ThirdParty:815 - entering critical section [close project]
+2021-11-05 15:12:51,827 [INFO] ThirdParty:825 - exiting critical section [close project]
+2021-11-05 15:12:51,831 [INFO] PinOutPanel:1463 - setPackage(No Configuration,No Configuration)
+2021-11-05 15:12:51,832 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 397470728 Bytes (994050048)
+2021-11-05 15:12:51,833 [INFO] MicroXplorer:448 - Change Database Path : 
+2021-11-05 15:12:51,833 [INFO] MicroXplorer:478 - Change Database Version : DB.6.0.30
+2021-11-05 15:12:51,833 [INFO] OpenFileManager:313 - Change cursor
+2021-11-05 15:12:53,185 [INFO] Context:592 - Trying to add GPIOservice into a context  which must be forbidden
+2021-11-05 15:12:53,540 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A1' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.1.0: no header file found
+2021-11-05 15:12:53,540 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A2' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.1.0: no header file found
+2021-11-05 15:12:53,540 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2915A1' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.1.0: no header file found
+2021-11-05 15:12:53,554 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,554 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,554 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,554 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,554 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,554 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,554 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,555 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,556 [WARN] ModelIntegratedComponent:60 - No mode defined for component null
+2021-11-05 15:12:53,685 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A3' from pack STMicroelectronics.X-CUBE-MEMS1.9.0.0: no header file found
+2021-11-05 15:12:53,685 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A2' from pack STMicroelectronics.X-CUBE-MEMS1.9.0.0: no header file found
+2021-11-05 15:12:53,685 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS02A1' from pack STMicroelectronics.X-CUBE-MEMS1.9.0.0: no header file found
+2021-11-05 15:12:53,693 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A1' from pack STMicroelectronics.X-CUBE-SUBG2.4.2.0: no header file found
+2021-11-05 15:12:53,694 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2868A2' from pack STMicroelectronics.X-CUBE-SUBG2.4.2.0: no header file found
+2021-11-05 15:12:53,694 [WARN] ApiManager:304 - Cannot register API 'Board Extension:S2915A1' from pack STMicroelectronics.X-CUBE-SUBG2.4.2.0: no header file found
+2021-11-05 15:12:53,839 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A3' from pack STMicroelectronics.X-CUBE-MEMS1.9.1.0: no header file found
+2021-11-05 15:12:53,840 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS01A2' from pack STMicroelectronics.X-CUBE-MEMS1.9.1.0: no header file found
+2021-11-05 15:12:53,840 [WARN] ApiManager:304 - Cannot register API 'Board Extension:IKS02A1' from pack STMicroelectronics.X-CUBE-MEMS1.9.1.0: no header file found
+2021-11-05 15:12:53,849 [INFO] RtosManager:484 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2021-11-05 15:12:53,849 [INFO] RtosManager:484 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2021-11-05 15:12:53,850 [INFO] RtosManager:484 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2021-11-05 15:12:53,850 [INFO] RtosManager:484 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2021-11-05 15:12:53,850 [WARN] ModelIntegratedComponent:181 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2021-11-05 15:12:53,852 [WARN] ApiManager:304 - Cannot register API 'Board Extension:EEPRMA1' from pack STMicroelectronics.X-CUBE-EEPRMA1.3.1.0: no header file found
+2021-11-05 15:12:53,852 [WARN] ApiManager:304 - Cannot register API 'Board Extension:EEPRMA2' from pack STMicroelectronics.X-CUBE-EEPRMA1.3.1.0: no header file found
+2021-11-05 15:12:53,853 [WARN] ApiManager:304 - Cannot register API 'Board Extension:GNSS1A1' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2021-11-05 15:12:53,853 [WARN] ApiManager:304 - Cannot register API 'Board Support:Custom' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2021-11-05 15:12:53,853 [WARN] ApiManager:304 - Cannot register API 'Data Exchange:lib_gnss' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2021-11-05 15:12:53,854 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-MS' from pack STMicroelectronics.X-CUBE-BLE1.6.2.1: no header file found
+2021-11-05 15:12:53,854 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-MS' from pack STMicroelectronics.X-CUBE-BLE1.6.2.2: no header file found
+2021-11-05 15:12:53,855 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-2' from pack STMicroelectronics.X-CUBE-BLE2.3.2.1: no header file found
+2021-11-05 15:12:53,855 [WARN] ApiManager:304 - Cannot register API 'Wireless:BlueNRG-2' from pack STMicroelectronics.X-CUBE-BLE2.3.2.2: no header file found
+2021-11-05 15:12:53,856 [WARN] ApiManager:304 - Cannot register API 'Board Extension:NFC04A1' from pack STMicroelectronics.X-CUBE-NFC4.2.0.3: no header file found
+2021-11-05 15:12:55,423 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (RCC) : Invalid parameter (FamilyName)
+2021-11-05 15:12:55,424 [INFO] ImportTextPane:167 - (OptionalMessage_ERROR) IP (RCC) : Invalid parameter (HSICECFreq_Value)
+2021-11-05 15:12:55,568 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 225251192 Bytes (994050048)
+2021-11-05 15:12:55,570 [INFO] DbMcusXml:100 - Load MCU database from D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\/mcu/families.xml
+2021-11-05 15:12:56,274 [INFO] DbMcusJson:93 - JSON generation date=Mon Jun 07 10:53:21 CEST 2021 (1623056001)
+2021-11-05 15:12:56,772 [INFO] DbMcus:175 - Found 1951 MCUs (1903 are supported by CubeMX, 1903 are visible in CubeMX)
+2021-11-05 15:12:56,776 [INFO] ApiDb:251 - Load user favorites file C:\Users\František Beránek/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2021-11-05 15:12:56,776 [INFO] ApiDb:255 - User favorites MCUs=[]
+2021-11-05 15:12:56,776 [INFO] DbMcus:187 - Set 0 / 0 favorites MCUs
+2021-11-05 15:12:56,784 [WARN] ThirdParty:779 - waiting for thirdparty lock release [change project]
+2021-11-05 15:12:56,784 [INFO] ThirdParty:781 - entering critical section [change project]
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 3.1.0
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :RoweBots I-CUBE-UNISONRTOS 5.5.0-4
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.0.0
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 2.0.0
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 1.0.0
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2021-11-05 15:12:56,784 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 2.0.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.0.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 1.1.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 4.2.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.1.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 1.0.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2021-11-05 15:12:56,785 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 7.0.0
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.2.1
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 1.0.0
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.2.0
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 3.1.0
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.2.0
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.1
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.2
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.2.1
+2021-11-05 15:12:56,786 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.2.2
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 2.0.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 2.0.3
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 4.8.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.17.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:967 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.18.0
+2021-11-05 15:12:56,787 [INFO] ThirdParty:787 - exiting critical section [change project]
+2021-11-05 15:12:57,168 [INFO] PinOutPanel:1463 - setPackage(No Configuration,No Configuration)
+2021-11-05 15:12:57,169 [INFO] PinOutPanel:1463 - setPackage(STM32F072RBTx,LQFP64)
+2021-11-05 15:12:57,939 [INFO] UtilMem:74 - Before build in PCC Used Memory: 311890808 Bytes (994050048)
+2021-11-05 15:12:58,589 [INFO] UtilMem:74 - After build in PCC Used Memory: 395250552 Bytes (994050048)
+2021-11-05 15:12:58,673 [INFO] ApiDbMcu:468 - Load IP Config File for USB_DEVICE
+2021-11-05 15:12:58,701 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,702 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,702 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,702 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,702 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,702 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,702 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,703 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,703 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,703 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,703 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,703 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,703 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,704 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,704 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,704 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,704 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,704 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,705 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,705 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,705 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,706 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,706 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,706 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,706 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,707 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,707 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,707 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,708 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,708 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,708 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,709 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,709 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,710 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,710 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,711 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,711 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,711 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,712 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,713 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,713 [INFO] IPUIPlugin:74 - create IPUIPlugin
+2021-11-05 15:12:58,855 [INFO] OpenFileManager:333 - Restore cursor
+2021-11-05 15:16:45,813 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 660095400 Bytes (994050048)
+2021-11-05 15:16:47,999 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 696795560 Bytes (994050048)
+2021-11-05 15:16:54,324 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 536363432 Bytes (994050048)
+2021-11-05 15:16:54,633 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: ADC
+2021-11-05 15:16:54,633 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2021-11-05 15:16:54,634 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-11-05 15:16:54,634 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USART
+2021-11-05 15:16:54,634 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F0
+2021-11-05 15:16:54,634 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2021-11-05 15:16:54,634 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB
+2021-11-05 15:16:54,634 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-11-05 15:16:54,634 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-11-05 15:16:54,635 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-11-05 15:16:54,635 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: CRC
+2021-11-05 15:16:54,635 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-11-05 15:16:55,138 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp_save
+2021-11-05 15:16:55,457 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp
+2021-11-05 15:16:55,710 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp_save
+2021-11-05 15:16:55,784 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp
+2021-11-05 15:16:56,314 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp_save
+2021-11-05 15:16:56,364 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp
+2021-11-05 15:16:56,367 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp_save
+2021-11-05 15:16:56,411 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp
+2021-11-05 15:16:56,415 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp_save
+2021-11-05 15:16:56,504 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp
+2021-11-05 15:16:56,510 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp_save
+2021-11-05 15:16:56,632 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp
+2021-11-05 15:16:56,674 [ERROR] IPConfigManager:1513 - ERROR: the RefConfig ADC_InternalChannelConfig is not available in your config.xml file
+2021-11-05 15:16:58,455 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2021-11-05 15:16:58,470 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c_save
+2021-11-05 15:16:58,546 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c
+2021-11-05 15:16:58,551 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h_save
+2021-11-05 15:16:58,604 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h
+2021-11-05 15:16:58,609 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h_save
+2021-11-05 15:16:58,665 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h
+2021-11-05 15:16:58,674 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c_save
+2021-11-05 15:16:58,755 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c
+2021-11-05 15:16:58,761 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h_save
+2021-11-05 15:16:58,813 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h
+2021-11-05 15:16:58,818 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c_save
+2021-11-05 15:16:58,879 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c
+2021-11-05 15:16:58,883 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h_save
+2021-11-05 15:16:58,935 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h
+2021-11-05 15:16:58,941 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c_save
+2021-11-05 15:16:59,008 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c
+2021-11-05 15:16:59,025 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c_save
+2021-11-05 15:16:59,186 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c
+2021-11-05 15:16:59,190 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h_save
+2021-11-05 15:16:59,245 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h
+2021-11-05 15:16:59,257 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c_save
+2021-11-05 15:16:59,373 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c
+2021-11-05 15:16:59,377 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp_save
+2021-11-05 15:16:59,421 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp
+2021-11-05 15:16:59,430 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h_save
+2021-11-05 15:16:59,492 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h
+2021-11-05 15:16:59,519 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-11-05 15:16:59,520 [WARN] CodeGenerator:3268 - IP not found : null
+2021-11-05 15:16:59,528 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h_save
+2021-11-05 15:16:59,615 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h
+2021-11-05 15:16:59,632 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c_save
+2021-11-05 15:16:59,931 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c
+2021-11-05 15:17:00,851 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 140mS.
+2021-11-05 15:17:00,864 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-11-05 15:17:01,191 [INFO] ConfigFileManager:1271 - The Die is : DIE448
+2021-11-05 15:17:01,201 [INFO] ApiDbMcu:468 - Load IP Config File for FATFS
+2021-11-05 15:17:01,230 [INFO] ApiDbMcu:468 - Load IP Config File for FREERTOS
+2021-11-05 15:17:01,365 [INFO] ApiDbMcu:468 - Load IP Config File for TOUCHSENSING
+2021-11-05 15:17:02,395 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Nov 05, 2021 3:17:02 PM com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3 onCommandEntered
+2021-11-05 15:17:02,397 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SEVERE: null
+2021-11-05 15:17:02,402 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.jdom.input.JDOMParseException: Error on line 9 of document file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:17:02,404 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:530)
+2021-11-05 15:17:02,406 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 15:17:02,409 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 15:17:02,412 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 15:17:02,415 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 15:17:02,418 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 15:17:02,422 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 15:17:02,425 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 15:17:02,428 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 15:17:02,431 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 15:17:02,434 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 15:17:02,436 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 15:17:02,438 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 15:17:02,438 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 15:17:02,440 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 15:17:02,442 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 15:17:02,444 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 15:17:02,446 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 15:17:02,448 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 15:17:02,450 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 15:17:02,452 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 15:17:02,454 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 15:17:02,457 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 15:17:02,459 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 15:17:02,461 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 15:17:02,466 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:17:02,469 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 15:17:02,499 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 15:17:02,502 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 15:17:02,504 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 15:17:02,507 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 15:17:02,509 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 15:17:02,512 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 15:17:02,514 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 15:17:02,516 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 15:17:02,519 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 15:17:02,520 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 15:17:02,523 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 15:17:02,525 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 15:17:02,526 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 15:17:02,527 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 24 more
+2021-11-05 15:17:02,529 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:17:02,531 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 15:17:02,533 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 15:17:02,535 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 15:17:02,537 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 15:17:02,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 15:17:02,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 15:17:02,545 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:17:02,548 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 15:17:02,550 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 15:17:02,552 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 15:17:02,554 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 15:17:02,558 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 15:17:02,560 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 15:17:02,562 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 15:17:02,565 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 15:17:02,567 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 15:17:02,569 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 15:17:02,571 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 15:17:02,573 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 15:17:02,576 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 15:17:02,578 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 15:17:02,579 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 15:17:02,580 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 15:17:02,582 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 15:17:02,584 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 15:17:02,587 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 15:17:02,589 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 15:17:02,591 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 15:17:02,593 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 15:17:02,596 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 15:17:02,598 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 15:17:02,600 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 15:17:02,601 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 15:17:02,603 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 15:17:02,604 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 15:17:02,606 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 15:17:02,607 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 15:17:02,610 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 15:17:02,612 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 15:17:02,614 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 15:17:02,616 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 15:17:02,618 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 15:17:02,619 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 15:17:02,621 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 15:17:02,623 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 15:17:02,625 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:17:02,627 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 15:17:02,629 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 15:17:02,631 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 15:17:02,633 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 15:17:02,636 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 15:17:02,636 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 15:17:02,639 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:17:02,641 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 15:17:02,643 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 15:17:02,645 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 15:17:02,647 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 15:17:02,650 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 15:17:02,653 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 15:17:02,655 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 15:17:02,658 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 15:17:02,660 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 15:17:02,662 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 15:17:02,664 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 15:17:02,666 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 15:17:02,668 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 15:17:02,669 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 15:17:02,670 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 15:17:02,672 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 15:17:02,674 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 15:17:02,677 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 15:17:02,679 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 15:17:02,681 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 15:17:02,683 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 15:17:02,685 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 15:17:02,688 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 15:17:02,690 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 15:17:02,692 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 15:17:02,694 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 15:17:02,695 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 15:17:02,696 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 15:17:02,698 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 15:17:02,699 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 15:17:02,702 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 15:17:02,703 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 15:17:02,705 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 15:17:02,707 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 15:17:02,709 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 15:17:02,710 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 15:17:02,712 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 15:17:02,714 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 15:17:02,714 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-11-05 15:24:58,629 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 363302032 Bytes (1073741824)
+2021-11-05 15:25:00,358 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 395285648 Bytes (1073741824)
+2021-11-05 15:25:03,996 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 444568720 Bytes (1073741824)
+2021-11-05 15:25:04,319 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: ADC
+2021-11-05 15:25:04,319 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2021-11-05 15:25:04,320 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-11-05 15:25:04,320 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USART
+2021-11-05 15:25:04,320 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F0
+2021-11-05 15:25:04,320 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2021-11-05 15:25:04,320 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB
+2021-11-05 15:25:04,320 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-11-05 15:25:04,321 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-11-05 15:25:04,321 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-11-05 15:25:04,321 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: CRC
+2021-11-05 15:25:04,322 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-11-05 15:25:04,728 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp_save
+2021-11-05 15:25:04,769 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp
+2021-11-05 15:25:04,991 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp_save
+2021-11-05 15:25:05,035 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp
+2021-11-05 15:25:05,614 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp_save
+2021-11-05 15:25:05,653 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp
+2021-11-05 15:25:05,655 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp_save
+2021-11-05 15:25:05,696 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp
+2021-11-05 15:25:05,700 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp_save
+2021-11-05 15:25:05,751 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp
+2021-11-05 15:25:05,756 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp_save
+2021-11-05 15:25:05,809 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp
+2021-11-05 15:25:05,825 [ERROR] IPConfigManager:1513 - ERROR: the RefConfig ADC_InternalChannelConfig is not available in your config.xml file
+2021-11-05 15:25:07,572 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2021-11-05 15:25:07,581 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c_save
+2021-11-05 15:25:07,636 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c
+2021-11-05 15:25:07,641 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h_save
+2021-11-05 15:25:07,691 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h
+2021-11-05 15:25:07,697 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h_save
+2021-11-05 15:25:07,772 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h
+2021-11-05 15:25:07,777 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c_save
+2021-11-05 15:25:07,848 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c
+2021-11-05 15:25:07,853 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h_save
+2021-11-05 15:25:07,904 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h
+2021-11-05 15:25:07,910 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c_save
+2021-11-05 15:25:07,968 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c
+2021-11-05 15:25:07,973 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h_save
+2021-11-05 15:25:08,023 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h
+2021-11-05 15:25:08,028 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c_save
+2021-11-05 15:25:08,112 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c
+2021-11-05 15:25:08,125 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c_save
+2021-11-05 15:25:08,218 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c
+2021-11-05 15:25:08,224 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h_save
+2021-11-05 15:25:08,317 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h
+2021-11-05 15:25:08,333 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c_save
+2021-11-05 15:25:08,466 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c
+2021-11-05 15:25:08,469 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp_save
+2021-11-05 15:25:08,510 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp
+2021-11-05 15:25:08,518 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h_save
+2021-11-05 15:25:08,569 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h
+2021-11-05 15:25:08,593 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-11-05 15:25:08,594 [WARN] CodeGenerator:3268 - IP not found : null
+2021-11-05 15:25:08,601 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h_save
+2021-11-05 15:25:08,653 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h
+2021-11-05 15:25:08,658 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c_save
+2021-11-05 15:25:08,844 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c
+2021-11-05 15:25:09,631 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 164mS.
+2021-11-05 15:25:09,642 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-11-05 15:25:09,974 [INFO] ConfigFileManager:1271 - The Die is : DIE448
+2021-11-05 15:25:10,916 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Nov 05, 2021 3:25:10 PM com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3 onCommandEntered
+2021-11-05 15:25:10,916 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SEVERE: null
+2021-11-05 15:25:10,921 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.jdom.input.JDOMParseException: Error on line 9 of document file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:25:10,923 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:530)
+2021-11-05 15:25:10,924 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 15:25:10,925 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 15:25:10,928 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 15:25:10,930 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 15:25:10,932 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 15:25:10,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 15:25:10,937 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 15:25:10,939 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 15:25:10,942 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 15:25:10,944 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 15:25:10,946 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 15:25:10,948 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 15:25:10,949 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 15:25:10,951 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 15:25:10,952 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 15:25:10,954 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 15:25:10,956 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 15:25:10,958 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 15:25:10,961 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 15:25:10,962 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 15:25:10,965 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 15:25:10,988 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 15:25:10,990 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 15:25:10,991 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 15:25:10,996 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:25:10,999 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 15:25:11,001 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 15:25:11,003 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 15:25:11,005 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 15:25:11,009 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 15:25:11,011 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 15:25:11,013 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 15:25:11,016 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 15:25:11,018 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 15:25:11,021 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 15:25:11,024 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 15:25:11,027 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 15:25:11,030 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 15:25:11,032 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 15:25:11,032 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 24 more
+2021-11-05 15:25:11,036 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:25:11,039 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 15:25:11,042 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 15:25:11,045 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 15:25:11,048 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 15:25:11,052 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 15:25:11,053 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 15:25:11,058 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:25:11,060 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 15:25:11,062 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 15:25:11,064 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 15:25:11,066 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 15:25:11,070 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 15:25:11,072 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 15:25:11,075 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 15:25:11,077 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 15:25:11,079 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 15:25:11,081 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 15:25:11,083 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 15:25:11,086 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 15:25:11,088 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 15:25:11,089 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 15:25:11,091 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 15:25:11,092 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 15:25:11,094 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 15:25:11,096 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 15:25:11,098 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 15:25:11,101 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 15:25:11,103 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 15:25:11,105 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 15:25:11,107 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 15:25:11,109 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 15:25:11,111 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 15:25:11,113 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 15:25:11,114 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 15:25:11,116 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 15:25:11,117 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 15:25:11,118 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 15:25:11,121 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 15:25:11,122 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 15:25:11,124 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 15:25:11,126 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 15:25:11,128 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 15:25:11,130 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 15:25:11,132 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 15:25:11,133 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 15:25:11,136 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:25:11,139 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 15:25:11,141 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 15:25:11,142 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 15:25:11,144 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 15:25:11,148 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 15:25:11,148 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 15:25:11,150 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 15:25:11,152 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 15:25:11,154 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 15:25:11,156 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 15:25:11,158 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 15:25:11,162 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 15:25:11,164 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 15:25:11,166 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 15:25:11,169 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 15:25:11,171 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 15:25:11,173 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 15:25:11,175 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 15:25:11,177 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 15:25:11,179 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 15:25:11,180 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 15:25:11,181 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 15:25:11,182 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 15:25:11,184 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 15:25:11,187 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 15:25:11,189 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 15:25:11,191 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 15:25:11,193 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 15:25:11,196 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 15:25:11,198 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 15:25:11,200 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 15:25:11,202 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 15:25:11,203 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 15:25:11,205 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 15:25:11,206 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 15:25:11,207 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 15:25:11,209 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 15:25:11,211 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 15:25:11,212 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 15:25:11,214 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 15:25:11,216 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 15:25:11,218 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 15:25:11,220 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 15:25:11,221 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 15:25:11,223 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 15:25:11,223 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-11-05 17:04:55,371 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 534575056 Bytes (968884224)
+2021-11-05 17:04:58,950 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 566032336 Bytes (968884224)
+2021-11-05 17:04:59,708 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 616886224 Bytes (968884224)
+2021-11-05 17:05:00,188 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: ADC
+2021-11-05 17:05:00,189 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2021-11-05 17:05:00,189 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-11-05 17:05:00,189 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USART
+2021-11-05 17:05:00,189 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F0
+2021-11-05 17:05:00,189 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2021-11-05 17:05:00,189 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB
+2021-11-05 17:05:00,189 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-11-05 17:05:00,190 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-11-05 17:05:00,190 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-11-05 17:05:00,190 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: CRC
+2021-11-05 17:05:00,190 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-11-05 17:05:00,620 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp_save
+2021-11-05 17:05:00,663 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp
+2021-11-05 17:05:00,889 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp_save
+2021-11-05 17:05:00,936 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp
+2021-11-05 17:05:01,388 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp_save
+2021-11-05 17:05:01,428 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp
+2021-11-05 17:05:01,431 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp_save
+2021-11-05 17:05:01,470 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp
+2021-11-05 17:05:01,473 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp_save
+2021-11-05 17:05:01,523 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp
+2021-11-05 17:05:01,527 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp_save
+2021-11-05 17:05:01,610 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp
+2021-11-05 17:05:01,624 [ERROR] IPConfigManager:1513 - ERROR: the RefConfig ADC_InternalChannelConfig is not available in your config.xml file
+2021-11-05 17:05:03,341 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2021-11-05 17:05:03,349 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c_save
+2021-11-05 17:05:03,401 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c
+2021-11-05 17:05:03,406 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h_save
+2021-11-05 17:05:03,454 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h
+2021-11-05 17:05:03,462 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h_save
+2021-11-05 17:05:03,519 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h
+2021-11-05 17:05:03,524 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c_save
+2021-11-05 17:05:03,592 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c
+2021-11-05 17:05:03,597 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h_save
+2021-11-05 17:05:03,644 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h
+2021-11-05 17:05:03,653 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c_save
+2021-11-05 17:05:03,719 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c
+2021-11-05 17:05:03,725 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h_save
+2021-11-05 17:05:03,800 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h
+2021-11-05 17:05:03,808 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c_save
+2021-11-05 17:05:03,879 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c
+2021-11-05 17:05:03,896 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c_save
+2021-11-05 17:05:03,981 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c
+2021-11-05 17:05:03,986 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h_save
+2021-11-05 17:05:04,033 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h
+2021-11-05 17:05:04,049 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c_save
+2021-11-05 17:05:04,155 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c
+2021-11-05 17:05:04,159 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp_save
+2021-11-05 17:05:04,199 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp
+2021-11-05 17:05:04,207 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h_save
+2021-11-05 17:05:04,256 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h
+2021-11-05 17:05:04,280 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-11-05 17:05:04,280 [WARN] CodeGenerator:3268 - IP not found : null
+2021-11-05 17:05:04,288 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h_save
+2021-11-05 17:05:04,340 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h
+2021-11-05 17:05:04,346 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c_save
+2021-11-05 17:05:04,495 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c
+2021-11-05 17:05:05,289 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 159mS.
+2021-11-05 17:05:05,296 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-11-05 17:05:05,609 [INFO] ConfigFileManager:1271 - The Die is : DIE448
+2021-11-05 17:05:06,612 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Nov 05, 2021 5:05:06 PM com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3 onCommandEntered
+2021-11-05 17:05:06,613 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SEVERE: null
+2021-11-05 17:05:06,617 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.jdom.input.JDOMParseException: Error on line 9 of document file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:05:06,619 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:530)
+2021-11-05 17:05:06,621 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 17:05:06,622 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 17:05:06,624 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 17:05:06,626 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 17:05:06,629 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 17:05:06,631 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 17:05:06,633 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 17:05:06,635 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 17:05:06,637 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 17:05:06,640 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 17:05:06,641 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 17:05:06,643 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 17:05:06,645 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 17:05:06,646 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 17:05:06,647 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 17:05:06,649 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 17:05:06,651 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 17:05:06,652 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 17:05:06,654 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 17:05:06,656 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 17:05:06,658 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 17:05:06,659 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 17:05:06,661 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 17:05:06,663 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 17:05:06,667 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:05:06,670 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 17:05:06,672 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 17:05:06,674 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 17:05:06,675 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 17:05:06,678 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 17:05:06,680 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 17:05:06,683 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 17:05:06,685 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 17:05:06,687 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 17:05:06,689 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 17:05:06,691 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 17:05:06,693 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 17:05:06,696 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 17:05:06,697 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 17:05:06,697 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 24 more
+2021-11-05 17:05:06,699 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:05:06,701 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 17:05:06,703 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 17:05:06,705 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 17:05:06,707 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 17:05:06,710 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 17:05:06,710 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 17:05:06,715 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:05:06,717 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 17:05:06,719 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 17:05:06,721 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 17:05:06,723 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 17:05:06,726 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 17:05:06,728 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 17:05:06,730 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 17:05:06,733 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 17:05:06,735 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 17:05:06,737 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 17:05:06,739 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 17:05:06,741 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 17:05:06,743 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 17:05:06,744 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 17:05:06,746 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 17:05:06,747 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 17:05:06,749 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 17:05:06,751 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 17:05:06,753 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 17:05:06,756 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 17:05:06,758 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 17:05:06,760 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 17:05:06,762 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 17:05:06,764 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 17:05:06,766 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 17:05:06,768 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 17:05:06,769 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 17:05:06,770 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 17:05:06,772 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 17:05:06,773 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 17:05:06,775 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 17:05:06,777 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 17:05:06,779 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 17:05:06,781 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 17:05:06,782 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 17:05:06,784 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 17:05:06,786 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 17:05:06,787 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 17:05:06,790 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:05:06,792 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 17:05:06,794 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 17:05:06,796 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 17:05:06,798 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 17:05:06,800 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 17:05:06,801 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 17:05:06,804 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:05:06,805 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 17:05:06,807 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 17:05:06,809 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 17:05:06,811 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 17:05:06,814 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 17:05:06,816 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 17:05:06,818 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 17:05:06,821 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 17:05:06,823 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 17:05:06,825 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 17:05:06,827 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 17:05:06,829 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 17:05:06,831 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 17:05:06,832 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 17:05:06,833 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 17:05:06,835 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 17:05:06,837 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 17:05:06,839 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 17:05:06,841 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 17:05:06,844 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 17:05:06,846 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 17:05:06,848 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 17:05:06,850 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 17:05:06,852 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 17:05:06,854 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 17:05:06,856 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 17:05:06,857 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 17:05:06,859 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 17:05:06,860 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 17:05:06,861 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 17:05:06,864 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 17:05:06,865 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 17:05:06,867 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 17:05:06,869 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 17:05:06,871 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 17:05:06,872 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 17:05:06,874 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 17:05:06,875 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 17:05:06,875 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-11-05 17:31:44,655 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 587771456 Bytes (1034944512)
+2021-11-05 17:31:44,716 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 603715856 Bytes (1034944512)
+2021-11-05 17:31:47,583 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 773585040 Bytes (1034944512)
+2021-11-05 17:31:47,940 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: ADC
+2021-11-05 17:31:47,940 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SPI
+2021-11-05 17:31:47,940 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-11-05 17:31:47,940 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USART
+2021-11-05 17:31:47,940 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F0
+2021-11-05 17:31:47,940 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_DEVICE
+2021-11-05 17:31:47,940 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB
+2021-11-05 17:31:47,941 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-11-05 17:31:47,941 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-11-05 17:31:47,941 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-11-05 17:31:47,942 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-11-05 17:31:48,347 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp_save
+2021-11-05 17:31:48,388 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\license.tmp
+2021-11-05 17:31:48,598 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp_save
+2021-11-05 17:31:48,641 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\gpio.tmp
+2021-11-05 17:31:49,235 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp_save
+2021-11-05 17:31:49,274 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_vars.tmp
+2021-11-05 17:31:49,277 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp_save
+2021-11-05 17:31:49,317 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_inc.tmp
+2021-11-05 17:31:49,321 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp_save
+2021-11-05 17:31:49,374 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_HalInit.tmp
+2021-11-05 17:31:49,377 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp_save
+2021-11-05 17:31:49,436 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\usb_Msp.tmp
+2021-11-05 17:31:49,451 [ERROR] IPConfigManager:1513 - ERROR: the RefConfig ADC_InternalChannelConfig is not available in your config.xml file
+2021-11-05 17:31:51,201 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2021-11-05 17:31:51,210 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c_save
+2021-11-05 17:31:51,263 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.c
+2021-11-05 17:31:51,269 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h_save
+2021-11-05 17:31:51,317 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usb_device.h
+2021-11-05 17:31:51,323 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h_save
+2021-11-05 17:31:51,377 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.h
+2021-11-05 17:31:51,382 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c_save
+2021-11-05 17:31:51,453 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\Target\usbd_conf.c
+2021-11-05 17:31:51,457 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h_save
+2021-11-05 17:31:51,515 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.h
+2021-11-05 17:31:51,520 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c_save
+2021-11-05 17:31:51,580 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_desc.c
+2021-11-05 17:31:51,585 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h_save
+2021-11-05 17:31:51,636 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.h
+2021-11-05 17:31:51,641 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c_save
+2021-11-05 17:31:51,704 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\USB_DEVICE\App\usbd_cdc_if.c
+2021-11-05 17:31:51,717 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c_save
+2021-11-05 17:31:51,860 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_it.c
+2021-11-05 17:31:51,865 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h_save
+2021-11-05 17:31:51,922 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_it.h
+2021-11-05 17:31:51,934 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c_save
+2021-11-05 17:31:52,026 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\stm32f0xx_hal_msp.c
+2021-11-05 17:31:52,030 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp_save
+2021-11-05 17:31:52,075 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\MXTmpFiles\system.tmp
+2021-11-05 17:31:52,082 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h_save
+2021-11-05 17:31:52,142 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\stm32f0xx_hal_conf.h
+2021-11-05 17:31:52,166 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-11-05 17:31:52,166 [WARN] CodeGenerator:3268 - IP not found : null
+2021-11-05 17:31:52,175 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h_save
+2021-11-05 17:31:52,229 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Inc\main.h
+2021-11-05 17:31:52,233 [INFO] CodeEngine:239 - oldGeneratedFile, D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c_save
+2021-11-05 17:31:52,486 [INFO] CodeEngine:257 - Generated code: D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\Core\Src\main.c
+2021-11-05 17:31:53,317 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 144mS.
+2021-11-05 17:31:53,324 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-11-05 17:31:53,649 [INFO] ConfigFileManager:1271 - The Die is : DIE448
+2021-11-05 17:31:54,597 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Nov 05, 2021 5:31:54 PM com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3 onCommandEntered
+2021-11-05 17:31:54,597 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SEVERE: null
+2021-11-05 17:31:54,602 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.jdom.input.JDOMParseException: Error on line 9 of document file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:31:54,603 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:530)
+2021-11-05 17:31:54,604 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 17:31:54,606 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 17:31:54,608 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 17:31:54,610 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 17:31:54,613 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 17:31:54,615 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 17:31:54,617 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 17:31:54,619 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 17:31:54,636 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 17:31:54,638 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 17:31:54,640 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 17:31:54,642 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 17:31:54,643 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 17:31:54,645 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 17:31:54,646 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 17:31:54,648 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 17:31:54,650 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 17:31:54,651 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 17:31:54,653 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 17:31:54,655 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 17:31:54,657 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 17:31:54,659 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 17:31:54,661 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 17:31:54,662 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 17:31:54,671 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:31:54,676 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 17:31:54,680 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 17:31:54,684 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 17:31:54,686 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 17:31:54,689 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 17:31:54,692 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 17:31:54,694 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 17:31:54,697 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 17:31:54,699 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 17:31:54,701 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 17:31:54,703 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 17:31:54,705 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 17:31:54,707 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 17:31:54,708 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 17:31:54,709 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 24 more
+2021-11-05 17:31:54,712 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:31:54,714 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 17:31:54,715 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 17:31:54,717 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 17:31:54,720 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 17:31:54,722 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 17:31:54,723 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 17:31:54,727 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Users/FrantisekBeranek/Dokumenty/TSE/projekty/zahoreni/verze%203/SW/Zahoreni-MCU_SW/Zahoreni_zdroju/mx.scratch; lineNumber: 9; columnNumber: 32; Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:31:54,729 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+2021-11-05 17:31:54,732 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+2021-11-05 17:31:54,734 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+2021-11-05 17:31:54,737 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+2021-11-05 17:31:54,739 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3085)
+2021-11-05 17:31:54,742 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 17:31:54,744 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 17:31:54,747 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 17:31:54,749 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 17:31:54,751 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 17:31:54,753 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 17:31:54,755 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 17:31:54,757 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 17:31:54,758 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 17:31:54,760 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 17:31:54,761 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 17:31:54,764 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 17:31:54,766 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 17:31:54,768 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 17:31:54,770 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 17:31:54,772 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 17:31:54,774 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 17:31:54,777 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 17:31:54,779 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 17:31:54,781 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 17:31:54,783 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 17:31:54,785 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 17:31:54,786 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 17:31:54,787 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 17:31:54,789 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 17:31:54,791 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 17:31:54,793 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 17:31:54,794 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 17:31:54,796 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 17:31:54,798 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 17:31:54,800 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 17:31:54,802 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 17:31:54,803 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 17:31:54,806 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:31:54,808 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 17:31:54,809 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 17:31:54,811 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 17:31:54,813 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 17:31:54,816 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 17:31:54,817 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 33 more
+2021-11-05 17:31:54,819 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Invalid byte 1 of 1-byte UTF-8 sequence.
+2021-11-05 17:31:54,821 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:702)
+2021-11-05 17:31:54,823 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:568)
+2021-11-05 17:31:54,825 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1904)
+2021-11-05 17:31:54,827 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.skipChar(XMLEntityScanner.java:1560)
+2021-11-05 17:31:54,830 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2746)
+2021-11-05 17:31:54,832 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+2021-11-05 17:31:54,834 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+2021-11-05 17:31:54,837 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:534)
+2021-11-05 17:31:54,839 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+2021-11-05 17:31:54,841 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+2021-11-05 17:31:54,842 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+2021-11-05 17:31:54,845 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1216)
+2021-11-05 17:31:54,847 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+2021-11-05 17:31:54,848 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+2021-11-05 17:31:54,849 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:905)
+2021-11-05 17:31:54,850 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:884)
+2021-11-05 17:31:54,853 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6885)
+2021-11-05 17:31:54,855 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.deleteEmptyGroups(ConfigFileManager.java:6909)
+2021-11-05 17:31:54,857 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.model.ConfigFileManager.createTmpFile(ConfigFileManager.java:2028)
+2021-11-05 17:31:54,859 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createToolChainFolders(ProjectBuilder.java:3744)
+2021-11-05 17:31:54,861 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:782)
+2021-11-05 17:31:54,863 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.ProjectBuilder.createProject(ProjectBuilder.java:434)
+2021-11-05 17:31:54,885 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager.startGenerateCode(MainProjectManager.java:1508)
+2021-11-05 17:31:54,888 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.projectmanager.engine.MainProjectManager$3.onCommandEntered(MainProjectManager.java:235)
+2021-11-05 17:31:54,889 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.components.util.CommandLineManager$3.run(CommandLineManager.java:168)
+2021-11-05 17:31:54,891 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:303)
+2021-11-05 17:31:54,892 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+2021-11-05 17:31:54,894 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+2021-11-05 17:31:54,895 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+2021-11-05 17:31:54,897 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+2021-11-05 17:31:54,899 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+2021-11-05 17:31:54,901 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+2021-11-05 17:31:54,902 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2021-11-05 17:31:54,904 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2021-11-05 17:31:54,906 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2021-11-05 17:31:54,908 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2021-11-05 17:31:54,909 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2021-11-05 17:31:54,911 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2021-11-05 17:31:54,911 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 

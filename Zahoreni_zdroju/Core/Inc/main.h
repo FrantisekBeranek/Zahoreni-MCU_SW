@@ -169,19 +169,22 @@ void measHandler(void);
 #define BACKLIGHT_WHITE_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
-//#define __DEBUG_TIME__
-#define __DEBUG_BUTT__
-//#define __DEBUG_INST__
-#define __SILENT__
-#define __DEBUG_TEST__
-//#define __DEBUG_FAST__
-//#define __APP_COMPATIBILITY__
+/* Makra pro snazší debug */
+//#define __DEBUG_TIME__			//Posílání zpravy s časem od zapnutí
+//#define __DEBUG_BUTT__			//Tlačítka mění podsvícení displeje
+//#define __DEBUG_INST__			//Po přijetí instrukce posílá řetězec zprávu o vyhodnocení
+//#define __SILENT__				//Zakazuje pípání
+#define __DEBUG_TEST__			//Test běží v zkáceném režimu
+//#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
+//#define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x
 #define ClearBit(x,y) x&=~(1 << y)		//vynuluj bit y bajtu x
 #define NegBit(x,y) x^=(1 << y)		//neguj bit y bajtu x
 #define MaskBit(x,y) x&(1 << y)		//vymaskuj but y bajtu x
+
+#define MaskByte(x,y) x&(0xFF << y*8)	//vymaskuj byte y proměnné x
 
 /* �?ízení zátěží */
 #define LOAD_MIN_ON HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_SET)
@@ -203,37 +206,6 @@ void measHandler(void);
 #define SYSTIME_SEC		1
 #define SYSTIME_MIN		2
 #define SYSTIME_HOUR	3
-
-typedef enum{
-	ADC_WAITING = 0U,
-	U15V, U15V_CURRENT,		//kanál 7, 10
-	U12V, U12V_CURRENT,		//kanál 14, 12
-	U24VO2, U24VO2_CURRENT,	//kanál 5, 11
-	U24V, U24V_CURRENT,		//kanál 9, 2
-	U5VK, U5VK_CURRENT,		//kanál 15, 0
-	U5V, U5V_CURRENT,		//kanál 8, 1
-	U_BAT,					//kanál 6
-	PAD9, PAD15,			//kanál 4, 13
-	U48V_CURRENT			//kanál 3
-}ADC_State_Type;
-
-/* Přiřazení kanálů ADC */
-/*#define U5VK_CURRENT	ADC_CHANNEL_0
-#define U5V_CURRENT		ADC_CHANNEL_1
-#define U24V_CURRENT	ADC_CHANNEL_2
-#define U48V_CURRENT	ADC_CHANNEL_3
-#define PAD9			ADC_CHANNEL_4
-#define U24VO2			ADC_CHANNEL_5
-#define U_BAT			ADC_CHANNEL_6
-#define U15V			ADC_CHANNEL_7
-#define U5V				ADC_CHANNEL_8
-#define U24V			ADC_CHANNEL_9
-#define U15V_CURRENT	ADC_CHANNEL_10
-#define U24VO2_CURRENT	ADC_CHANNEL_11
-#define U12V_CURRENT	ADC_CHANNEL_12
-#define PAD15			ADC_CHANNEL_13
-#define U12V			ADC_CHANNEL_14
-#define U5VK			ADC_CHANNEL_15*/
 
 /* USER CODE END Private defines */
 
