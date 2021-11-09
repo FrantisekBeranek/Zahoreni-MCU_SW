@@ -1,62 +1,10 @@
-11:46:46 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+19:39:45 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
-../Core/Src/comHandle.c: In function 'comHandler':
-../Core/Src/comHandle.c:150:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
-  150 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
-      |                                       ^~~~~~~~~~~~~
-      |                                       |
-      |                                       char *
-../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
-      |                                                        ~~~~~~~~~^~~~
-../Core/Src/comHandle.c:142:8: warning: unused variable 'txt' [-Wunused-variable]
-  142 |   char txt[30];
-      |        ^~~
-../Core/Src/comHandle.c:166:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
-  166 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
-      |                                      ^~~~~~~~
-      |                                      |
-      |                                      int *
-../Core/Src/comHandle.c:38:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
-   38 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
-      |                                                        ~~~~~~~~~^~~~
-../Core/Src/comHandle.c:221:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
-  221 |   CDC_Transmit_FS(msg, strlen(msg));
-      |   ^~~~~~~~~~~~~~~
-../Core/Src/comHandle.c: In function 'pushPaket':
-../Core/Src/comHandle.c:276:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  276 |  pushStr(buffer, toSend, sizeof(toSend)-1);
-      |                  ^~~~~~
-      |                  |
-      |                  uint8_t * {aka unsigned char *}
-In file included from ../Core/Inc/comHandle.h:11,
-                 from ../Core/Src/comHandle.c:8:
-../Core/Inc/ringBuffer.h:46:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-   46 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
-      |                                    ^~~~~
-../Core/Src/comHandle.c: In function 'decodePaket':
-../Core/Src/comHandle.c:283:1: warning: no return statement in function returning non-void [-Wreturn-type]
-  283 | }
-      | ^
-At top level:
-../Core/Src/comHandle.c:280:16: warning: 'decodePaket' defined but not used [-Wunused-function]
-  280 | static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
-      |                ^~~~~~~~~~~
-arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Zahoreni_zdroju.elf
- 
 arm-none-eabi-size   Zahoreni_zdroju.elf 
-arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
-arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  54300	    488	   6752	  61540	   f064	Zahoreni_zdroju.elf
+  55120	    488	   6752	  62360	   f398	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
-Finished building: Zahoreni_zdroju.bin
- 
-Finished building: Zahoreni_zdroju.list
- 
 
-11:46:48 Build Finished. 0 errors, 7 warnings. (took 1s.323ms)
+19:39:45 Build Finished. 0 errors, 0 warnings. (took 389ms)
 

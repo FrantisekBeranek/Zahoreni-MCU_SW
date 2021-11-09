@@ -37,7 +37,7 @@ void comHandler(void);
 static void makeByteArray();
 static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
 static void pushPaket(RING_BUFFER* buffer, Paket* data);
-static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght);
+static uint8_t decodePaket(/*Paket* paket, */uint8_t* data, uint8_t dataLenght);
 
 //_____Obsluha komunikace s PC přes USB_____//
 /*
@@ -54,7 +54,7 @@ void comHandler(void)
 	//___Příjem dat___//
 	if(flags.data_received)
 	{
-		char instruction;
+		/*char instruction;
 		while(pop(USB_Rx_Buffer, &instruction) != BUFFER_EMPTY)
 		{
 #ifdef __DEBUG_INST__
@@ -108,7 +108,47 @@ void comHandler(void)
 #endif
 				break;
 			}
+		}*/
+		int start = 0;
+
+		for(int i = 0; i < USB_Rx_Buffer->filled; i++)
+		{
+			char tmp1, tmp2;
+			at(USB_Rx_Buffer, i, &tmp1);
+			at(USB_Rx_Buffer, i+1, &tmp2);
+			if(tmp1 == '>' && tmp1 == '>')	//začátek paketu
+			{
+				for(int y = 0; y < i; y++)	//vymazání obsahu buuferu před začátkem paketu
+				{
+					char tmp;
+					pop(USB_Rx_Buffer, &tmp);
+				}
+				start = 1;
+				break;
+			}
 		}
+
+		if(start)	//počátek byl nalezen
+		{
+			for(int i = 0; i < USB_Rx_Buffer->filled; i++)
+			{
+				char tmp1, tmp2;
+				at(USB_Rx_Buffer, i, &tmp1);
+				at(USB_Rx_Buffer, i+1, &tmp2);
+				if(tmp1 == '<' && tmp1 == '<')	//konec paketu
+				{
+					char* tmp = (char*)malloc((i+2)*sizeof(char));
+					for(int y = 0; y < i+2; y++)	//překopírování zprávy
+					{
+						pop(USB_Rx_Buffer, &tmp[y]);
+					}
+					decodePaket(tmp, i+2);
+					free(tmp);
+					break;
+				}
+			}
+		}
+
 		flags.data_received = 0;
 	}
 
@@ -277,7 +317,78 @@ static void pushPaket(RING_BUFFER* buffer, Paket* paket)
 }
 
 //_____Příchozí řetězec přepracuje do struktury typu paket (pokud to lze)_____//
-static uint8_t decodePaket(Paket* paket, uint8_t* data, uint8_t dataLenght)
+static uint8_t decodePaket(/*Paket* paket,*/ uint8_t* data, uint8_t dataLenght)
 {
+	int sum = 0;
+	for(int i = 2; i < dataLenght - 3; i++)
+	{
+		sum += data[i];
+	}
+	if(sum == data[dataLenght - 3])	//kontorlní součet odpovídá
+	{
+		switch(data[2])	//Na třetím místě je instrukce
+		{
+		case 's': ;
+			//___Start testu___//
+			if(dataLenght == 7)
+			{
+				flags.instructions.startRequest = 1;
+#ifdef __DEBUG_INST__
+				sprintf(txt, "Start\n");
+				pushStr(USB_Tx_Buffer, txt, strlen(txt));
+#endif
+				//Na pozici data je ukazatel na testovaný zdroj
+			}
+			break;
 
+		case'c': ;
+			//___Ukončení___//
+		if(dataLenght == 7)
+		{
+			flags.instructions.stopRequest = 1;
+#ifdef __DEBUG_INST__
+			sprintf(txt, "Ukonceni\n");
+			pushStr(USB_Tx_Buffer, txt, strlen(txt));
+#endif
+			//Na pozici data je ukazatel na testovaný zdroj
+		}
+			break;
+
+		case'p': ;
+			//___Pauza___//
+		if(dataLenght == 7)
+		{
+			flags.instructions.pauseRequest = 1;
+#ifdef __DEBUG_INST__
+			sprintf(txt, "Pauza\n");
+			pushStr(USB_Tx_Buffer, txt, strlen(txt));
+#endif
+			//Na pozici data je ukazatel na testovaný zdroj
+		}
+			break;
+
+		case'k': ;
+			//___Kalibrace___//
+		if(dataLenght == 7)
+		{
+			flags.instructions.calibRequest = 1;
+#ifdef __DEBUG_INST__
+			sprintf(txt, "Kalibrace\n");
+			pushStr(USB_Tx_Buffer, txt, strlen(txt));
+#endif
+			//Na pozici data je ukazatel na testovaný zdroj
+		}
+			break;
+
+		default: ;
+			//___Neplatný příkaz___//
+			flags.instructions.unknownInst = 1;
+#ifdef __DEBUG_INST__
+			sprintf(txt, "Neplatna instrukce\n");
+			pushStr(USB_Tx_Buffer, txt, strlen(txt));
+#endif
+			break;
+		}
+	}
+	return 1;
 }
