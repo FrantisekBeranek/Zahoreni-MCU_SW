@@ -22,6 +22,7 @@
 #define WRITE_INSTRUCTION 0b11111000
 #define WRITE_DATA 0b11111010
 
+//_____Enum pro volbu prvního bytu_____//
 typedef enum
 {
 	READ_BUSY = 0U,
@@ -30,6 +31,7 @@ typedef enum
 	DATA_WRITE
 }START_BYTE;
 
+//_____Stav displeje_____//
 typedef enum
 {
 	DISP_OK = 0U,
@@ -42,6 +44,7 @@ typedef enum
 
 DISP_STATE dispState;
 
+//_____Volba zarovnání řetězce na displeji_____//
 typedef enum
 {
 	LEFT = 0U,

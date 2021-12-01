@@ -1,4 +1,2 @@
 ADC_Results
-hadc->Instance->CHSELR
-hadc->Instance->DR
-ADC_State
+data

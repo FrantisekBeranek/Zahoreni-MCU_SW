@@ -100,7 +100,7 @@ static DISP_STATE sendByte(char byte, START_BYTE type)
 	buffer[2] = tmp2;
 
 	DISP_CS_ON;
-	HAL_StatusTypeDef ret = HAL_SPI_Transmit(&hspi1, &buffer[0], 3, 100);
+	HAL_StatusTypeDef ret = HAL_SPI_Transmit(&hspi1, buffer, 3, 100);
 	DISP_CS_OFF;
 	HAL_Delay(1);
 	if(ret == HAL_OK)

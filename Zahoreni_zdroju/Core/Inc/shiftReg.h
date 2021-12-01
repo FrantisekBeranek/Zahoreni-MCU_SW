@@ -14,14 +14,16 @@
 #include "main.h"
 #include <stdlib.h>
 
-
+/* Řízení pinu Output Enable */
 #define REG_ENABLE HAL_GPIO_WritePin(SR_OE_GPIO_Port, SR_OE_Pin, GPIO_PIN_RESET)
 #define REG_DISABLE HAL_GPIO_WritePin(SR_OE_GPIO_Port, SR_OE_Pin, GPIO_PIN_SET)
 
+/* Řízení pinu RCLK */
 #define REG_RCLK_HIGH HAL_GPIO_WritePin(SR_RCLK_GPIO_Port, SR_RCLK_Pin, GPIO_PIN_SET)
 #define REG_RCLK_LOW HAL_GPIO_WritePin(SR_RCLK_GPIO_Port, SR_RCLK_Pin, GPIO_PIN_RESET)
 #define REG_RCLK_TOGGLE HAL_GPIO_TogglePin(SR_RCLK_GPIO_Port, SR_RCLK_Pin, GPIO_PIN_RESET)
 
+/* Řízení pinu CLR */
 #define REG_CLR_INACTIVE HAL_GPIO_WritePin(SR_CLR_GPIO_Port, SR_CLR_Pin, GPIO_PIN_SET)
 #define REG_CLR_ACTIVE HAL_GPIO_WritePin(SR_CLR_GPIO_Port, SR_CLR_Pin, GPIO_PIN_RESET)
 
@@ -29,7 +31,7 @@
 typedef enum
 {
 	REG_OK = 0U,
-	REG_CON_ERR,
+	REG_CON_ERR,	//Chyba připojení registrů
 	REG_ERR,
 	REG_RESET,
 	REG_SET,
@@ -44,7 +46,7 @@ extern REG_STATE regState;
 extern RING_BUFFER* regBuffer;
 
 //___Pole hodnot k poslaní___//
-//velikost pole odpovídá počtu registrů v sérii
+//velikost pole odpovídá počtu registrů v sérii (regCount)
 extern uint8_t* regValues;
 extern uint8_t regCount;
 
@@ -64,6 +66,7 @@ REG_STATE regInit(void);
 REG_STATE sendData(void);
 
 //_____Řídí obsluhu registrů při neblokujícím módu_____//
+// -- Nedokončená funkce -- //
 void regHandler(void);
 
 

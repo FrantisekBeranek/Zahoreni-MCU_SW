@@ -633,13 +633,17 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+//_____Hodiny_____//
 void clkHandler(void)
 {
+	//___nulování všech flagů___//
 	flags.time.ten_ms = 0;
 	flags.time.sec	= 0;
 	flags.time.min	= 0;
 	flags.time.hour	= 0;
-	sysTime[SYSTIME_TEN_MS]++;
+
+	sysTime[SYSTIME_TEN_MS]++;	//uplynulo dalších 10 ms
+
 #ifdef __DEBUG_FAST__
 	if((sysTime[SYSTIME_TEN_MS] % 10) == 0)	//0,1 s
 #else
@@ -650,7 +654,7 @@ void clkHandler(void)
 		flags.time.sec = 1;
 	}
 
-	if(flags.time.sec)
+	if(flags.time.sec)	//Uplynula 1 s
 	{
 		if((sysTime[SYSTIME_SEC] % 60) == 0 && sysTime[SYSTIME_TEN_MS] != 0)	//1 min
 		{
@@ -659,7 +663,7 @@ void clkHandler(void)
 			flags.time.min = 1;
 		}
 
-		if(flags.time.min)
+		if(flags.time.min)	//Uplynula 1 min
 		{
 			if((sysTime[SYSTIME_MIN] % 60) == 0 && sysTime[SYSTIME_TEN_MS] != 0)	//1 min
 			{
@@ -684,23 +688,25 @@ void clkHandler(void)
 #endif
 }
 
+//_____Debounce tlačítek_____//
 void buttonDebounce(void)
 {
+	//___nulování flagů___//
 	flags.buttons.butt0_ver = 0;
 	flags.buttons.butt1_ver = 0;
 
-	if(flags.buttons.butt0_int)
+	if(flags.buttons.butt0_int)	//interrupt tlačítka 0
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port,BUTTON_0_Pin) == GPIO_PIN_SET)
 		{
 			button0_Debounce++;
 		}
-		else
+		else	//pin tlačítka na Low -> šlo o zákmit
 		{
 			button0_Debounce = 0;
 			flags.buttons.butt0_int = 0;
 		}
-		if(button0_Debounce >= 5)
+		if(button0_Debounce >= 5)	//pin tlačítka na High 5*10 ms -> ustálený stisk
 		{
 			flags.buttons.butt0_ver = 1;
 			flags.buttons.butt0_int = 0;
@@ -713,18 +719,18 @@ void buttonDebounce(void)
 		}
 	}
 
-	if(flags.buttons.butt1_int)
+	if(flags.buttons.butt1_int)	//interrupt tlačítka 1
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_1_GPIO_Port,BUTTON_1_Pin) == GPIO_PIN_SET)
 		{
 			button1_Debounce++;
 		}
-		else
+		else	//pin tlačítka na Low -> šlo o zákmit
 		{
 			button1_Debounce = 0;
 			flags.buttons.butt1_int = 0;
 		}
-		if(button1_Debounce >= 5)
+		if(button1_Debounce >= 5)	//pin tlačítka na High 5*10 ms -> ustálený stisk
 		{
 			flags.buttons.butt1_ver = 1;
 			flags.buttons.butt1_int = 0;
@@ -750,8 +756,10 @@ void UI_Handler(void)
 		DONE,
 	}UI_State;
 
-	static uint32_t startTime;
+	static uint32_t startTime;	//proměnná pro časování dějů
 
+	//___Nastavení stavu podle požadavků___//
+	//___Stavy výše mají vyšší prioritu (error nejvyšší)___//
 	if(flags.ui.error && (UI_State != ERROR))
 	{
 		UI_State = ERROR;
@@ -788,7 +796,7 @@ void UI_Handler(void)
 #ifndef __SILENT__
 			BUZZER_ON;
 #endif
-		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 50)
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 50)		//0,5s
 		{
 			UI_State = OFF;
 			BUZZER_OFF;
@@ -799,7 +807,7 @@ void UI_Handler(void)
 #ifndef __SILENT__
 			BUZZER_ON;
 #endif
-		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 100)
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 100)	//1s
 		{
 			UI_State = OFF;
 			BUZZER_OFF;
@@ -807,9 +815,9 @@ void UI_Handler(void)
 		break;
 
 	case ERROR:
-		if(!flags.ui.error)
+		if(!flags.ui.error)	//dokud není požadavek zrušen provádí se error
 			UI_State = OFF;
-		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 50))
+		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 50))	//každých 0,5s
 		{
 #ifndef __SILENT__
 			BUZZER_Toggle;
@@ -819,25 +827,25 @@ void UI_Handler(void)
 		break;
 
 	case NOTICE:
-		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 35))
+		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 35))	//každých 0,35s
 		{
 #ifndef __SILENT__
 			BUZZER_Toggle;
 #endif
 		}
-		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 209)
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 209)	//Po 2,1s ukonči
 			UI_State = OFF;
 		break;
 
 	case DONE:
-		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 50))
+		if(!((sysTime[SYSTIME_TEN_MS] - startTime) % 50))	//každých 0,5s
 		{
 #ifndef __SILENT__
 			BUZZER_Toggle;
 #endif
 			BACKLIGHT_GREEN_Toggle;
 		}
-		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 299)
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 299)	//Po 3s ukonči
 			UI_State = OFF;
 		break;
 
@@ -856,6 +864,7 @@ void measHandler(void)
 {
 	static ADC_State_Type ADC_State;
 
+	//___Nulování flagů___//
 	flags.meas.measComplete = 0;
 	flags.meas.measConflict = 0;
 
@@ -869,15 +878,14 @@ void measHandler(void)
 				flags.meas.onlyBattery = 1;
 				ADC_State = U_BAT;
 				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
-				HAL_ADC_Start_IT(&hadc);
 			}
 			else
 			{
 				flags.meas.onlyBattery = 0;
 				ADC_State = U15V;
 				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
-				HAL_ADC_Start_IT(&hadc);
 			}
+			HAL_ADC_Start_IT(&hadc);
 		}
 		else
 		{
@@ -902,9 +910,9 @@ void measHandler(void)
 			else
 			{
 				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
-				ADC_State += 2;
+				ADC_State += 2;	//Měř další kanál (měření proudů se přeskakuje)
 
-				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
+				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];	//Nastav měřený kanál
 
 				HAL_ADC_Start_IT(&hadc);
 			}

@@ -41,6 +41,15 @@ void destroyBuffer(RING_BUFFER* buffer)
 	free(buffer);
 }
 
+//_____Uvede buffer do výchzího stavu_____//
+void clearBuffer(RING_BUFFER* buffer)
+{
+	buffer->filled = 0;
+	buffer->first = 0;
+	buffer->last = buffer->bufferSize-1;
+	buffer->status = BUFFER_EMPTY;
+}
+
 //_____Vrátí hodnotu status_____//
 BUFFER_STATE getStatus(RING_BUFFER* buffer)
 {

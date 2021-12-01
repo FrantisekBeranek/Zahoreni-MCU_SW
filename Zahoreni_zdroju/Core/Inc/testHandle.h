@@ -18,21 +18,26 @@
 //___Nastavení bitu pro řízení napájení___//
 #define PWR_ON(x) x&=~(1<<0)
 #define PWR_OFF(x) x|=(1<<0)
+
 //___Nastavení bitu pro řízení relé___//
 #define RELAY_OFF(x) x&=~(1<<1)
 #define RELAY_ON(x) x|=(1<<1)
+
 //___Nastavení bitu pro řízení error led___//
 #define ERROR_OFF(x) x&=~(1<<2)
 #define ERROR_ON(x) x|=(1<<2)
+
 //___Nastavení bitů pro řízení progress led___//
 #define PROGRESS_ON(x,y) x|=(1<<y)
 #define PROGRESS_OFF(x,y) x&=~(1<<y)
 #define PROGRESS_RUNNING(x,y) x^=(1<<y)
 
+//___Přiřazení led k výstupům registru___//
 #define PROGRESS_LED1 5
 #define PROGRESS_LED2 4
 #define PROGRESS_LED3 3
 
+//___Definované stavy testu___//
 typedef enum{
 	WAITING = 0U,
 	START, START_DONE,
@@ -48,6 +53,7 @@ typedef enum{
 //extern uint8_t* regValues;
 //extern uint8_t regCount;
 
+//___Ukazatel na právě testovaný zdroj___//
 extern uint8_t* sourceInTesting;
 
 //_____Dotaz na aktuální fázi testu_____//

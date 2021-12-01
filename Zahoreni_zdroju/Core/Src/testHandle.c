@@ -101,6 +101,7 @@ void testHandler()
 	case MAIN_TEST:
 		if(flags.time.sec)	//___Změna času___//
 		{
+			//___Zobrazení času na displej___//
 			char time[9] = {0};
 			sprintf(time, "%d:%d:%d", 60-sysTime[SYSTIME_SEC], 60-sysTime[SYSTIME_MIN], 3-sysTime[SYSTIME_HOUR]);
 			//writeRow(time, strlen(time), 0, LEFT);

@@ -1,7 +1,8 @@
 ringBuffer.c:14:14:createBuffer	24	static
 ringBuffer.c:38:6:destroyBuffer	16	static
-ringBuffer.c:45:14:getStatus	16	static
-ringBuffer.c:51:14:push	16	static
-ringBuffer.c:65:14:pushStr	32	static
-ringBuffer.c:80:14:pop	16	static
-ringBuffer.c:94:14:at	32	static
+ringBuffer.c:45:6:clearBuffer	16	static
+ringBuffer.c:54:14:getStatus	16	static
+ringBuffer.c:60:14:push	16	static
+ringBuffer.c:74:14:pushStr	32	static
+ringBuffer.c:89:14:pop	16	static
+ringBuffer.c:103:14:at	32	static

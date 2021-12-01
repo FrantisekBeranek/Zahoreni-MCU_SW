@@ -45,6 +45,7 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
+/* Bitové pole flagů */
 typedef struct{
 	//___TIME___//
 	struct{
@@ -63,15 +64,15 @@ typedef struct{
 	}buttons;
 
 	//___COMUNICATION___//
-	unsigned int data_received		: 1;
+	unsigned int data_received		: 1;	//byla přijata data
 
 	//___INSTRUCTIONS___//
 	struct{
-		unsigned int startRequest	: 1;
-		unsigned int stopRequest	: 1;
-		unsigned int pauseRequest	: 1;
-		unsigned int calibRequest	: 1;
-		unsigned int unknownInst	: 1;
+		unsigned int startRequest	: 1;	//požadavek na start testu
+		unsigned int stopRequest	: 1;	//požadavek na zrušení testu
+		unsigned int pauseRequest	: 1;	//požadavek na pozastavení testu
+		unsigned int calibRequest	: 1;	//požadavek na zaslání kalibračních dat
+		unsigned int unknownInst	: 1;	//Neznámá instrukce
 	}instructions;
 
 	//___UI___//
@@ -85,21 +86,21 @@ typedef struct{
 
 	//___VOLTAGE MEASUREMENT___//
 	struct{
-		unsigned int measRequest	: 1;
-		unsigned int measComplete	: 1;
-		unsigned int measDataReady	: 1;
-		unsigned int measRunning	: 1;
-		unsigned int measConflict	: 1;
-		unsigned int onlyBattery	: 1;
-		unsigned int calibMeas		: 1;
+		unsigned int measRequest	: 1;	//Požadavek naprovedení měření
+		unsigned int measComplete	: 1;	//Měření dokončeno
+		unsigned int measDataReady	: 1;	//Měření dokončeno a data připravena k odeslání
+		unsigned int measRunning	: 1;	//Měření probíhá
+		unsigned int measConflict	: 1;	//Dva požadavky na měření najednou
+		unsigned int onlyBattery	: 1;	//Měřena pouze baterie
+		unsigned int calibMeas		: 1;	//Kalibrační měření
 	}meas;
 
 	//___TEST CONTROL___//
-	unsigned int startConflict		: 1;
-	unsigned int testProgress		: 1;
+	unsigned int startConflict		: 1;	//Dva požadavky na start najednou
+	unsigned int testProgress		: 1;	//Fáze testu se změnila
 
 	//___SHIFT REGISTERS___//
-	unsigned int conErr				: 1;
+	unsigned int conErr				: 1;	//Chyba připojení shift registrů
 
 } Flags;
 /* USER CODE END ET */
@@ -119,9 +120,21 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
+//_____Funkce pro řízení časování_____//
+/* Nastavuje flagy ve struktuře time */
 void clkHandler(void);
+
+//_____Funkce pro debouncing tlačítek_____//
+/* Nastavuje flagy ve struktuře buttons */
 void buttonDebounce(void);
+
+//_____Funkce pro obsluhu uživatelského rozhraní (buzzer a podsvícení displeje)_____//
+/* Řídí se pomocí nastavení flagů struktury ui */
 void UI_Handler(void);
+
+//_____Funkce pro řízení ADC převodníků_____//
+/* Řídí se pomocí flagů measRequest a onlyBat struktury meas */
+/* Zbylé flagy struktury meas nastavuje */
 void measHandler(void);
 
 /* USER CODE END EFP */
@@ -174,19 +187,19 @@ void measHandler(void);
 //#define __DEBUG_BUTT__			//Tlačítka mění podsvícení displeje
 //#define __DEBUG_INST__			//Po přijetí instrukce posílá řetězec zprávu o vyhodnocení
 //#define __SILENT__				//Zakazuje pípání
-#define __DEBUG_TEST__			//Test běží v zkáceném režimu
+#define __DEBUG_TEST__				//Test běží v zkáceném režimu
 //#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
-//#define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
+#define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
 
 /* Prace s bitovými proměnnými */
-#define SetBit(x,y) x|=(1<<y)			//nastav bit y bajtu x
-#define ClearBit(x,y) x&=~(1 << y)		//vynuluj bit y bajtu x
-#define NegBit(x,y) x^=(1 << y)		//neguj bit y bajtu x
-#define MaskBit(x,y) x&(1 << y)		//vymaskuj but y bajtu x
+#define SetBit(x,y) x|=(1<<y)			//nastav bit y bytu x
+#define ClearBit(x,y) x&=~(1 << y)		//vynuluj bit y bytu x
+#define NegBit(x,y) x^=(1 << y)			//neguj bit y bytu x
+#define MaskBit(x,y) x&(1 << y)			//vymaskuj but y bytu x
 
-#define MaskByte(x,y) x&(0xFF << y*8)	//vymaskuj byte y proměnné x
+#define MaskByte(x,y) (x >> y*8) & 0xFF	//vymaskuj byte y proměnné x
 
-/* �?ízení zátěží */
+/* Řízení zátěží */
 #define LOAD_MIN_ON HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_SET)
 #define LOAD_MIN_OFF HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_RESET)
 #define LOAD_MAX_ON HAL_GPIO_WritePin(LOAD_MAX_GPIO_Port, LOAD_MAX_Pin, GPIO_PIN_SET)

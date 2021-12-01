@@ -58,34 +58,34 @@ static uint8_t getCount(void)
 //_____Inicializuje registry_____//
 REG_STATE regInit(void)
 {
+	//___Clear registrů___//
 	REG_CLR_ACTIVE;
 	HAL_Delay(5);
 	REG_CLR_INACTIVE;
 
 	REG_DISABLE;
 
-	if(getCount() == 0)
-	{
-		return REG_CON_ERR;	//Connection error
-	}
+		if(getCount() == 0)
+		{
+			return REG_CON_ERR;	//Connection error
+		}
 
-	regValues = (uint8_t*) malloc(regCount * sizeof(uint8_t));
-	if(regValues == NULL)
-	{
-		regState = REG_ERR;
-		return REG_ERR;
-	}
+		regValues = (uint8_t*) malloc(regCount * sizeof(uint8_t));
+		if(regValues == NULL)
+		{
+			regState = REG_ERR;
+			return REG_ERR;
+		}
 
-	for(int i = 0; i < regCount; i++)
-	{
-		regValues[i] = 0;
-	}
+		for(int i = 0; i < regCount; i++)
+		{
+			regValues[i] = 0;
+		}
 
-	sendData();
+		sendData();
 
 	REG_ENABLE;
 
-	regState = (HAL_SPI_Transmit(&hspi1, &regValues[0], regCount, 100) == HAL_OK)? REG_OK : REG_ERR;
 	return regState;
 }
 
@@ -104,6 +104,8 @@ REG_STATE sendData(void)
 	else
 	{
 		regState = REG_ERR;
+
+		REG_DISABLE;	//výstup ve stavu vysoké impedance (zabrání nechtěnému nastavení relé)
 	}
 
 	return regState;

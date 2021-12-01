@@ -21,15 +21,17 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 //extern Flags flags;
 //extern uint32_t ADC_Results[16] = {0};
 
+//_____Struktura paketu_____//
 typedef struct{
-	//uint8_t startSequence[9];
+	//uint8_t startSequence[] = ">>";
 	uint8_t type;
 	uint8_t* data;
 	uint8_t dataLength;
 	uint8_t CA_value;	//control addiction
-	//uint8_t endSequence[9];
+	//uint8_t endSequence[] = "<<\n";
 }Paket;
 
+//_____Typy paketů posílaných do PC_____//
 typedef enum{
 	DATA_PAKET = 1,
 	DATA_BAT_PAKET,
@@ -39,6 +41,7 @@ typedef enum{
 	REFRESH_PAKET
 }outPaketType;
 
+//_____Typy příchozích paketů z PC_____//
 typedef enum{
 	START_PAKET = 's',
 	CANCEL_PAKET = 'c',
@@ -47,7 +50,7 @@ typedef enum{
 	CON_PAKET = 'a'
 }inPaketType;
 
-
+//_____Funkce pro řízení komunikace přes USB_____//
 void comHandler(void);
 
 
