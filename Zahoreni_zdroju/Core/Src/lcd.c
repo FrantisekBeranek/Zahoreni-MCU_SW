@@ -36,20 +36,20 @@ void setColour(BACKLIGHT colour)
 // !!! Pracuje v blokujícím módu !!!
 DISP_STATE readBusy(void)
 {
-	uint8_t data = READ_BUSY_FLAG;
-	uint8_t data2;
+	uint8_t data[2] = {READ_BUSY_FLAG, 0};
+	uint8_t data2[2];
 
 	DISP_CS_ON;
 	//_____Požadavek na čtení Busy Flag_____//
-	HAL_SPI_Transmit(&hspi1, &data, 1, 100);
+	//HAL_SPI_TransmitReceive(&hspi1, data, data2, 2, 100);
 	//_____Čtení příchozího bytu_____//
-	HAL_Delay(1);
 
-	if(HAL_SPI_Receive(&hspi1, &data2, 1, 100) == HAL_OK)
+
+	if(HAL_SPI_TransmitReceive(&hspi1, data, data2, 2, 100) == HAL_OK)
 	{
 		//_____Vrať hodnotu BF_____//
 		DISP_CS_OFF;
-		return (MaskBit(data2, 7))? SPI_BUSY : SPI_OK;
+		return (MaskBit(data2[1], 7))? SPI_BUSY : SPI_OK;
 	}
 	else
 	{
@@ -64,13 +64,13 @@ DISP_STATE readBusy(void)
 // !!! Pracuje v blokujícím módu !!!
 static DISP_STATE sendByte(char byte, START_BYTE type)
 {
-	while(readBusy() != SPI_OK)
+	/*while(readBusy() != SPI_OK)
 	{
 		if(readBusy() == SPI_ERR)
 		{
 			return SPI_ERR;
 		}
-	}
+	}*/
 	uint8_t buffer[3];
 	switch(type)
 	{
@@ -122,9 +122,9 @@ void setDispConfig(uint8_t* config)
 void dispInit(void)
 {
 	//_____Reset displeje po startu_____//
-	HAL_Delay(10);
-	HAL_GPIO_WritePin(DISP_RST_GPIO_Port,DISP_RST_Pin, GPIO_PIN_RESET);
 	HAL_Delay(20);
+	HAL_GPIO_WritePin(DISP_RST_GPIO_Port,DISP_RST_Pin, GPIO_PIN_RESET);
+	HAL_Delay(30);
 	HAL_GPIO_WritePin(DISP_RST_GPIO_Port,DISP_RST_Pin, GPIO_PIN_SET);
 	HAL_Delay(5);
 
@@ -132,14 +132,10 @@ void dispInit(void)
 	sendByte(0x31, INSTRUCTION);	//Function set
 	sendByte(0x01, INSTRUCTION);	//Clear display
 	sendByte(0x13, INSTRUCTION);	//Oscilator
-	sendByte(0x7F, INSTRUCTION);	//Contrast
+	sendByte(0x70, INSTRUCTION);	//Contrast
 	sendByte(0x5C, INSTRUCTION);	//Power/Icon/Contrast
-	sendByte(0x6E, INSTRUCTION);	//Follower control
+	sendByte(0x6B, INSTRUCTION);	//Follower control
 	sendByte(0x0F, INSTRUCTION);	//Display on
-	//sendByte(0x57, INSTRUCTION);	//Power control
-	//sendByte(0x72, INSTRUCTION);	//Contrast set
-	//sendByte(0x38, INSTRUCTION);	//Function set
-	//sendByte(0x0C, INSTRUCTION);	//Display on
 
 	//_____Zapnout podsvícení_____//
 	setColour(BACKLIGHT_WHITE);
@@ -158,7 +154,9 @@ DISP_STATE setCursor(uint8_t row, uint8_t col)
 	addres += col;
 
 	sendByte(0x38, INSTRUCTION);	//Function set RE = 0
+	HAL_Delay(5);
 	DISP_STATE ret = sendByte(addres, INSTRUCTION);
+	HAL_Delay(5);
 	return ret;
 }
 
@@ -168,10 +166,12 @@ DISP_STATE setCursor(uint8_t row, uint8_t col)
 DISP_STATE writeChar(char character, uint8_t row, uint8_t col)
 {
 	DISP_STATE ret = setCursor(row, col);
+	HAL_Delay(5);
 	if(ret == DISP_OK)
 	{
 		//doplnit úpravu dat podle převodní tabulky displeje
 		ret = sendByte(character, DATA);
+		HAL_Delay(5);
 		return ret;
 	}
 	else
@@ -187,7 +187,11 @@ DISP_STATE writeRow(char* string, uint8_t lenght, uint8_t row, ALIGN align)
 	if(lenght > 16)	//neplatná délka řetězce
 		return DISP_ERR;
 	uint8_t col;
-	char newString[16] = {0};	//nahradit znakem mezery
+	char newString[16];
+	for(uint8_t i = 0; i < 16; i++)
+	{
+		newString[i] = ' ';
+	}
 	switch(align)
 	{
 		case LEFT:	//zarovnání doleva
@@ -197,7 +201,7 @@ DISP_STATE writeRow(char* string, uint8_t lenght, uint8_t row, ALIGN align)
 			col = 15 - lenght;
 			break;
 		case CENTER:
-			col = (15 - lenght)/2;
+			col = (15 - lenght)/2 + 1;
 			break;
 		default:
 			break;
@@ -231,6 +235,16 @@ DISP_STATE writeString(char* string, uint8_t lenght, uint8_t row, uint8_t col)
 			return ret;
 	}
 	return DISP_OK;
+}
+
+DISP_STATE clearRow(uint8_t row)
+{
+	char newString[16];
+	for(uint8_t i = 0; i < 16; i++)
+	{
+		newString[i] = ' ';
+	}
+	return writeRow(newString, 16, row, LEFT);
 }
 
 //_____Řídí obsluhu displeje v neblokujícím režimu_____//

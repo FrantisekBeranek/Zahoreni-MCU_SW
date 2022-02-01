@@ -153,6 +153,9 @@ DISP_STATE writeRow(char*, uint8_t, uint8_t, ALIGN);
 // !!! Pracuje v blokujícím módu !!!
 DISP_STATE writeString(char*, uint8_t, uint8_t, uint8_t);
 
+//_____Smaže řádek daný argumentem_____//
+DISP_STATE clearRow(uint8_t);
+
 //_____Řídí obsluhu displeje v neblokujícím režimu_____//
 //Nedokončená funkce//
 void dispHandler(void);
