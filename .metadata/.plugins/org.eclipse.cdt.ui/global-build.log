@@ -131,3 +131,195 @@ Finished building: Zahoreni_zdroju.bin
  
 Finished building: Zahoreni_zdroju.list
  
+08:15:41 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56000	    488	   6752	  63240	   f708	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:17:53 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  56000	    488	   6752	  63240	   f708	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+08:36:04 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56000	    488	   6752	  63240	   f708	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:36:38 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56000	    488	   6752	  63240	   f708	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:37:27 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56000	    488	   6752	  63240	   f708	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:38:30 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56000	    488	   6752	  63240	   f708	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:40:42 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  55976	    488	   6752	  63216	   f6f0	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+08:41:08 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  55976	    488	   6752	  63216	   f6f0	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:42:36 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  55984	    488	   6752	  63224	   f6f8	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+08:44:14 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  55984	    488	   6752	  63224	   f6f8	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:46:14 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  55984	    488	   6752	  63224	   f6f8	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+08:47:23 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/main.c:135:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  135 |  HAL_ADC_Stop_IT(&hadc);
+      |                  ^~~~~
+      |                  |
+      |                  ADC_HandleTypeDef ** {aka struct __ADC_HandleTypeDef **}
+In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:956:60: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
+  956 | HAL_StatusTypeDef       HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:185:12: warning: character constant too long for its type
+  185 |   writeRow('zdroju', 6, 2, CENTER);
+      |            ^~~~~~~~
+../Core/Src/main.c:185:12: warning: passing argument 1 of 'writeRow' makes pointer from integer without a cast [-Wint-conversion]
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/lcd.h:148:21: note: expected 'char *' but argument is of type 'int'
+  148 | DISP_STATE writeRow(char*, uint8_t, uint8_t, ALIGN);
+      |                     ^~~~~
+At top level:
+../Core/Src/main.c:926:17: warning: 'ADC_dataProcessing' defined but not used [-Wunused-function]
+  926 | static uint32_t ADC_dataProcessing()
+      |                 ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  56012	    488	   6752	  63252	   f714	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+08:49:05 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/main.c:135:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  135 |  HAL_ADC_Stop_IT(&hadc);
+      |                  ^~~~~
+      |                  |
+      |                  ADC_HandleTypeDef ** {aka struct __ADC_HandleTypeDef **}
+In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:956:60: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
+  956 | HAL_StatusTypeDef       HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+At top level:
+../Core/Src/main.c:927:17: warning: 'ADC_dataProcessing' defined but not used [-Wunused-function]
+  927 | static uint32_t ADC_dataProcessing()
+      |                 ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\Users\FrantisekBeranek\Dokumenty\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
+arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
+   text	   data	    bss	    dec	    hex	filename
+  56036	    488	   6752	  63276	   f72c	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 
+Finished building: Zahoreni_zdroju.bin
+ 
+Finished building: Zahoreni_zdroju.list
+ 
+08:49:41 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+make -j8 all 
+arm-none-eabi-size   Zahoreni_zdroju.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56036	    488	   6752	  63276	   f72c	Zahoreni_zdroju.elf
+Finished building: default.size.stdout
+ 

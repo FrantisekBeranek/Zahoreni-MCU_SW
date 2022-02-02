@@ -180,8 +180,10 @@ int main(void)
   /* USER CODE BEGIN 2 */
   //___Inicializace displeje___//
   dispInit();
-  writeRow('Zahoreni', 8, 1, CENTER);
-  writeRow('zdroju', 6, 2, CENTER);
+  char line1[] = "Zahoreni";
+  char line2[] = "zdroju";
+  writeRow(line1, 8, 1, CENTER);
+  writeRow(line2, 6, 2, CENTER);
 
   LOAD_MIN_OFF;
   LOAD_MAX_OFF;

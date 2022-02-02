@@ -6,6 +6,6 @@ lcd.c:122:6:dispInit	8	static
 lcd.c:148:12:setCursor	40	static
 lcd.c:166:12:writeChar	32	static
 lcd.c:185:12:writeRow	48	static
-lcd.c:225:12:writeString	32	static
-lcd.c:240:12:clearRow	40	static
-lcd.c:252:6:dispHandler	8	static
+lcd.c:226:12:writeString	32	static
+lcd.c:241:12:clearRow	40	static
+lcd.c:253:6:dispHandler	8	static

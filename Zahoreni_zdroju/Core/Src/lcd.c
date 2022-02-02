@@ -122,9 +122,9 @@ void setDispConfig(uint8_t* config)
 void dispInit(void)
 {
 	//_____Reset displeje po startu_____//
-	HAL_Delay(20);
+	HAL_Delay(10);
 	HAL_GPIO_WritePin(DISP_RST_GPIO_Port,DISP_RST_Pin, GPIO_PIN_RESET);
-	HAL_Delay(30);
+	HAL_Delay(20);
 	HAL_GPIO_WritePin(DISP_RST_GPIO_Port,DISP_RST_Pin, GPIO_PIN_SET);
 	HAL_Delay(5);
 
@@ -154,9 +154,9 @@ DISP_STATE setCursor(uint8_t row, uint8_t col)
 	addres += col;
 
 	sendByte(0x38, INSTRUCTION);	//Function set RE = 0
-	HAL_Delay(5);
+	//HAL_Delay(5);
 	DISP_STATE ret = sendByte(addres, INSTRUCTION);
-	HAL_Delay(5);
+	//HAL_Delay(5);
 	return ret;
 }
 
@@ -166,12 +166,12 @@ DISP_STATE setCursor(uint8_t row, uint8_t col)
 DISP_STATE writeChar(char character, uint8_t row, uint8_t col)
 {
 	DISP_STATE ret = setCursor(row, col);
-	HAL_Delay(5);
+	//HAL_Delay(5);
 	if(ret == DISP_OK)
 	{
 		//doplnit úpravu dat podle převodní tabulky displeje
 		ret = sendByte(character, DATA);
-		HAL_Delay(5);
+		//HAL_Delay(5);
 		return ret;
 	}
 	else
@@ -204,6 +204,7 @@ DISP_STATE writeRow(char* string, uint8_t lenght, uint8_t row, ALIGN align)
 			col = (15 - lenght)/2 + 1;
 			break;
 		default:
+			col = 0;
 			break;
 	}
 	for(uint8_t i = 0; i < lenght; i++)
