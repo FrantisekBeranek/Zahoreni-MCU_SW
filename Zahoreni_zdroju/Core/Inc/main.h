@@ -129,11 +129,11 @@ void clkHandler(void);
 void buttonDebounce(void);
 
 //_____Funkce pro obsluhu uživatelského rozhraní (buzzer a podsvícení displeje)_____//
-/* Řídí se pomocí nastavení flagů struktury ui */
+/* �?ídí se pomocí nastavení flagů struktury ui */
 void UI_Handler(void);
 
 //_____Funkce pro řízení ADC převodníků_____//
-/* Řídí se pomocí flagů measRequest a onlyBat struktury meas */
+/* �?ídí se pomocí flagů measRequest a onlyBat struktury meas */
 /* Zbylé flagy struktury meas nastavuje */
 void measHandler(void);
 
@@ -199,7 +199,7 @@ void measHandler(void);
 
 #define MaskByte(x,y) (x >> y*8) & 0xFF	//vymaskuj byte y proměnné x
 
-/* Řízení zátěží */
+/* �?ízení zátěží */
 #define LOAD_MIN_ON HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_SET)
 #define LOAD_MIN_OFF HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_RESET)
 #define LOAD_MAX_ON HAL_GPIO_WritePin(LOAD_MAX_GPIO_Port, LOAD_MAX_Pin, GPIO_PIN_SET)
