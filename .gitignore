@@ -34,3 +34,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+*.log
+*.log
+*.xmi
+*.xmi
+*.ini
+*.xml
