@@ -1,10 +1,12 @@
 #include "lcd.h"
 
+static BACKLIGHT colour;
+
 //_____Rozvítí podsvícení dané argumentem_____//
 //-> argument: Barva podsvícení
-void setColour(BACKLIGHT colour)
+void setColour(BACKLIGHT colourToSet)
 {
-	switch(colour)
+	switch(colourToSet)
 	{
 	case BACKLIGHT_WHITE:
 		HAL_GPIO_WritePin(BACKLIGHT_WHITE_GPIO_Port, BACKLIGHT_WHITE_Pin, GPIO_PIN_SET);
@@ -30,6 +32,13 @@ void setColour(BACKLIGHT colour)
 		HAL_GPIO_WritePin(BACKLIGHT_GREEN_GPIO_Port, BACKLIGHT_GREEN_Pin, GPIO_PIN_RESET);
 		break;
 	}
+
+	colour = colourToSet;
+}
+
+BACKLIGHT getColour()
+{
+	return colour;
 }
 
 //_____Přečte dostupnost displeje_____//
@@ -102,7 +111,7 @@ static DISP_STATE sendByte(char byte, START_BYTE type)
 	DISP_CS_ON;
 	HAL_StatusTypeDef ret = HAL_SPI_Transmit(&hspi1, buffer, 3, 100);
 	DISP_CS_OFF;
-	HAL_Delay(1);
+	//HAL_Delay(1);
 	if(ret == HAL_OK)
 		return DISP_OK;
 	else
@@ -250,7 +259,7 @@ DISP_STATE clearRow(uint8_t row)
 
 //_____Řídí obsluhu displeje v neblokujícím režimu_____//
 //Nedokončená funkce//
-void dispHandler(void)
+void lcdHandler(void)
 {
 
 }

@@ -82,6 +82,7 @@ typedef struct{
 		unsigned int error			: 1;
 		unsigned int notice			: 1;
 		unsigned int done			: 1;
+		unsigned int active			: 1;
 	}ui;
 
 	//___VOLTAGE MEASUREMENT___//
@@ -98,6 +99,7 @@ typedef struct{
 	//___TEST CONTROL___//
 	unsigned int startConflict		: 1;	//Dva požadavky na start najednou
 	unsigned int testProgress		: 1;	//Fáze testu se změnila
+	unsigned int testCanceled		: 1;	//Test byl přerušen
 
 	//___SHIFT REGISTERS___//
 	unsigned int conErr				: 1;	//Chyba připojení shift registrů
@@ -129,11 +131,11 @@ void clkHandler(void);
 void buttonDebounce(void);
 
 //_____Funkce pro obsluhu uživatelského rozhraní (buzzer a podsvícení displeje)_____//
-/* �?ídí se pomocí nastavení flagů struktury ui */
+/* �?ídí se pomocí nastavení flagů struktury ui */
 void UI_Handler(void);
 
 //_____Funkce pro řízení ADC převodníků_____//
-/* �?ídí se pomocí flagů measRequest a onlyBat struktury meas */
+/* �?ídí se pomocí flagů measRequest a onlyBat struktury meas */
 /* Zbylé flagy struktury meas nastavuje */
 void measHandler(void);
 
@@ -186,9 +188,9 @@ void measHandler(void);
 //#define __DEBUG_TIME__			//Posílání zpravy s časem od zapnutí
 //#define __DEBUG_BUTT__			//Tlačítka mění podsvícení displeje
 //#define __DEBUG_INST__			//Po přijetí instrukce posílá řetězec zprávu o vyhodnocení
-//#define __SILENT__				//Zakazuje pípání
-#define __DEBUG_TEST__				//Test běží v zkáceném režimu
-//#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
+#define __SILENT__				//Zakazuje pípání
+//#define __DEBUG_TEST__				//Test běží v zkáceném režimu
+#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
 #define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
 
 /* Prace s bitovými proměnnými */
@@ -199,7 +201,7 @@ void measHandler(void);
 
 #define MaskByte(x,y) (x >> y*8) & 0xFF	//vymaskuj byte y proměnné x
 
-/* �?ízení zátěží */
+/* �?ízení zátěží */
 #define LOAD_MIN_ON HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_SET)
 #define LOAD_MIN_OFF HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_RESET)
 #define LOAD_MAX_ON HAL_GPIO_WritePin(LOAD_MAX_GPIO_Port, LOAD_MAX_Pin, GPIO_PIN_SET)

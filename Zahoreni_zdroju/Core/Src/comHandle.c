@@ -14,9 +14,13 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 //___Importované proměnné z main.c___//
 extern Flags flags;
 extern uint32_t ADC_Results[16];
+extern volatile uint8_t supplyToTest;
 
 //___Importované proměnné z testHandle.c___//
 extern int testNum;	//udává pořadí odesílaných dat
+
+//___Importované proměnné z shiftReg.c___//
+extern uint8_t regCount;
 
 //___Pole pro převod dat převodníku na pole bytů___//
 uint8_t data[14];
@@ -151,8 +155,14 @@ void comHandler(void)
 		//___Připrav a odešli paket___//
 		makeByteArray();
 		Paket paket;
-		outPaketType type = (flags.meas.onlyBattery)? DATA_BAT_PAKET : DATA_PAKET;
-		fillPaket(&paket, type, data, 14);
+		if(flags.meas.onlyBattery)
+		{
+			fillPaket(&paket, DATA_BAT_PAKET, data+12, BAT_DATA_PAKET_LENGHT);
+		}
+		else
+		{
+			fillPaket(&paket, DATA_PAKET, data, DATA_PAKET_LENGHT);
+		}
 		pushPaket(USB_Tx_Buffer, &paket);
 	}
 
@@ -165,6 +175,13 @@ void comHandler(void)
 		pushPaket(USB_Tx_Buffer, &paket);
 	}
 #endif
+
+	if(flags.buttons.butt0_ver)
+	{
+		Paket paket;
+		fillPaket(&paket, CANCEL_FROM_USER_PAKET, NULL, 0);
+		pushPaket(USB_Tx_Buffer, &paket);
+	}
 
 	//___Odesílání dat___//
 	//_Ošetření plného bufferu_//
@@ -248,6 +265,7 @@ static uint8_t decodePaket(/*Paket* paket,*/ uint8_t* data, uint8_t dataLenght)
 			if(dataLenght == 7)
 			{
 				flags.instructions.startRequest = 1;
+				supplyToTest = data[3];
 #ifdef __DEBUG_INST__
 				sprintf(txt, "Start\n");
 				pushStr(USB_Tx_Buffer, txt, strlen(txt));
@@ -294,6 +312,17 @@ static uint8_t decodePaket(/*Paket* paket,*/ uint8_t* data, uint8_t dataLenght)
 			//Na pozici data je ukazatel na testovaný zdroj
 		}
 			break;
+
+		case 'a' : ;
+			//___Navázání komunikace___//
+		if(dataLenght == 7)
+		{
+			uint8_t data = regCount;
+			Paket paket;
+			fillPaket(&paket, ACK_PAKET, &data, 1);
+			pushPaket(USB_Tx_Buffer, &paket);
+			pushPaket(USB_Tx_Buffer, &paket);
+		}
 
 		default: ;
 			//___Neplatný příkaz___//

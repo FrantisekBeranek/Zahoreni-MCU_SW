@@ -13,6 +13,9 @@
 #include "testHandle.h"
 #include <stdio.h>
 
+#define DATA_PAKET_LENGHT 14
+#define BAT_DATA_PAKET_LENGHT 2
+
 //___Buffer pro USB___//
 extern	RING_BUFFER* USB_Tx_Buffer;
 extern	RING_BUFFER* USB_Rx_Buffer;
@@ -38,7 +41,8 @@ typedef enum{
 	TEST_NUM_PAKET,
 	TEST_PHASE_PAKET,
 	ACK_PAKET,
-	REFRESH_PAKET
+	REFRESH_PAKET,
+	CANCEL_FROM_USER_PAKET
 }outPaketType;
 
 //_____Typy příchozích paketů z PC_____//

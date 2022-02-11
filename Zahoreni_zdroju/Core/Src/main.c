@@ -86,6 +86,9 @@ volatile Flags flags;
 volatile uint8_t button0_Debounce = 0;
 volatile uint8_t button1_Debounce = 0;
 
+//_____Číslo zdroje k otestování_____//
+volatile uint8_t supplyToTest = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,6 +101,7 @@ static void MX_TIM14_Init(void);
 /* USER CODE BEGIN PFP */
 void clkHandler();
 void buttonDebounce();
+void dispHandler();
 void UI_Handler();
 void measHandler();
 
@@ -219,6 +223,7 @@ int main(void)
 			  flags.meas.calibMeas = 1;
 			  flags.instructions.calibRequest = 0;
 		  }
+		  dispHandler();
 		  UI_Handler();
 		  testHandler();
 		  measHandler();
@@ -715,6 +720,7 @@ void buttonDebounce(void)
 			flags.buttons.butt0_int = 0;
 			button0_Debounce = 0;
 
+			flags.ui.active = 1;
 #ifdef __DEBUG_BUTT__
 			HAL_GPIO_TogglePin(BACKLIGHT_GREEN_GPIO_Port, BACKLIGHT_GREEN_Pin);
 			//writeChar('a', 1, 5);
@@ -739,6 +745,7 @@ void buttonDebounce(void)
 			flags.buttons.butt1_int = 0;
 			button1_Debounce = 0;
 
+			flags.ui.active = 1;
 #ifdef __DEBUG_BUTT__
 			HAL_GPIO_TogglePin(BACKLIGHT_RED_GPIO_Port, BACKLIGHT_RED_Pin);
 #endif
@@ -746,9 +753,157 @@ void buttonDebounce(void)
 	}
 }
 
+//_____Obsluha výtisků textu na displej_____//
+void dispHandler()
+{
+	char emptyString[] = "                ";
+	char* strings[4] = {emptyString};
+	ALIGN align[4] = {CENTER};
+
+	if(flags.testProgress && !flags.instructions.stopRequest)
+	{
+		if(currentPhase() != WAITING)
+		{
+			char supplyInTestingNum[6];
+			sprintf(supplyInTestingNum, "%d/%d", supplyToTest+1, regCount);
+
+			strings[0] = supplyInTestingNum;
+			align[0] = LEFT;
+		}
+
+		switch(currentPhase())
+		{
+		case START:
+		{
+			char start1[] = "Spousteni";
+			strings[1] = start1;
+			align[1] = CENTER;
+
+			break;
+		}
+		case START_DONE:
+		{
+			char start1[] = "Spousteni";
+			char start2[] = "dokonceno";
+			strings[1] = start1;
+			align[1] = CENTER;
+			strings[2] = start2;
+			align[2] = CENTER;
+			break;
+		}
+		case MAIN_TEST:
+		{
+			char main1[] = "Hlavni test";
+			strings[1] = main1;
+			align[1] = CENTER;
+			break;
+		}
+		case MAIN_TEST_DONE:
+		{
+			char main1[] = "Hlavni test";
+			char main2[] = "dokoncen";
+			strings[1] = main1;
+			align[1] = CENTER;
+			strings[2] = main2;
+			align[2] = CENTER;
+			break;
+		}
+		case BATTERY_TEST:
+		{
+			char bat1[] = "Test baterie";
+			strings[1] = bat1;
+			align[1] = CENTER;
+			break;
+		}
+		case BATTERY_TEST_DONE:
+		{
+			char bat1[] = "Test baterie";
+			char bat2[] = "dokoncen";
+			strings[1] = bat1;
+			align[1] = CENTER;
+			strings[2] = bat2;
+			align[2] = CENTER;
+			break;
+		}
+		default:
+		{
+			char default1[] = "Zahoreni";
+			char default2[] = "zdroju";
+			strings[1] = default1;
+			align[1] = CENTER;
+			strings[2] = default2;
+			align[2] = CENTER;
+
+			break;
+		}
+		}
+
+		for(int i = 0; i < 4; i++)
+		{
+			writeRow(strings[i], strlen(strings[i]), i, align[i]);
+		}
+	}
+
+	//_____Zobrazení času u hlavních testů_____//
+	if(flags.time.sec)
+	{
+		switch(currentPhase())
+		{
+		case MAIN_TEST:
+		{
+			char time[9] = {0};
+			sprintf(time, "%d:%d:%d", 2-sysTime[SYSTIME_HOUR], 59-sysTime[SYSTIME_MIN], 60-sysTime[SYSTIME_SEC]);
+			writeRow(time, strlen(time), 2, CENTER);
+			break;
+		}
+		case BATTERY_TEST:
+		{
+			char time[9] = {0};
+			sprintf(time, "%d:%d", 14-sysTime[SYSTIME_MIN], 60-sysTime[SYSTIME_SEC]);
+			writeRow(time, strlen(time), 2, CENTER);
+			break;
+		}
+		default:
+			break;
+		}
+	}
+
+	if(flags.instructions.stopRequest || flags.testCanceled)
+	{
+		char err[] = "Preruseni";
+		strings[1] = err;
+
+		for(int i = 0; i < 4; i++)
+		{
+			writeRow(strings[i], strlen(strings[i]), i, CENTER);
+		}
+	}
+}
+
 //_____Obsluha piezo + podsvícení displeje_____//
 void UI_Handler(void)
 {
+	//_____Vypínání podsvětlení displeje při nečinnosti_____//
+	static uint32_t startTime_LCD = 0;
+
+	if(flags.testProgress)
+		flags.ui.active = 1;
+	if(flags.instructions.calibRequest || flags.instructions.startRequest || flags.instructions.stopRequest || flags.instructions.pauseRequest)
+		flags.ui.active = 1;
+
+	if(flags.ui.active)
+	{
+		startTime_LCD = sysTime[SYSTIME_TEN_MS];
+		setColour(BACKLIGHT_WHITE);
+	}
+
+	if((sysTime[SYSTIME_TEN_MS] - startTime_LCD) >= 6000)	//1min
+	{
+		setColour(BACKLIGHT_OFF);
+	}
+
+	flags.ui.active = 0;
+
 	static enum
 	{
 		OFF = 0U,
@@ -855,7 +1010,7 @@ void UI_Handler(void)
 	default:	//Ošetřuje i UI_State == OFF
 		BUZZER_OFF;
 #ifndef __DEBUG_BUTT__
-		setColour(BACKLIGHT_OFF);
+		//setColour(BACKLIGHT_OFF);
 #endif
 		break;
 

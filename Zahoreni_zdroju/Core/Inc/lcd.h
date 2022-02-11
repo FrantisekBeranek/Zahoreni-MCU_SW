@@ -122,6 +122,9 @@ DISP_STATE readBusy(void);
 //-> argument: Barva podsvícení
 void setColour(BACKLIGHT);
 
+//_____Vrátí barvu displeje nastavenou ponocí setColour()_____//
+BACKLIGHT getColour();
+
 //_____Provede nastavení proměných funkcí dle konfigurace_____//
 //-> argument: ukazatel na proměnou s definováním konfigurace
 void setDispConfig(uint8_t*);
@@ -158,6 +161,6 @@ DISP_STATE clearRow(uint8_t);
 
 //_____Řídí obsluhu displeje v neblokujícím režimu_____//
 //Nedokončená funkce//
-void dispHandler(void);
+void lcdHandler(void);
 
 #endif /* INC_LCD_H_ */

@@ -13,6 +13,7 @@ static	TEST_PHASE testPhase = WAITING;
 //___Proměnné z main.c___//
 extern Flags flags;
 extern int sysTime[4];
+extern volatile uint8_t supplyToTest;
 
 extern RING_BUFFER* USB_Tx_Buffer;
 
@@ -35,6 +36,7 @@ TEST_PHASE currentPhase()
 void testHandler()
 {
 	flags.testProgress = 0;
+	flags.testCanceled = 0;
 
 	if(flags.instructions.startRequest)
 	{
@@ -60,6 +62,15 @@ void testHandler()
 	if(flags.instructions.stopRequest)
 	{
 		stopTest();
+	}
+
+	if(testPhase != WAITING)
+	{
+		if(flags.buttons.butt0_ver)
+		{
+			stopTest();
+			flags.testCanceled = 1;
+		}
 	}
 
 	switch(testPhase)
@@ -101,11 +112,6 @@ void testHandler()
 	case MAIN_TEST:
 		if(flags.time.sec)	//___Změna času___//
 		{
-			//___Zobrazení času na displej___//
-			char time[9] = {0};
-			sprintf(time, "%d:%d:%d", 60-sysTime[SYSTIME_SEC], 60-sysTime[SYSTIME_MIN], 3-sysTime[SYSTIME_HOUR]);
-			//writeRow(time, strlen(time), 0, LEFT);
-
 			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED2);	//blikání druhé progress led
 			sendData();
 		}
@@ -151,10 +157,6 @@ void testHandler()
 	case BATTERY_TEST:
 		if(flags.time.sec)	//___Změna času___//
 		{
-			char time[9] = {0};
-			sprintf(time, "%d:%d:%d", 60-sysTime[SYSTIME_SEC], 60-sysTime[SYSTIME_MIN], 3-sysTime[SYSTIME_HOUR]);
-			//writeRow(time, strlen(time), 0, LEFT);
-
 			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED3);	//blikání třetí progress led
 			sendData();
 		}
@@ -164,6 +166,7 @@ void testHandler()
 		if(!(sysTime[SYSTIME_MIN] % 5) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých pět minut___//
 #endif
 		{
+			flags.meas.onlyBattery = 1;
 			flags.meas.measRequest = 1;
 		}
 #ifdef __DEBUG_TEST__
@@ -188,6 +191,8 @@ void testHandler()
 			PWR_ON(*sourceInTesting);
 			sendData();
 
+			flags.meas.onlyBattery = 0;
+
 			testPhase = WAITING;
 		}
 		break;
@@ -198,12 +203,17 @@ void testHandler()
 //_____Funkce pro zahájení testu_____//
 static void startTest(/*ukazatel na zdroj*/)
 {
+	if(supplyToTest > regCount)
+	{
+		return;
+	}
+
 	flags.ui.shortBeep = 1;
 	testPhase = START;
 	testNum = 0;
 	flags.testProgress = 1;
 
-	sourceInTesting = &regValues[0/*ukazatel na zdroj*/];
+	sourceInTesting = &regValues[supplyToTest];
 
 	for(int i = 0; i < regCount; i++)
 	{
