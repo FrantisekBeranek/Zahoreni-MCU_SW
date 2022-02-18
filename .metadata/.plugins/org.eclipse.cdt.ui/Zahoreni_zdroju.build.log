@@ -1,4 +1,4 @@
-09:40:46 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+10:40:00 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
 arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
 arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
@@ -34,6 +34,28 @@ In file included from ../Core/Inc/comHandle.h:11,
 ../Core/Src/comHandle.c:31:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
    31 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
       |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:146:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
+  146 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
+      |                                      ^~~~~~~~
+      |                                      |
+      |                                      int *
+../Core/Src/comHandle.c:31:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
+   31 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
+      |                                                        ~~~~~~~~~^~~~
+../Core/Src/comHandle.c:192:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  192 |   CDC_Transmit_FS(msg, strlen(msg));
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/comHandle.c: In function 'pushPaket':
+../Core/Src/comHandle.c:248:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
+  248 |  pushStr(buffer, toSend, sizeof(toSend)-1);
+      |                  ^~~~~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/comHandle.h:11,
+                 from ../Core/Src/comHandle.c:8:
+../Core/Inc/ringBuffer.h:59:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   59 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
+      |                                    ^~~~~
 ../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
 ../Core/Src/main.c:139:18: warning: passing argument 1 of 'HAL_ADC_Stop_IT' from incompatible pointer type [-Wincompatible-pointer-types]
   139 |  HAL_ADC_Stop_IT(&hadc);
@@ -47,14 +69,6 @@ In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:956:60: note: expected 'ADC_HandleTypeDef *' {aka 'struct __ADC_HandleTypeDef *'} but argument is of type 'ADC_HandleTypeDef **' {aka 'struct __ADC_HandleTypeDef **'}
   956 | HAL_StatusTypeDef       HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
       |                                         ~~~~~~~~~~~~~~~~~~~^~~~
-../Core/Src/comHandle.c:146:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
-  146 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
-      |                                      ^~~~~~~~
-      |                                      |
-      |                                      int *
-../Core/Src/comHandle.c:31:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
-   31 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
-      |                                                        ~~~~~~~~~^~~~
 ../Core/Src/main.c: In function 'dispHandler':
 ../Core/Src/main.c:855:20: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long unsigned int' [-Wformat=]
   855 |    sprintf(time, "%d:%d:%d", 2-sysTime[SYSTIME_HOUR], 59-sysTime[SYSTIME_MIN], 60-sysTime[SYSTIME_SEC]);
@@ -86,20 +100,6 @@ In file included from ../Core/Inc/stm32f0xx_hal_conf.h:212,
       |                       |                              |
       |                       int                            long unsigned int
       |                      %ld
-../Core/Src/comHandle.c:192:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
-  192 |   CDC_Transmit_FS(msg, strlen(msg));
-      |   ^~~~~~~~~~~~~~~
-../Core/Src/comHandle.c: In function 'pushPaket':
-../Core/Src/comHandle.c:248:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  248 |  pushStr(buffer, toSend, sizeof(toSend)-1);
-      |                  ^~~~~~
-      |                  |
-      |                  uint8_t * {aka unsigned char *}
-In file included from ../Core/Inc/comHandle.h:11,
-                 from ../Core/Src/comHandle.c:8:
-../Core/Inc/ringBuffer.h:59:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-   59 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
-      |                                    ^~~~~
 At top level:
 ../Core/Src/main.c:1082:17: warning: 'ADC_dataProcessing' defined but not used [-Wunused-function]
  1082 | static uint32_t ADC_dataProcessing()
@@ -111,7 +111,7 @@ arm-none-eabi-size   Zahoreni_zdroju.elf
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
 arm-none-eabi-objcopy  -O binary  Zahoreni_zdroju.elf  "Zahoreni_zdroju.bin"
    text	   data	    bss	    dec	    hex	filename
-  57484	    488	   6760	  64732	   fcdc	Zahoreni_zdroju.elf
+  57492	    488	   6760	  64740	   fce4	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.bin
@@ -119,5 +119,5 @@ Finished building: Zahoreni_zdroju.bin
 Finished building: Zahoreni_zdroju.list
  
 
-09:40:48 Build Finished. 0 errors, 12 warnings. (took 2s.267ms)
+10:40:03 Build Finished. 0 errors, 12 warnings. (took 2s.389ms)
 

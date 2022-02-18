@@ -118,7 +118,7 @@ void testHandler()
 #ifdef __DEBUG_TEST__
 		if(sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každou minutu___//
 #else
-		if(!(sysTime[SYSTIME_MIN] % 10) && sysTime[SYSTIME_MIN] != 0 && flags.time.min)	//___Měření napětí každých deset minut___//
+		if(!(sysTime[SYSTIME_MIN] % 10) && !(sysTime[SYSTIME_MIN] == 0 && sysTime[SYSTIME_HOUR] == 0) && flags.time.min)	//___Měření napětí každých deset minut___//
 #endif
 		{
 			flags.meas.measRequest = 1;
