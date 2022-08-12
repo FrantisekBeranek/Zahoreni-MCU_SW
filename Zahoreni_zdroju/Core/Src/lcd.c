@@ -42,7 +42,7 @@ BACKLIGHT getColour()
 }
 
 //_____Přečte dostupnost displeje_____//
-// !!! Pracuje v blokujícím módu !!!
+// !!! Pracuje v blokujícím módu !!! - Nepoužívaná
 DISP_STATE readBusy(void)
 {
 	uint8_t data[2] = {READ_BUSY_FLAG, 0};
@@ -145,6 +145,7 @@ void dispInit(void)
 	sendByte(0x5C, INSTRUCTION);	//Power/Icon/Contrast
 	sendByte(0x6B, INSTRUCTION);	//Follower control
 	sendByte(0x0F, INSTRUCTION);	//Display on
+	sendByte(0x38, INSTRUCTION);	//Function set RE = 0
 
 	//_____Zapnout podsvícení_____//
 	setColour(BACKLIGHT_WHITE);
@@ -162,7 +163,6 @@ DISP_STATE setCursor(uint8_t row, uint8_t col)
 	addres += row*0x20;
 	addres += col;
 
-	sendByte(0x38, INSTRUCTION);	//Function set RE = 0
 	//HAL_Delay(5);
 	DISP_STATE ret = sendByte(addres, INSTRUCTION);
 	//HAL_Delay(5);

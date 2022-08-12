@@ -45,6 +45,7 @@ static uint8_t getCount(void)
 		if(regCount >= 100)	//Ošetření nepřipojených relé desek
 		{
 			flags.conErr = 1;
+			regCount = 0;
 			return 0;
 		}
 	}

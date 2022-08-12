@@ -71,7 +71,8 @@ typedef struct{
 		unsigned int startRequest	: 1;	//požadavek na start testu
 		unsigned int stopRequest	: 1;	//požadavek na zrušení testu
 		unsigned int pauseRequest	: 1;	//požadavek na pozastavení testu
-		unsigned int calibRequest	: 1;	//požadavek na zaslání kalibračních dat
+		unsigned int calibRequest	: 1;	//požadavek na zaslání kalibra�?ních dat
+		unsigned int calibDone		: 1;	//Kalibrace dokon�?ena
 		unsigned int unknownInst	: 1;	//Neznámá instrukce
 	}instructions;
 
@@ -88,18 +89,20 @@ typedef struct{
 	//___VOLTAGE MEASUREMENT___//
 	struct{
 		unsigned int measRequest	: 1;	//Požadavek naprovedení měření
-		unsigned int measComplete	: 1;	//Měření dokončeno
-		unsigned int measDataReady	: 1;	//Měření dokončeno a data připravena k odeslání
+		unsigned int measComplete	: 1;	//Měření dokon�?eno
+		unsigned int measDataReady	: 1;	//Měření dokon�?eno a data připravena k odeslání
 		unsigned int measRunning	: 1;	//Měření probíhá
 		unsigned int measConflict	: 1;	//Dva požadavky na měření najednou
 		unsigned int onlyBattery	: 1;	//Měřena pouze baterie
-		unsigned int calibMeas		: 1;	//Kalibrační měření
+		unsigned int calibMeas		: 1;	//Kalibra�?ní měření
 	}meas;
 
 	//___TEST CONTROL___//
 	unsigned int startConflict		: 1;	//Dva požadavky na start najednou
 	unsigned int testProgress		: 1;	//Fáze testu se změnila
 	unsigned int testCanceled		: 1;	//Test byl přerušen
+	unsigned int calibRunning		: 1;	//Probíhá kalibrace
+	unsigned int heaterState		: 2;	//Chyba topeni
 
 	//___SHIFT REGISTERS___//
 	unsigned int conErr				: 1;	//Chyba připojení shift registrů
@@ -122,11 +125,11 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
-//_____Funkce pro řízení časování_____//
+//_____Funkce pro řízení �?asování_____//
 /* Nastavuje flagy ve struktuře time */
 void clkHandler(void);
 
-//_____Funkce pro debouncing tlačítek_____//
+//_____Funkce pro debouncing tla�?ítek_____//
 /* Nastavuje flagy ve struktuře buttons */
 void buttonDebounce(void);
 
@@ -144,8 +147,8 @@ void measHandler(void);
 /* Private defines -----------------------------------------------------------*/
 #define _5V_BAT_OFF_Pin GPIO_PIN_2
 #define _5V_BAT_OFF_GPIO_Port GPIOB
-#define DEBUG_Pin GPIO_PIN_12
-#define DEBUG_GPIO_Port GPIOB
+#define HEATER_STATE_Pin GPIO_PIN_12
+#define HEATER_STATE_GPIO_Port GPIOB
 #define SR_CLR_Pin GPIO_PIN_13
 #define SR_CLR_GPIO_Port GPIOB
 #define SR_RCLK_Pin GPIO_PIN_14
@@ -185,13 +188,15 @@ void measHandler(void);
 /* USER CODE BEGIN Private defines */
 
 /* Makra pro snazší debug */
-//#define __DEBUG_TIME__			//Posílání zpravy s časem od zapnutí
-//#define __DEBUG_BUTT__			//Tlačítka mění podsvícení displeje
+//#define __DEBUG_TIME__			//Posílání zpravy s �?asem od zapnutí
+//#define __DEBUG_BUTT__			//Tla�?ítka mění podsvícení displeje
 //#define __DEBUG_INST__			//Po přijetí instrukce posílá řetězec zprávu o vyhodnocení
-#define __SILENT__				//Zakazuje pípání
-//#define __DEBUG_TEST__				//Test běží v zkáceném režimu
-#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
+//#define __SILENT__				//Zakazuje pípání
+//#define __DEBUG_TEST__			//Test běží v zkáceném režimu
+//#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
 #define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
+//#define __ADC_DEBUG__
+#define __TIME_WRITE__
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bytu x
@@ -206,6 +211,18 @@ void measHandler(void);
 #define LOAD_MIN_OFF HAL_GPIO_WritePin(LOAD_MIN_GPIO_Port, LOAD_MIN_Pin, GPIO_PIN_RESET)
 #define LOAD_MAX_ON HAL_GPIO_WritePin(LOAD_MAX_GPIO_Port, LOAD_MAX_Pin, GPIO_PIN_SET)
 #define LOAD_MAX_OFF HAL_GPIO_WritePin(LOAD_MAX_GPIO_Port, LOAD_MAX_Pin, GPIO_PIN_RESET)
+
+/* Rizeni topeni */
+#define HTR_OFF HAL_GPIO_WritePin(HEATER_CTRL_GPIO_Port, HEATER_CTRL_Pin, GPIO_PIN_RESET)
+#define HTR_ON HAL_GPIO_WritePin(HEATER_CTRL_GPIO_Port, HEATER_CTRL_Pin, GPIO_PIN_SET)
+
+#define EM_HTR_OFF HAL_GPIO_WritePin(EM_HEATER_CTRL_GPIO_Port, EM_HEATER_CTRL_Pin, GPIO_PIN_RESET)
+#define EM_HTR_ON HAL_GPIO_WritePin(EM_HEATER_CTRL_GPIO_Port, EM_HEATER_CTRL_Pin, GPIO_PIN_SET)
+
+#define GET_HEATER_STATE HAL_GPIO_ReadPin(HEATER_STATE_GPIO_Port, HEATER_STATE_Pin)
+
+#define HEATER_OK 1
+#define HEATER_ERR 2
 
 /* Piezo */
 #define BUZZER_ON HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET)
@@ -229,5 +246,3 @@ void measHandler(void);
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

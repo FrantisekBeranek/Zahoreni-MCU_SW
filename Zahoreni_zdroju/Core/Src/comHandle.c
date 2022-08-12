@@ -176,6 +176,27 @@ void comHandler(void)
 	}
 #endif
 
+	//___Upozornění o stavu topení___//
+	switch(flags.heaterState)
+	{
+		Paket paket;
+		uint8_t data;
+	case HEATER_ERR :
+		data = 0;
+		fillPaket(&paket, HEATER_PAKET, &data, 1);
+		pushPaket(USB_Tx_Buffer, &paket);
+		flags.heaterState = 0;
+		break;
+	case HEATER_OK:
+		data = 1;
+		fillPaket(&paket, HEATER_PAKET, &data, 1);
+		pushPaket(USB_Tx_Buffer, &paket);
+		flags.heaterState = 0;
+		break;
+	default:	//0 => neprobehl test topeni
+		break;
+	}
+
 	if(flags.buttons.butt0_ver)
 	{
 		Paket paket;
@@ -304,7 +325,10 @@ static uint8_t decodePaket(/*Paket* paket,*/ uint8_t* data, uint8_t dataLenght)
 			//___Kalibrace___//
 		if(dataLenght == 7)
 		{
-			flags.instructions.calibRequest = 1;
+			if(data[3] == 0)
+				flags.instructions.calibRequest = 1;
+			else if(data[3] == 1)
+				flags.instructions.calibDone = 1;
 #ifdef __DEBUG_INST__
 			sprintf(txt, "Kalibrace\n");
 			pushStr(USB_Tx_Buffer, txt, strlen(txt));

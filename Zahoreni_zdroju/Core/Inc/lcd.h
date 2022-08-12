@@ -42,7 +42,7 @@ typedef enum
 	DISP_SENDING
 }DISP_STATE;
 
-DISP_STATE dispState;
+//DISP_STATE dispState;
 
 //_____Volba zarovnání řetězce na displeji_____//
 typedef enum
@@ -53,7 +53,7 @@ typedef enum
 }ALIGN;
 
 //_____BUFFER_____//
-RING_BUFFER* dispBuffer;
+//RING_BUFFER* dispBuffer;
 
 /*
 #define CLEAR_DISP 0b00000001
@@ -107,7 +107,7 @@ typedef enum
 }BACKLIGHT;
 
 //_____Konfigurace displeje_____//
-uint32_t dispConfig;	//buď přes bitíky nebo struktura
+//uint32_t dispConfig;	//buď přes bitíky nebo struktura
 
 //_____Přečte dostupnost displeje_____//
 // !!! Pracuje v blokujícím módu !!!

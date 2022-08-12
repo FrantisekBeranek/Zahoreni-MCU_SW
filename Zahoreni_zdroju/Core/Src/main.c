@@ -50,7 +50,7 @@ TIM_HandleTypeDef htim14;
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
-extern	RING_BUFFER* dispBuffer;
+//extern	RING_BUFFER* dispBuffer;
 //extern	RING_BUFFER* regBuffer;
 extern	RING_BUFFER* USB_Rx_Buffer;
 extern	RING_BUFFER* USB_Tx_Buffer;
@@ -70,7 +70,7 @@ const uint32_t ADC_ChannelConf[16] = {U15V_CHANNEL, U15V_CURRENT_CHANNEL,
 
 //extern const uint8_t regCount;
 
-//_____Proměnné času_____//
+//_____Proměnné �?asu_____//
 volatile uint32_t sysTime[4] = {0};
 /*
  * SYSTIME_TEN_MS	0
@@ -99,13 +99,13 @@ static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_TIM14_Init(void);
 /* USER CODE BEGIN PFP */
-void clkHandler();
-void buttonDebounce();
-void dispHandler();
-void UI_Handler();
-void measHandler();
+ void clkHandler();
+ void buttonDebounce();
+ void dispHandler();
+ void UI_Handler();
+ void measHandler();
 
-static uint32_t ADC_dataProcessing();
+//static uint32_t ADC_dataProcessing();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -129,6 +129,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim == &htim14)	//Timer 14 -> každých 10 ms
 	{
+		//Krátké pípnutí signalizuje vykonávání hlavní smy�?ky programu
+		//delší než deset ms
+		if(flags.time.ten_ms == 1)
+			flags.ui.shortBeep = 1;
 		flags.time.ten_ms = 1;
 	}
 }
@@ -136,7 +140,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //_____ADC data ready callback_____//
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	HAL_ADC_Stop_IT(&hadc);
+	HAL_ADC_Stop_IT(hadc);
 	flags.meas.measDataReady = 1;
 }
 
@@ -160,8 +164,8 @@ int main(void)
   /* USER CODE BEGIN Init */
 
   //__Buffery___//
-  dispBuffer = createBuffer(100);
-  regBuffer = createBuffer(100);
+  //dispBuffer = createBuffer(100);
+  //regBuffer = createBuffer(100);
   USB_Rx_Buffer = createBuffer(500);
   USB_Tx_Buffer = createBuffer(500);
 
@@ -211,6 +215,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  static uint32_t savedSec;
 
 	  if(flags.time.ten_ms)	// 10 ms
 	  {
@@ -219,9 +224,43 @@ int main(void)
 		  comHandler();
 		  if(flags.instructions.calibRequest)
 		  {
-			  flags.meas.measRequest = 1;
-			  flags.meas.calibMeas = 1;
-			  flags.instructions.calibRequest = 0;
+				sourceInTesting = &regValues[0];
+
+				for(int i = 0; i < regCount; i++)
+				{
+					regValues[i] = 0;
+				}
+				RELAY_ON(*sourceInTesting);	//připojit relé
+
+				sendData();	//poslat konfiguraci shift registrům
+
+				savedSec = sysTime[SYSTIME_SEC];
+
+				flags.instructions.calibRequest = 0;
+				flags.calibRunning = 1;
+
+
+		  }
+		  if(flags.calibRunning)
+		  {
+			  static uint8_t lock = 0;
+			  if((sysTime[SYSTIME_SEC] >= savedSec + 3) & !lock)
+				{
+					flags.meas.measRequest = 1;
+					flags.meas.calibMeas = 1;
+					lock = 1;
+				}
+				if(flags.instructions.calibDone)
+				{
+					for(int i = 0; i < regCount; i++)
+					{
+						regValues[i] = 0;
+					}
+
+					sendData();	//poslat konfiguraci shift registrům
+					flags.calibRunning = 0;
+					flags.instructions.calibDone = 0;
+				}
 		  }
 		  dispHandler();
 		  UI_Handler();
@@ -262,6 +301,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
@@ -300,6 +340,7 @@ static void MX_ADC_Init(void)
   /* USER CODE BEGIN ADC_Init 1 */
 
   /* USER CODE END ADC_Init 1 */
+
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc.Instance = ADC1;
@@ -320,6 +361,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_0;
@@ -329,6 +371,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_1;
@@ -336,6 +379,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_2;
@@ -343,6 +387,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_3;
@@ -350,6 +395,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_4;
@@ -357,6 +403,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_5;
@@ -364,6 +411,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_6;
@@ -371,6 +419,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_7;
@@ -378,6 +427,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_8;
@@ -385,6 +435,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_9;
@@ -392,6 +443,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_10;
@@ -399,6 +451,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_11;
@@ -406,6 +459,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_12;
@@ -413,6 +467,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_13;
@@ -420,6 +475,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_14;
@@ -427,6 +483,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_15;
@@ -463,7 +520,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -577,9 +634,8 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, _5V_BAT_OFF_Pin|DEBUG_Pin|SR_CLR_Pin|SR_RCLK_Pin
-                          |SR_OE_Pin|DISP_CS_Pin|DISP_RST_Pin|BACKLIGHT_GREEN_Pin
-                          |BACKLIGHT_WHITE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, _5V_BAT_OFF_Pin|SR_CLR_Pin|SR_RCLK_Pin|SR_OE_Pin
+                          |DISP_CS_Pin|DISP_RST_Pin|BACKLIGHT_GREEN_Pin|BACKLIGHT_WHITE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, LOAD_MAX_Pin|LOAD_MIN_Pin|EM_HEATER_CTRL_Pin|HEATER_CTRL_Pin
@@ -588,16 +644,20 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(BACKLIGHT_RED_GPIO_Port, BACKLIGHT_RED_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : _5V_BAT_OFF_Pin DEBUG_Pin SR_CLR_Pin SR_RCLK_Pin
-                           SR_OE_Pin DISP_CS_Pin DISP_RST_Pin BACKLIGHT_GREEN_Pin
-                           BACKLIGHT_WHITE_Pin */
-  GPIO_InitStruct.Pin = _5V_BAT_OFF_Pin|DEBUG_Pin|SR_CLR_Pin|SR_RCLK_Pin
-                          |SR_OE_Pin|DISP_CS_Pin|DISP_RST_Pin|BACKLIGHT_GREEN_Pin
-                          |BACKLIGHT_WHITE_Pin;
+  /*Configure GPIO pins : _5V_BAT_OFF_Pin SR_CLR_Pin SR_RCLK_Pin SR_OE_Pin
+                           DISP_CS_Pin DISP_RST_Pin BACKLIGHT_GREEN_Pin BACKLIGHT_WHITE_Pin */
+  GPIO_InitStruct.Pin = _5V_BAT_OFF_Pin|SR_CLR_Pin|SR_RCLK_Pin|SR_OE_Pin
+                          |DISP_CS_Pin|DISP_RST_Pin|BACKLIGHT_GREEN_Pin|BACKLIGHT_WHITE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : HEATER_STATE_Pin */
+  GPIO_InitStruct.Pin = HEATER_STATE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(HEATER_STATE_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LOAD_MAX_Pin LOAD_MIN_Pin EM_HEATER_CTRL_Pin HEATER_CTRL_Pin
                            BUZZER_Pin */
@@ -642,7 +702,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 //_____Hodiny_____//
-void clkHandler(void)
+ void clkHandler(void)
 {
 	//___nulování všech flagů___//
 	flags.time.ten_ms = 0;
@@ -691,30 +751,30 @@ void clkHandler(void)
 	{
 		char timeStamp[30];
 		sprintf(timeStamp, "%d : %d : %d\n", sysTime[SYSTIME_HOUR], sysTime[SYSTIME_MIN], sysTime[SYSTIME_SEC]);
-		pushStr(USB_Tx_Buffer, timeStamp, strlen(timeStamp));	//odešli čas
+		pushStr(USB_Tx_Buffer, timeStamp, strlen(timeStamp));	//odešli �?as
 	}
 #endif
 }
 
-//_____Debounce tlačítek_____//
-void buttonDebounce(void)
+//_____Debounce tla�?ítek_____//
+ void buttonDebounce(void)
 {
 	//___nulování flagů___//
 	flags.buttons.butt0_ver = 0;
 	flags.buttons.butt1_ver = 0;
 
-	if(flags.buttons.butt0_int)	//interrupt tlačítka 0
+	if(flags.buttons.butt0_int)	//interrupt tla�?ítka 0
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port,BUTTON_0_Pin) == GPIO_PIN_SET)
 		{
 			button0_Debounce++;
 		}
-		else	//pin tlačítka na Low -> šlo o zákmit
+		else	//pin tla�?ítka na Low -> šlo o zákmit
 		{
 			button0_Debounce = 0;
 			flags.buttons.butt0_int = 0;
 		}
-		if(button0_Debounce >= 5)	//pin tlačítka na High 5*10 ms -> ustálený stisk
+		if(button0_Debounce >= 5)	//pin tla�?ítka na High 5*10 ms -> ustálený stisk
 		{
 			flags.buttons.butt0_ver = 1;
 			flags.buttons.butt0_int = 0;
@@ -728,18 +788,18 @@ void buttonDebounce(void)
 		}
 	}
 
-	if(flags.buttons.butt1_int)	//interrupt tlačítka 1
+	if(flags.buttons.butt1_int)	//interrupt tla�?ítka 1
 	{
 		if(HAL_GPIO_ReadPin(BUTTON_1_GPIO_Port,BUTTON_1_Pin) == GPIO_PIN_SET)
 		{
 			button1_Debounce++;
 		}
-		else	//pin tlačítka na Low -> šlo o zákmit
+		else	//pin tla�?ítka na Low -> šlo o zákmit
 		{
 			button1_Debounce = 0;
 			flags.buttons.butt1_int = 0;
 		}
-		if(button1_Debounce >= 5)	//pin tlačítka na High 5*10 ms -> ustálený stisk
+		if(button1_Debounce >= 5)	//pin tla�?ítka na High 5*10 ms -> ustálený stisk
 		{
 			flags.buttons.butt1_ver = 1;
 			flags.buttons.butt1_int = 0;
@@ -754,11 +814,21 @@ void buttonDebounce(void)
 }
 
 //_____Obsluha výtisků textu na displej_____//
-void dispHandler()
+ void dispHandler()
 {
 	char emptyString[] = "                ";
 	char* strings[4] = {emptyString};
 	ALIGN align[4] = {CENTER};
+
+#ifdef __ADC_DEBUG__
+	if(flags.meas.measComplete)
+	{
+		char ADC_value[10] = {0};
+		sprintf(ADC_value, "ADC: %d", ADC_Results[U24VO2-1]);
+		strings[3] = ADC_value;
+		writeRow(strings[3], strlen(strings[3]), 3, align[3]);
+	}
+#endif
 
 	if(flags.testProgress && !flags.instructions.stopRequest)
 	{
@@ -844,7 +914,7 @@ void dispHandler()
 		}
 	}
 
-	//_____Zobrazení času u hlavních testů_____//
+	//_____Zobrazení �?asu u hlavních testů_____//
 	if(flags.time.sec)
 	{
 		switch(currentPhase())
@@ -852,14 +922,14 @@ void dispHandler()
 		case MAIN_TEST:
 		{
 			char time[9] = {0};
-			sprintf(time, "%d:%d:%d", 2-sysTime[SYSTIME_HOUR], 59-sysTime[SYSTIME_MIN], 60-sysTime[SYSTIME_SEC]);
+			sprintf(time, "%lu:%lu:%lu", 2-sysTime[SYSTIME_HOUR], 59-sysTime[SYSTIME_MIN], 59-sysTime[SYSTIME_SEC]);
 			writeRow(time, strlen(time), 2, CENTER);
 			break;
 		}
 		case BATTERY_TEST:
 		{
 			char time[9] = {0};
-			sprintf(time, "%d:%d", 14-sysTime[SYSTIME_MIN], 60-sysTime[SYSTIME_SEC]);
+			sprintf(time, "%lu:%lu", 14-sysTime[SYSTIME_MIN], 59-sysTime[SYSTIME_SEC]);
 			writeRow(time, strlen(time), 2, CENTER);
 			break;
 		}
@@ -881,10 +951,10 @@ void dispHandler()
 }
 
 //_____Obsluha piezo + podsvícení displeje_____//
-void UI_Handler(void)
+ void UI_Handler(void)
 {
-	//_____Vypínání podsvětlení displeje při nečinnosti_____//
-	static uint32_t startTime_LCD = 0;
+	//_____Vypínání podsvětlení displeje při ne�?innosti_____//
+	/*static uint32_t startTime_LCD = 0;
 
 	if(flags.testProgress)
 		flags.ui.active = 1;
@@ -900,7 +970,10 @@ void UI_Handler(void)
 	if((sysTime[SYSTIME_TEN_MS] - startTime_LCD) >= 6000)	//1min
 	{
 		setColour(BACKLIGHT_OFF);
-	}
+	}*/
+
+	if(flags.conErr)
+		flags.ui.error = 1;
 
 	flags.ui.active = 0;
 
@@ -914,7 +987,7 @@ void UI_Handler(void)
 		DONE,
 	}UI_State;
 
-	static uint32_t startTime;	//proměnná pro časování dějů
+	static uint32_t startTime;	//proměnná pro �?asování dějů
 
 	//___Nastavení stavu podle požadavků___//
 	//___Stavy výše mají vyšší prioritu (error nejvyšší)___//
@@ -991,7 +1064,7 @@ void UI_Handler(void)
 			BUZZER_Toggle;
 #endif
 		}
-		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 209)	//Po 2,1s ukonči
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 209)	//Po 2,1s ukon�?i
 			UI_State = OFF;
 		break;
 
@@ -1003,7 +1076,7 @@ void UI_Handler(void)
 #endif
 			BACKLIGHT_GREEN_Toggle;
 		}
-		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 299)	//Po 3s ukonči
+		if((sysTime[SYSTIME_TEN_MS] - startTime) >= 299)	//Po 3s ukon�?i
 			UI_State = OFF;
 		break;
 
@@ -1018,7 +1091,7 @@ void UI_Handler(void)
 }
 
 //_____Osluha AD převodníků_____//
-void measHandler(void)
+ void measHandler(void)
 {
 	static ADC_State_Type ADC_State;
 
@@ -1079,7 +1152,7 @@ void measHandler(void)
 }
 
 //_____Zpracování naměřených dat_____//
-static uint32_t ADC_dataProcessing()
+ /*uint32_t ADC_dataProcessing()
 {
 	uint32_t mean = 0;
 	for(int i = 0; i < 20; i++)
@@ -1090,7 +1163,7 @@ static uint32_t ADC_dataProcessing()
 
 	return mean;
 	//return ADC_Buffer[10];
-}
+}*/
 
 /* USER CODE END 4 */
 
@@ -1125,5 +1198,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

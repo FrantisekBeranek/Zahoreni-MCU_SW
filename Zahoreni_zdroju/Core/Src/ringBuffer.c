@@ -5,7 +5,6 @@
  *      Author: beranekf
  */
 
-#include <stdio.h>
 #include "ringBuffer.h"
 
 //_____Vytvoří buffer v dynamické paměti_____//

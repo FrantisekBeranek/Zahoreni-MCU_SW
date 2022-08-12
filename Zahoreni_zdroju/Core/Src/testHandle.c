@@ -86,9 +86,37 @@ void testHandler()
 		{
 			testPhase++;
 		}
-		else if(sysTime[SYSTIME_SEC] == 1)	//Pauza pro ustálení po sepnutí relé
+
+		if(flags.time.sec)
 		{
-			flags.meas.measRequest = 1;
+			PROGRESS_RUNNING(*sourceInTesting, PROGRESS_LED1);	//blikání prvni progress led
+			sendData();
+
+			switch(sysTime[SYSTIME_SEC])
+			{
+			case 1:	//Po jedne sekunde zapnout topeni
+				HTR_ON;
+				EM_HTR_ON;
+				break;
+			case 2:	//V druhe sekunde overit funkcnost topeni
+				if(HAL_GPIO_ReadPin(HEATER_STATE_GPIO_Port, HEATER_STATE_Pin) == GPIO_PIN_RESET)	//Topení neni v poradku
+				{
+					flags.heaterState = HEATER_ERR;
+				}
+				else
+				{
+					flags.heaterState = HEATER_OK;
+				}
+				//vypnout topeni
+				HTR_OFF;
+				EM_HTR_OFF;
+				break;
+			case 3:	//ve treti sekunde zmerit napeti naprazdno
+				flags.meas.measRequest = 1;
+				break;
+			default:
+				break;
+			}
 		}
 		break;
 	case START_DONE:
@@ -100,8 +128,7 @@ void testHandler()
 		flags.testProgress = 1;
 		//flags.ui.shortBeep = 1;
 
-		PROGRESS_ON(*sourceInTesting, PROGRESS_LED1);	//blikání druhé progress led
-		sendData();
+		PROGRESS_ON(*sourceInTesting, PROGRESS_LED1);	//rozsvítit první led
 
 		//___Nulování času___//
 		for(int i = 1; i < 4; i++)
