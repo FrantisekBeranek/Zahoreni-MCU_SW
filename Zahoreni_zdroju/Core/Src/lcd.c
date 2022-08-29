@@ -138,13 +138,15 @@ void dispInit(void)
 	HAL_Delay(5);
 
 	//_____Nastavit parametry_____//
-	sendByte(0x31, INSTRUCTION);	//Function set
+	sendByte(0x31, INSTRUCTION);	//Function set IS = 1, RE = 0
 	sendByte(0x01, INSTRUCTION);	//Clear display
 	sendByte(0x13, INSTRUCTION);	//Oscilator
-	sendByte(0x70, INSTRUCTION);	//Contrast
-	sendByte(0x5C, INSTRUCTION);	//Power/Icon/Contrast
+	sendByte(0x7A, INSTRUCTION);	//Contrast
+	sendByte(0x56, INSTRUCTION);	//Power/Icon/Contrast
 	sendByte(0x6B, INSTRUCTION);	//Follower control
 	sendByte(0x0F, INSTRUCTION);	//Display on
+	sendByte(0x32, INSTRUCTION);	//Function set RE = 1
+	sendByte(0x1F, INSTRUCTION);	//Shift enable
 	sendByte(0x38, INSTRUCTION);	//Function set RE = 0
 
 	//_____Zapnout podsvícení_____//
@@ -220,9 +222,10 @@ DISP_STATE writeRow(char* string, uint8_t lenght, uint8_t row, ALIGN align)
 	{
 		newString[col + i] = string[i];
 	}
+	setCursor(row, 0);
 	for(uint8_t i = 0; i < 16; i++)
 	{
-		if(writeChar(newString[i], row, i) != DISP_OK)
+		if(sendByte(newString[i], DATA) != DISP_OK)
 					return SPI_ERR;
 	}
 	return DISP_OK;
@@ -238,9 +241,10 @@ DISP_STATE writeString(char* string, uint8_t lenght, uint8_t row, uint8_t col)
 	{
 		return DISP_ERR;
 	}
+	setCursor(row, col);
 	for(uint8_t i = 0; i < lenght; i++)
 	{
-		DISP_STATE ret = writeChar(string[i], row, (col + i));
+		DISP_STATE ret = sendByte(string[i], DATA);
 		if(ret != DISP_OK)
 			return ret;
 	}

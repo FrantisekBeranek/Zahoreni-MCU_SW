@@ -1,10 +1,17 @@
-14:00:03 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+15:02:26 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/lcd.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lcd.d" -MT"Core/Src/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/lcd.o"
+arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Zahoreni_zdroju.elf
+ 
 arm-none-eabi-size   Zahoreni_zdroju.elf 
+arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
    text	   data	    bss	    dec	    hex	filename
-  58352	    488	   6656	  65496	   ffd8	Zahoreni_zdroju.elf
+  58300	    488	   6656	  65444	   ffa4	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
+Finished building: Zahoreni_zdroju.list
+ 
 
-14:00:04 Build Finished. 0 errors, 0 warnings. (took 918ms)
+15:02:28 Build Finished. 0 errors, 0 warnings. (took 1s.758ms)
 

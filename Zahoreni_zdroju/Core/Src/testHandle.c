@@ -151,7 +151,7 @@ void testHandler()
 			flags.meas.measRequest = 1;
 		}
 #ifdef __DEBUG_TEST__
-		if(sysTime[SYSTIME_MIN] >= 10)	//___Po deseti minutách je měření u konce___//
+		if(sysTime[SYSTIME_MIN] >= 3)	//___Po deseti minutách je měření u konce___//
 #else
 		if(sysTime[SYSTIME_HOUR] >= 3)	//___Po třech hodinách je měření u konce___//
 #endif
@@ -197,7 +197,7 @@ void testHandler()
 			flags.meas.measRequest = 1;
 		}
 #ifdef __DEBUG_TEST__
-		if(sysTime[SYSTIME_MIN] >= 3)	//___Po třech minutách je měření u konce___//
+		if(sysTime[SYSTIME_MIN] >= 2)	//___Po třech minutách je měření u konce___//
 #else
 		if(sysTime[SYSTIME_MIN] >= 15)	//___Po patnácti minutách je měření u konce___//
 #endif
@@ -240,7 +240,7 @@ static void startTest(/*ukazatel na zdroj*/)
 	testNum = 0;
 	flags.testProgress = 1;
 
-	sourceInTesting = &regValues[supplyToTest];
+	sourceInTesting = &regValues[regCount - (supplyToTest+1)];	//První deska (spodní) je řízena posledním bytem
 
 	for(int i = 0; i < regCount; i++)
 	{
@@ -271,8 +271,11 @@ static void stopTest()
 	LOAD_MIN_OFF;
 	LOAD_MAX_OFF;
 
-	*sourceInTesting = 0;
-	ERROR_ON(*sourceInTesting);
+	if(sourceInTesting != NULL)
+	{
+		*sourceInTesting = 0;
+		ERROR_ON(*sourceInTesting);
+	}
 	sendData();
 
 	flags.instructions.stopRequest = 0;

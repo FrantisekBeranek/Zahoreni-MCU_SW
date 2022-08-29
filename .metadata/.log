@@ -5947,3 +5947,82 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 D:\frant\Documents\TSE
 
 !ENTRY org.eclipse.cdt.core 1 0 2022-08-12 08:19:01.882
 !MESSAGE Indexed 'Zahoreni_zdroju' (43 sources, 140 headers) in 3.84 sec: 13,613 declarations; 86,296 references; 2 unresolved inclusions; 33 syntax errors; 188 unresolved names (0.19%)
+!SESSION 2022-08-23 12:43:06.210 -----------------------------------------------
+eclipse.buildId=Version 1.10.0
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-08-23 12:43:15.702
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-08-23 12:43:15.812
+!MESSAGE Log4j initialized with config file D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-08-23 12:43:23.832
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-08-23 12:43:28.956
+!MESSAGE Indexed 'Zahoreni_zdroju' (43 sources, 140 headers) in 3.9 sec: 13,613 declarations; 86,295 references; 2 unresolved inclusions; 33 syntax errors; 188 unresolved names (0.19%)
+!SESSION 2022-08-25 08:52:52.124 -----------------------------------------------
+eclipse.buildId=Version 1.10.0
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-08-25 08:53:00.368
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-08-25 08:53:00.489
+!MESSAGE Log4j initialized with config file D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-08-25 08:53:07.213
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2022-08-26 14:07:48.940 -----------------------------------------------
+eclipse.buildId=Version 1.10.0
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-08-26 14:07:57.709
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-08-26 14:07:57.805
+!MESSAGE Log4j initialized with config file D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-08-26 14:08:04.225
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2022-08-29 11:32:39.808 -----------------------------------------------
+eclipse.buildId=Version 1.10.0
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-08-29 11:32:55.252
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-08-29 11:32:55.347
+!MESSAGE Log4j initialized with config file D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-08-29 11:33:01.742
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2022-08-29 13:44:39.136 -----------------------------------------------
+eclipse.buildId=Version 1.10.0
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-08-29 13:44:46.829
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-08-29 13:44:46.914
+!MESSAGE Log4j initialized with config file D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-08-29 13:44:53.163
+!MESSAGE Started RMI Server, listening on port 41337

@@ -4,9 +4,9 @@
 ../Core/Src/lcd.c:74:19:sendByte	40	static
 ../Core/Src/lcd.c:124:6:setDispConfig	16	static
 ../Core/Src/lcd.c:131:6:dispInit	8	static
-../Core/Src/lcd.c:158:12:setCursor	32	static
-../Core/Src/lcd.c:175:12:writeChar	32	static
-../Core/Src/lcd.c:194:12:writeRow	48	static
-../Core/Src/lcd.c:235:12:writeString	32	static
-../Core/Src/lcd.c:250:12:clearRow	40	static
-../Core/Src/lcd.c:262:6:lcdHandler	8	static
+../Core/Src/lcd.c:160:12:setCursor	32	static
+../Core/Src/lcd.c:177:12:writeChar	32	static
+../Core/Src/lcd.c:196:12:writeRow	48	static
+../Core/Src/lcd.c:238:12:writeString	32	static
+../Core/Src/lcd.c:254:12:clearRow	40	static
+../Core/Src/lcd.c:266:6:lcdHandler	8	static

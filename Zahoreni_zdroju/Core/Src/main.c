@@ -224,7 +224,7 @@ int main(void)
 		  comHandler();
 		  if(flags.instructions.calibRequest)
 		  {
-				sourceInTesting = &regValues[0];
+				sourceInTesting = &regValues[regCount - 1];
 
 				for(int i = 0; i < regCount; i++)
 				{
