@@ -181,14 +181,20 @@ void comHandler(void)
 	{
 		Paket paket;
 		uint8_t data;
-	case HEATER_ERR :
+	case HEATER_OK :
 		data = 0;
 		fillPaket(&paket, HEATER_PAKET, &data, 1);
 		pushPaket(USB_Tx_Buffer, &paket);
 		flags.heaterState = 0;
 		break;
-	case HEATER_OK:
+	case HEATER_ERR:
 		data = 1;
+		fillPaket(&paket, HEATER_PAKET, &data, 1);
+		pushPaket(USB_Tx_Buffer, &paket);
+		flags.heaterState = 0;
+		break;
+	case HEATER_TRIAC_ERR:
+		data = 2;
 		fillPaket(&paket, HEATER_PAKET, &data, 1);
 		pushPaket(USB_Tx_Buffer, &paket);
 		flags.heaterState = 0;

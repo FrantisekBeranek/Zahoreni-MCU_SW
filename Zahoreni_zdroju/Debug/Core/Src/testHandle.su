@@ -1,4 +1,4 @@
 ../Core/Src/testHandle.c:30:12:currentPhase	8	static
 ../Core/Src/testHandle.c:36:6:testHandler	56	static
-../Core/Src/testHandle.c:231:13:startTest	16	static
-../Core/Src/testHandle.c:265:13:stopTest	8	static
+../Core/Src/testHandle.c:238:13:startTest	16	static
+../Core/Src/testHandle.c:276:13:stopTest	8	static

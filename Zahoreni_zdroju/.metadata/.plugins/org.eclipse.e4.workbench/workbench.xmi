@@ -12,9 +12,7 @@
     <tags>topLevel</tags>
     <tags>shellMaximized</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_F09C8xuKEeybts7hvdGfXg" selectedElement="_F09C9RuKEeybts7hvdGfXg" horizontal="true">
-      <children xsi:type="advanced:PerspectiveStack" xmi:id="_F09C9BuKEeybts7hvdGfXg" elementId="org.eclipse.ui.ide.perspectivestack" visible="false" containerData="7500" selectedElement="_F5nggRuKEeybts7hvdGfXg">
-        <tags>Minimized</tags>
-        <tags>MinimizedByZoom</tags>
+      <children xsi:type="advanced:PerspectiveStack" xmi:id="_F09C9BuKEeybts7hvdGfXg" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_F5nggRuKEeybts7hvdGfXg">
         <children xsi:type="advanced:Perspective" xmi:id="_F5nggRuKEeybts7hvdGfXg" elementId="org.eclipse.cdt.ui.CPerspective" selectedElement="_F5ngghuKEeybts7hvdGfXg" label="C/C++" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/view16/c_pers.gif">
           <persistedState key="persp.hiddenItems" value="persp.hideToolbarSC:print,persp.hideToolbarSC:org.eclipse.ui.edit.undo,persp.hideToolbarSC:org.eclipse.ui.edit.redo,persp.hideToolbarSC:org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,persp.hideToolbarSC:org.eclipse.debug.ui.commands.RunToLine,"/>
           <tags>persp.actionSet:com.st.stm32cube.ide.mcu.informationcenter.actionSet3</tags>
@@ -69,7 +67,7 @@
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.buildanalyzer.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.stackanalyzer.stackanalyzer.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.sfrview</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_F5ngghuKEeybts7hvdGfXg" selectedElement="_F5nggxuKEeybts7hvdGfXg" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_F5ngghuKEeybts7hvdGfXg" selectedElement="_F5nghxuKEeybts7hvdGfXg" horizontal="true">
             <children xsi:type="basic:PartSashContainer" xmi:id="_Nc7g8BuKEeybts7hvdGfXg" elementId="Drag Placerholder" toBeRendered="false"/>
             <children xsi:type="basic:PartStack" xmi:id="_F5nggxuKEeybts7hvdGfXg" elementId="topLeft" containerData="2500" selectedElement="_F5nghBuKEeybts7hvdGfXg">
               <children xsi:type="advanced:Placeholder" xmi:id="_F5nghBuKEeybts7hvdGfXg" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_F5bThhuKEeybts7hvdGfXg" closeable="true">
@@ -138,7 +136,6 @@
         </children>
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_F09C9RuKEeybts7hvdGfXg" elementId="stickyFolderRight" containerData="2500" selectedElement="_F09C9xuKEeybts7hvdGfXg">
-        <tags>Maximized</tags>
         <tags>active</tags>
         <children xsi:type="advanced:Placeholder" xmi:id="_F09C9huKEeybts7hvdGfXg" elementId="org.eclipse.help.ui.HelpView" toBeRendered="false" ref="_F09C8BuKEeybts7hvdGfXg" closeable="true">
           <tags>View</tags>
@@ -163,11 +160,11 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_F09C8RuKEeybts7hvdGfXg" elementId="org.eclipse.ui.internal.introview" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Information Center" iconURI="platform:/plugin/org.eclipse.ui/icons/full/eview16/defaultview_misc.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.ViewIntroAdapterPart"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view>&#xD;&#xA;&lt;presentation currentPage=&quot;file:///D:/ST/STM32CubeIDE_1.7.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.informationcenter_2.0.0.202106220948/welcome/index.html&quot; restore=&quot;true&quot;/>&#xD;&#xA;&lt;standbyPart/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view>&#xD;&#xA;&lt;presentation currentPage=&quot;file:///D:/ST/STM32CubeIDE_1.10.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.informationcenter_2.1.1.202206161110/welcome/index.html&quot; restore=&quot;true&quot;/>&#xD;&#xA;&lt;standbyPart/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
       <tags>activeOnClose</tags>
+      <tags>active</tags>
       <menus xmi:id="_GOmSABuKEeybts7hvdGfXg" elementId="org.eclipse.ui.internal.introview">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -196,7 +193,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_F-xtURuKEeybts7hvdGfXg" elementId="org.eclipse.ui.navigator.ProjectExplorer"/>
+      <toolbar xmi:id="_F-xtURuKEeybts7hvdGfXg" elementId="org.eclipse.ui.navigator.ProjectExplorer" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_F5hZ4BuKEeybts7hvdGfXg" elementId="org.eclipse.cdt.ui.CView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="C/C++ Projects" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/view16/cview.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.cdt.internal.ui.cview.CView"/>
@@ -220,7 +217,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_GJjZ8RuKEeybts7hvdGfXg" elementId="org.eclipse.ui.views.ProblemView"/>
+      <toolbar xmi:id="_GJjZ8RuKEeybts7hvdGfXg" elementId="org.eclipse.ui.views.ProblemView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_F5hZ4xuKEeybts7hvdGfXg" elementId="org.eclipse.ui.views.TaskList" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Tasks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/tasks_tsk.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.TasksView"/>
@@ -268,7 +265,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_GI-yMRuKEeybts7hvdGfXg" elementId="org.eclipse.ui.views.ContentOutline"/>
+      <toolbar xmi:id="_GI-yMRuKEeybts7hvdGfXg" elementId="org.eclipse.ui.views.ContentOutline" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_F5hZ5xuKEeybts7hvdGfXg" elementId="org.eclipse.ui.views.minimap.MinimapView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Minimap" iconURI="platform:/plugin/org.eclipse.ui.workbench.texteditor/icons/full/eview16/minimap.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.minimap.MinimapView"/>
@@ -279,7 +276,7 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_F5hZ6BuKEeybts7hvdGfXg" elementId="org.eclipse.cdt.make.ui.views.MakeView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Build Targets" iconURI="platform:/plugin/org.eclipse.cdt.make.ui/icons/view16/make_target.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.cdt.make.ui.views.MakeView"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.cdt.make.ui"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view horizontalPosition=&quot;0&quot; verticalPosition=&quot;0&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:Make</tags>
       <menus xmi:id="_GU_08BuKEeybts7hvdGfXg" elementId="org.eclipse.cdt.make.ui.views.MakeView">
@@ -298,7 +295,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_GKUO8RuKEeybts7hvdGfXg" elementId="com.st.stm32cube.ide.mcu.buildanalyzer.view"/>
+      <toolbar xmi:id="_GKUO8RuKEeybts7hvdGfXg" elementId="com.st.stm32cube.ide.mcu.buildanalyzer.view" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_F5nggBuKEeybts7hvdGfXg" elementId="com.st.stm32cube.ide.mcu.stackanalyzer.stackanalyzer.view" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Static Stack Analyzer" iconURI="platform:/plugin/com.st.stm32cube.ide.mcu.stackanalyzer/icons/view_icon.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView"/>
@@ -319,7 +316,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_F2wZwhuKEeybts7hvdGfXg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_3n-Jhxx-Eeyy0LWj6G4Ovg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_FqikDRuKEeybts7hvdGfXg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_yd7PcGGUEe2hcr-R-tHgOA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_FqikDRuKEeybts7hvdGfXg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_F2wZwxuKEeybts7hvdGfXg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -350,7 +347,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_F2wZyhuKEeybts7hvdGfXg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_3oE3Nxx-Eeyy0LWj6G4Ovg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_FqijsxuKEeybts7hvdGfXg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_yd9rsGGUEe2hcr-R-tHgOA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_FqijsxuKEeybts7hvdGfXg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_F2wZyxuKEeybts7hvdGfXg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -384,8 +381,8 @@
         <tags>Draggable</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_FqQO2BuKEeybts7hvdGfXg" elementId="org.eclipse.ui.trim.vertical1" contributorURI="platform:/plugin/org.eclipse.ui.workbench" side="Left">
-      <children xsi:type="menu:ToolControl" xmi:id="_GRd_0BuKEeybts7hvdGfXg" elementId="org.eclipse.ui.ide.perspectivestack(minimized)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+    <trimBars xmi:id="_FqQO2BuKEeybts7hvdGfXg" elementId="org.eclipse.ui.trim.vertical1" contributorURI="platform:/plugin/org.eclipse.ui.workbench" toBeRendered="false" side="Left">
+      <children xsi:type="menu:ToolControl" xmi:id="_GRd_0BuKEeybts7hvdGfXg" elementId="org.eclipse.ui.ide.perspectivestack(minimized)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
@@ -1086,12 +1083,6 @@
     <tags>View</tags>
     <tags>categoryTag:Connections</tags>
   </descriptors>
-  <descriptors xmi:id="_F0w1vhuKEeybts7hvdGfXg" elementId="org.eclipse.search.SearchResultView" label="Classic Search" iconURI="platform:/plugin/org.eclipse.search/icons/full/eview16/searchres.png" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.search.internal.ui.SearchResultView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.search"/>
-    <tags>View</tags>
-    <tags>categoryTag:General</tags>
-  </descriptors>
   <descriptors xmi:id="_F0w1vxuKEeybts7hvdGfXg" elementId="org.eclipse.search.ui.views.SearchView" label="Search" iconURI="platform:/plugin/org.eclipse.search/icons/full/eview16/searchres.png" tooltip="" allowMultiple="true" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.search2.internal.ui.SearchView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.search"/>
@@ -1199,6 +1190,10 @@
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.workbench.texteditor"/>
     <tags>View</tags>
     <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_yaKJwGGUEe2hcr-R-tHgOA" elementId="org.eclipse.debug.ui.launchView" label="Launch Configurations" iconURI="platform:/plugin/org.eclipse.debug.ui.launchview/icons/run_exc.png" tooltip="" category="Debug" closeable="true" contributionURI="bundleclass://org.eclipse.debug.ui.launchview/org.eclipse.debug.ui.launchview.internal.view.LaunchViewImpl">
+    <tags>View</tags>
+    <tags>categoryTag:Debug</tags>
   </descriptors>
   <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
     <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
@@ -1383,7 +1378,7 @@
     <parameters xmi:id="_FqijbBuKEeybts7hvdGfXg" elementId="importWizardId" name="Import Wizard"/>
   </commands>
   <commands xmi:id="_FqijbRuKEeybts7hvdGfXg" elementId="org.eclipse.ui.window.switchToEditor" commandName="Switch to Editor" description="Switch to an editor" category="_FqiivBuKEeybts7hvdGfXg"/>
-  <commands xmi:id="_FqijbhuKEeybts7hvdGfXg" elementId="org.eclipse.ui.help.dynamicHelp" commandName="Show Contextual Help" description="Open the contextual help" category="_FqiivxuKEeybts7hvdGfXg"/>
+  <commands xmi:id="_FqijbhuKEeybts7hvdGfXg" elementId="org.eclipse.ui.help.dynamicHelp" commandName="Show Context Help" description="Open the contextual help" category="_FqiivxuKEeybts7hvdGfXg"/>
   <commands xmi:id="_FqijbxuKEeybts7hvdGfXg" elementId="org.eclipse.ui.navigate.nextSubTab" commandName="Next Sub-Tab" description="Switch to the next sub-tab" category="_FqiiuBuKEeybts7hvdGfXg"/>
   <commands xmi:id="_FqijcBuKEeybts7hvdGfXg" elementId="org.eclipse.cdt.ui.edit.text.c.goto.next.member" commandName="Go to Next Member" description="Move the caret to the next member of the translation unit" category="_FqiisxuKEeybts7hvdGfXg"/>
   <commands xmi:id="_FqijcRuKEeybts7hvdGfXg" elementId="org.eclipse.ui.edit.addTask" commandName="Add Task..." description="Add a task" category="_FqiishuKEeybts7hvdGfXg"/>
@@ -1842,6 +1837,12 @@
   <commands xmi:id="_F0MN-xuKEeybts7hvdGfXg" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.togglesplitpane" commandName="Toggle Split Pane" description="Toggle Split Pane" category="_FqiizRuKEeybts7hvdGfXg"/>
   <commands xmi:id="_F0MN_BuKEeybts7hvdGfXg" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.switchMemoryBlock" commandName="Switch Memory Monitor" description="Switch Memory Monitor" category="_FqiizRuKEeybts7hvdGfXg"/>
   <commands xmi:id="_F0MN_RuKEeybts7hvdGfXg" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.memoryViewPreferencesAction" commandName="Preferences..." description="&amp;Preferences..." category="_FqiizRuKEeybts7hvdGfXg"/>
+  <commands xmi:id="_yCM8wWGUEe2hcr-R-tHgOA" elementId="org.eclipse.compare.switchLeftAndRight" commandName="Swap Left and Right View" description="Switch the left and right sides in the compare editor" category="_FqiiuhuKEeybts7hvdGfXg"/>
+  <commands xmi:id="_yCM8wmGUEe2hcr-R-tHgOA" elementId="org.eclipse.cdt.debug.ui.memory.memorybrowser.jumpToMemory" commandName="Jump to Memory" description="Open memory view and add memory monitor for address" category="_FqiixxuKEeybts7hvdGfXg"/>
+  <commands xmi:id="_yCM8w2GUEe2hcr-R-tHgOA" elementId="com.st.stm32cube.ide.common.ui.view_export" commandName="Export view data to file" category="_FqiizRuKEeybts7hvdGfXg"/>
+  <commands xmi:id="_yCM8xGGUEe2hcr-R-tHgOA" elementId="org.eclipse.ui.edit.text.toMultiSelection" commandName="To multi-selection" description="Turn current selection into multiple text selections" category="_FqiishuKEeybts7hvdGfXg"/>
+  <commands xmi:id="_yCNj0GGUEe2hcr-R-tHgOA" elementId="org.eclipse.debug.ui.commands.TerminateAll" commandName="Terminate/Disconnect All" description="Terminate/Disconnect All" category="_FqiixxuKEeybts7hvdGfXg"/>
+  <commands xmi:id="_yCNj0WGUEe2hcr-R-tHgOA" elementId="com.st.stm32cube.ide.mcu.threadx.trx_to_file_command" commandName="Export trace" category="_FqiizRuKEeybts7hvdGfXg"/>
   <addons xmi:id="_FqQO3xuKEeybts7hvdGfXg" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_FqQO4BuKEeybts7hvdGfXg" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_FqQO4RuKEeybts7hvdGfXg" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -1853,7 +1854,7 @@
   <addons xmi:id="_FqQO5xuKEeybts7hvdGfXg" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_FqQO6BuKEeybts7hvdGfXg" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_FqWVcBuKEeybts7hvdGfXg" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_3ZPJ8Rx-Eeyy0LWj6G4Ovg" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_FqiisBuKEeybts7hvdGfXg" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
   <categories xmi:id="_FqiisRuKEeybts7hvdGfXg" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>

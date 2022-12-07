@@ -191,10 +191,10 @@ void measHandler(void);
 //#define __DEBUG_TIME__			//Posílání zpravy s �?asem od zapnutí
 //#define __DEBUG_BUTT__			//Tla�?ítka mění podsvícení displeje
 //#define __DEBUG_INST__			//Po přijetí instrukce posílá řetězec zprávu o vyhodnocení
-//#define __SILENT__				//Zakazuje pípání
+#define __SILENT__				//Zakazuje pípání
 //#define __DEBUG_TEST__			//Test běží v zkáceném režimu
 //#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
-#define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
+//#define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
 //#define __ADC_DEBUG__
 #define __TIME_WRITE__
 
@@ -223,6 +223,7 @@ void measHandler(void);
 
 #define HEATER_OK 1
 #define HEATER_ERR 2
+#define HEATER_TRIAC_ERR 3
 
 /* Piezo */
 #define BUZZER_ON HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET)

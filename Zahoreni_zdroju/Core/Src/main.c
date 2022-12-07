@@ -89,6 +89,9 @@ volatile uint8_t button1_Debounce = 0;
 //_____Číslo zdroje k otestování_____//
 volatile uint8_t supplyToTest = 0;
 
+//_____Kalibrační hodnota interní reference____//
+uint16_t* calibValue = 0x1FFFF7BA;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -104,6 +107,7 @@ static void MX_TIM14_Init(void);
  void dispHandler();
  void UI_Handler();
  void measHandler();
+ void calibHandler();
 
 //static uint32_t ADC_dataProcessing();
 /* USER CODE END PFP */
@@ -215,53 +219,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  static uint32_t savedSec;
 
 	  if(flags.time.ten_ms)	// 10 ms
 	  {
 		  clkHandler();
 		  buttonDebounce();
 		  comHandler();
-		  if(flags.instructions.calibRequest)
-		  {
-				sourceInTesting = &regValues[regCount - 1];
-
-				for(int i = 0; i < regCount; i++)
-				{
-					regValues[i] = 0;
-				}
-				RELAY_ON(*sourceInTesting);	//připojit relé
-
-				sendData();	//poslat konfiguraci shift registrům
-
-				savedSec = sysTime[SYSTIME_SEC];
-
-				flags.instructions.calibRequest = 0;
-				flags.calibRunning = 1;
-
-
-		  }
-		  if(flags.calibRunning)
-		  {
-			  static uint8_t lock = 0;
-			  if((sysTime[SYSTIME_SEC] >= savedSec + 3) & !lock)
-				{
-					flags.meas.measRequest = 1;
-					flags.meas.calibMeas = 1;
-					lock = 1;
-				}
-				if(flags.instructions.calibDone)
-				{
-					for(int i = 0; i < regCount; i++)
-					{
-						regValues[i] = 0;
-					}
-
-					sendData();	//poslat konfiguraci shift registrům
-					flags.calibRunning = 0;
-					flags.instructions.calibDone = 0;
-				}
-		  }
+		  calibHandler();
 		  dispHandler();
 		  UI_Handler();
 		  testHandler();
@@ -1147,6 +1111,52 @@ static void MX_GPIO_Init(void)
 
 				HAL_ADC_Start_IT(&hadc);
 			}
+		}
+	}
+}
+
+void calibHandler()
+{
+	static uint32_t savedSec;
+
+	if(flags.instructions.calibRequest)
+	{
+		sourceInTesting = &regValues[regCount - 1];
+
+		for(int i = 0; i < regCount; i++)
+		{
+			regValues[i] = 0;
+		}
+		RELAY_ON(*sourceInTesting);	//připojit relé
+
+		sendData();	//poslat konfiguraci shift registrům
+
+		savedSec = sysTime[SYSTIME_SEC];
+
+		flags.instructions.calibRequest = 0;
+		flags.calibRunning = 1;
+
+
+	}
+	if(flags.calibRunning)
+	{
+	  static uint8_t lock = 0;
+	  if((sysTime[SYSTIME_SEC] >= savedSec + 3) & !lock)
+		{
+			flags.meas.measRequest = 1;
+			flags.meas.calibMeas = 1;
+			lock = 1;
+		}
+		if(flags.instructions.calibDone)
+		{
+			for(int i = 0; i < regCount; i++)
+			{
+				regValues[i] = 0;
+			}
+
+			sendData();	//poslat konfiguraci shift registrům
+			flags.calibRunning = 0;
+			flags.instructions.calibDone = 0;
 		}
 	}
 }

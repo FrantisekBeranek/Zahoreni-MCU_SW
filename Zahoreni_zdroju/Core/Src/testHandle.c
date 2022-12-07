@@ -95,23 +95,30 @@ void testHandler()
 			switch(sysTime[SYSTIME_SEC])
 			{
 			case 1:	//Po jedne sekunde zapnout topeni
+				HAL_Delay(2);	//pro oddaleni sepnuti rele od spi komunikace
 				HTR_ON;
 				EM_HTR_ON;
 				break;
-			case 2:	//V druhe sekunde overit funkcnost topeni
-				if(HAL_GPIO_ReadPin(HEATER_STATE_GPIO_Port, HEATER_STATE_Pin) == GPIO_PIN_RESET)	//Topení neni v poradku
+			case 2:
+				break;
+			case 3:	//V treti sekunde overit funkcnost topeni
+				if(HAL_GPIO_ReadPin(HEATER_STATE_GPIO_Port, HEATER_STATE_Pin) != GPIO_PIN_RESET)	//Topení neni v poradku
 				{
 					flags.heaterState = HEATER_ERR;
 				}
-				else
+				//vypnout topeni optotriak
+				HTR_OFF;
+				break;
+			case 4:
+				if(HAL_GPIO_ReadPin(HEATER_STATE_GPIO_Port, HEATER_STATE_Pin) != GPIO_PIN_SET)	//Topení neni v poradku
 				{
-					flags.heaterState = HEATER_OK;
+					flags.heaterState = HEATER_TRIAC_ERR;
 				}
 				//vypnout topeni
-				HTR_OFF;
+				HAL_Delay(2);	//pro oddaleni sepnuti rele od spi komunikace
 				EM_HTR_OFF;
 				break;
-			case 3:	//ve treti sekunde zmerit napeti naprazdno
+			case 5:	//v pate sekunde zmerit napeti naprazdno
 				flags.meas.measRequest = 1;
 				break;
 			default:
@@ -244,13 +251,17 @@ static void startTest(/*ukazatel na zdroj*/)
 
 	for(int i = 0; i < regCount; i++)
 	{
-		regValues[i] = 0;
+		//Power up and disconnect all supplies
+		RELAY_OFF(regValues[i]);
+		PWR_ON(regValues[i]);
 	}
 	PROGRESS_ON(*sourceInTesting, PROGRESS_LED1);	//rozsvítit první ledku progress
+	PROGRESS_OFF(*sourceInTesting, PROGRESS_LED2);	//Zhasnout zbyle led
+	PROGRESS_OFF(*sourceInTesting, PROGRESS_LED3);
+	ERROR_OFF(*sourceInTesting);
 	RELAY_ON(*sourceInTesting);	//připojit relé
 
 	sendData();	//poslat konfiguraci shift registrům
-	//Zobrazit text na displej
 
 	//___Nulování času___//
 	for(int i = 1; i < 4; i++)
