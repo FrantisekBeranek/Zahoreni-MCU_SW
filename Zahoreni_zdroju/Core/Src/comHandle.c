@@ -23,7 +23,7 @@ extern int testNum;	//udává pořadí odesílaných dat
 extern uint8_t regCount;
 
 //___Pole pro převod dat převodníku na pole bytů___//
-uint8_t data[14];
+uint8_t data[16];
 
 /* definice funkcí */
 void comHandler(void);
@@ -52,8 +52,8 @@ void comHandler(void)
 	}
 
 	//___Příjem dat___//
-	if(flags.data_received)
-	{
+	//if(flags.data_received)
+	//{
 		int start = 0;	//flag o nalezení počátku paketu
 
 		for(int i = 0; i < USB_Rx_Buffer->filled; i++)	//Projdi celou obsazenou část bufferu
@@ -97,7 +97,7 @@ void comHandler(void)
 					break;
 				}
 			}
-		}
+		//}
 
 		flags.data_received = 0;
 	}
@@ -177,30 +177,14 @@ void comHandler(void)
 #endif
 
 	//___Upozornění o stavu topení___//
-	switch(flags.heaterState)
+	if(flags.heaterState)
 	{
 		Paket paket;
 		uint8_t data;
-	case HEATER_OK :
-		data = 0;
+		data = flags.heaterState - 1;
 		fillPaket(&paket, HEATER_PAKET, &data, 1);
 		pushPaket(USB_Tx_Buffer, &paket);
 		flags.heaterState = 0;
-		break;
-	case HEATER_ERR:
-		data = 1;
-		fillPaket(&paket, HEATER_PAKET, &data, 1);
-		pushPaket(USB_Tx_Buffer, &paket);
-		flags.heaterState = 0;
-		break;
-	case HEATER_TRIAC_ERR:
-		data = 2;
-		fillPaket(&paket, HEATER_PAKET, &data, 1);
-		pushPaket(USB_Tx_Buffer, &paket);
-		flags.heaterState = 0;
-		break;
-	default:	//0 => neprobehl test topeni
-		break;
 	}
 
 	if(flags.buttons.butt0_ver)
@@ -236,7 +220,7 @@ void comHandler(void)
 //_____Zpracuje ADC_Results do pole data_____//
 static void makeByteArray()
 {
-	for(int i = 0; i < 7; i++)
+	for(int i = 0; i < 8; i++)
 	{
 		data[2*i] = MaskByte(ADC_Results[2*i], 1);
 		data[2*i+1] = MaskByte(ADC_Results[2*i], 0);

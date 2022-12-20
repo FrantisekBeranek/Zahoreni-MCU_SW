@@ -56,17 +56,26 @@ extern	RING_BUFFER* USB_Rx_Buffer;
 extern	RING_BUFFER* USB_Tx_Buffer;
 
 volatile uint32_t ADC_Buffer[20];
-volatile uint32_t ADC_Results[16] = {0};
+volatile uint32_t ADC_Results[17] = {0};
 
-const uint32_t ADC_ChannelConf[16] = {U15V_CHANNEL, U15V_CURRENT_CHANNEL,
+const uint32_t ADC_ChannelConf[] = 	{U15V_CHANNEL, U15V_CURRENT_CHANNEL,
 		 	 	 	 	 	 	 	 U12V_CHANNEL, U12V_CURRENT_CHANNEL,
 									 U24VO2_CHANNEL, U24VO2_CURRENT_CHANNEL,
 									 U24V_CHANNEL, U24V_CURRENT_CHANNEL,
 									 U5VK_CHANNEL, U5VK_CURRENT_CHANNEL,
 									 U5V_CHANNEL, U5V_CURRENT_CHANNEL,
 									 U_BAT_CHANNEL,
-									 PAD9_CHANNEL, PAD15_CHANNEL,
-									 U48V_CURRENT_CHANNEL};
+									 U48V_CURRENT_CHANNEL,
+									 INTERNAL_REF_CHANNEL,
+									 PAD9_CHANNEL, PAD15_CHANNEL};
+
+/*const float transferConsts[] =		{U15V_TRANSFER_CONSTANT,
+									 U12V_TRANSFER_CONSTANT,
+									 U24V_TRANSFER_CONSTANT,
+									 U24V_TRANSFER_CONSTANT,
+									 U5V_TRANSFER_CONSTANT,
+									 U5V_TRANSFER_CONSTANT,
+									 UBAT_TRANSFER_CONSTANT};*/
 
 //extern const uint8_t regCount;
 
@@ -89,8 +98,8 @@ volatile uint8_t button1_Debounce = 0;
 //_____Číslo zdroje k otestování_____//
 volatile uint8_t supplyToTest = 0;
 
-//_____Kalibrační hodnota interní reference____//
-uint16_t* calibValue = 0x1FFFF7BA;
+//_____Kalibra�?ní hodnota interní reference____//
+uint16_t calibValue;
 
 /* USER CODE END PV */
 
@@ -102,12 +111,13 @@ static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_TIM14_Init(void);
 /* USER CODE BEGIN PFP */
- void clkHandler();
- void buttonDebounce();
- void dispHandler();
- void UI_Handler();
- void measHandler();
- void calibHandler();
+ static void clkHandler();
+ static void buttonDebounce();
+ static void dispHandler();
+ static void UI_Handler();
+ static void measHandler();
+ static void calibHandler();
+ static void ADC_dataProcessing();
 
 //static uint32_t ADC_dataProcessing();
 /* USER CODE END PFP */
@@ -190,6 +200,9 @@ int main(void)
   MX_USART3_UART_Init();
   MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
+  //___Nacteni kalibracni konstanty___//
+  calibValue = *((uint16_t*)CALIB_VALUE_PTR);
+
   //___Inicializace displeje___//
   dispInit();
   char line1[] = "Zahoreni";
@@ -455,8 +468,16 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN ADC_Init 2 */
 
+  /** Configure for the selected ADC regular channel to be converted.
+  */
+  sConfig.Channel = ADC_CHANNEL_VREFINT;
+  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC_Init 2 */
+  HAL_ADCEx_Calibration_Start(&hadc);
   /* USER CODE END ADC_Init 2 */
 
 }
@@ -666,7 +687,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 //_____Hodiny_____//
- void clkHandler(void)
+static void clkHandler(void)
 {
 	//___nulování všech flagů___//
 	flags.time.ten_ms = 0;
@@ -721,7 +742,7 @@ static void MX_GPIO_Init(void)
 }
 
 //_____Debounce tla�?ítek_____//
- void buttonDebounce(void)
+static void buttonDebounce(void)
 {
 	//___nulování flagů___//
 	flags.buttons.butt0_ver = 0;
@@ -778,7 +799,7 @@ static void MX_GPIO_Init(void)
 }
 
 //_____Obsluha výtisků textu na displej_____//
- void dispHandler()
+static void dispHandler()
 {
 	char emptyString[] = "                ";
 	char* strings[4] = {emptyString};
@@ -915,7 +936,7 @@ static void MX_GPIO_Init(void)
 }
 
 //_____Obsluha piezo + podsvícení displeje_____//
- void UI_Handler(void)
+static void UI_Handler(void)
 {
 	//_____Vypínání podsvětlení displeje při ne�?innosti_____//
 	/*static uint32_t startTime_LCD = 0;
@@ -1055,7 +1076,7 @@ static void MX_GPIO_Init(void)
 }
 
 //_____Osluha AD převodníků_____//
- void measHandler(void)
+static void measHandler(void)
 {
 	static ADC_State_Type ADC_State;
 
@@ -1067,19 +1088,21 @@ static void MX_GPIO_Init(void)
 	{
 		if(!flags.meas.measRunning)
 		{
+			//hadc->Instance->CR = 0;	//Will disable ADC so calibrtion can start
+			HAL_ADCEx_Calibration_Start(&hadc);	//Calibration process
+			//hadc->Instance->CR = 1	//Enable ADC
 			flags.meas.measRunning = 1;
 			if(currentPhase() == BATTERY_TEST || currentPhase() == BATTERY_TEST_DONE)	//probíhá battery test
 			{
 				flags.meas.onlyBattery = 1;
 				ADC_State = U_BAT;
-				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
 			}
 			else
 			{
 				flags.meas.onlyBattery = 0;
 				ADC_State = U15V;
-				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
 			}
+			ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
 			HAL_ADC_Start_IT(&hadc);
 		}
 		else
@@ -1089,33 +1112,32 @@ static void MX_GPIO_Init(void)
 		flags.meas.measRequest = 0;
 	}
 
-	if(ADC_State != ADC_WAITING)
+	if(ADC_State != ADC_WAITING && flags.meas.measDataReady)
 	{
-		if(flags.meas.measDataReady)
+
+		flags.meas.measDataReady = 0;
+
+		if(ADC_State == INTERNAL_REF)	//interni reference je vždy měřena jako poslední
 		{
-			flags.meas.measDataReady = 0;
+			ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
+			ADC_dataProcessing();
+			flags.meas.measComplete = 1;
+			flags.meas.measRunning = 0;
+			ADC_State = ADC_WAITING;
+		}
+		else
+		{
+			ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
+			ADC_State += 2;	//Měř další kanál (měření proudů se přeskakuje)
 
-			if(ADC_State == U_BAT)	//U_BAT je vždy měřeno jako poslední
-			{
-				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
-				flags.meas.measComplete = 1;
-				flags.meas.measRunning = 0;
-				ADC_State = ADC_WAITING;
-			}
-			else
-			{
-				ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
-				ADC_State += 2;	//Měř další kanál (měření proudů se přeskakuje)
+			ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];	//Nastav měřený kanál
 
-				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];	//Nastav měřený kanál
-
-				HAL_ADC_Start_IT(&hadc);
-			}
+			HAL_ADC_Start_IT(&hadc);
 		}
 	}
 }
 
-void calibHandler()
+static void calibHandler()
 {
 	static uint32_t savedSec;
 
@@ -1140,8 +1162,8 @@ void calibHandler()
 	}
 	if(flags.calibRunning)
 	{
-	  static uint8_t lock = 0;
-	  if((sysTime[SYSTIME_SEC] >= savedSec + 3) & !lock)
+		static uint8_t lock = 0;
+		if((sysTime[SYSTIME_SEC] >= savedSec + 3) & !lock)
 		{
 			flags.meas.measRequest = 1;
 			flags.meas.calibMeas = 1;
@@ -1162,18 +1184,22 @@ void calibHandler()
 }
 
 //_____Zpracování naměřených dat_____//
- /*uint32_t ADC_dataProcessing()
+static void ADC_dataProcessing()
 {
-	uint32_t mean = 0;
-	for(int i = 0; i < 20; i++)
+	//uint16_t interRef = ADC_Results[INTERNAL_REF-1];
+	//uint32_t vMeas[7] = {0};
+	//uint32_t vMeasT[7] = {0};
+	/*for(uint8_t i = 0; i < 7; i++)
 	{
-		mean += ADC_Buffer[i];
-	}
-	mean = mean/20;
+		vMeas[i] = ADC_Results[2*i]*330*calibValue;
+		vMeas[i] += interRef*2048;
+		vMeas[i] /= interRef*4095;
+		vMeasT[i] = vMeas[i] * transferConsts[i];
+	}*/
 
-	return mean;
+	return;
 	//return ADC_Buffer[10];
-}*/
+}
 
 /* USER CODE END 4 */
 

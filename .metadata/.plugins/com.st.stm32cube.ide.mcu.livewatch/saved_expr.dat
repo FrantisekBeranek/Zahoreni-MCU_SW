@@ -1,3 +1,9 @@
-ADC_Results
-data
 flags
+ADC_Results
+sourceInTesting
+regCount
+*regValues
+*(regValues+1)
+*(regValues+2)
+supplyToTest
+USB_Rx_Buffer

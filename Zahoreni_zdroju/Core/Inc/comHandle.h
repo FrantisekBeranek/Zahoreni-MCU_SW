@@ -13,8 +13,8 @@
 #include "testHandle.h"
 #include <stdio.h>
 
-#define DATA_PAKET_LENGHT 14
-#define BAT_DATA_PAKET_LENGHT 2
+#define DATA_PAKET_LENGHT 16
+#define BAT_DATA_PAKET_LENGHT 4
 
 //___Buffer pro USB___//
 extern	RING_BUFFER* USB_Tx_Buffer;

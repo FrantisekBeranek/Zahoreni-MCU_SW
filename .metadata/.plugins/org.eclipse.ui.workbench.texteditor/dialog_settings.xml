@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="savedSec"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="__TIME_WRITE__"/>
+			<item value="ADC_Results"/>
+			<item value="flags.meas.measComplete"/>
 			<item value="savedSec"/>
 			<item value="ADC_DEBUG"/>
-			<item value="__TIME_WRITE__"/>
 			<item value="GPIO_PIN_13"/>
 			<item value="flags.instructions.calibRequest"/>
 			<item value="flags.ui."/>
@@ -21,8 +23,6 @@
 			<item value="HAL_delay"/>
 			<item value="regBuffer"/>
 			<item value="dispBuffer"/>
-			<item value="sourceInTesting"/>
-			<item value=","/>
 		</list>
 		<list key="replacehistory">
 			<item value="_CHANNEL,"/>
@@ -43,6 +43,6 @@
 		<item key="DIALOG_Y_ORIGIN" value="226"/>
 		<item key="DIALOG_WIDTH" value="414"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>
