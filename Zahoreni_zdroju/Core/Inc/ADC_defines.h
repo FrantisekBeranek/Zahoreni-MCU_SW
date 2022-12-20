@@ -11,8 +11,9 @@ typedef enum{
 	U5VK, U5VK_CURRENT,		//kanál 15, 0
 	U5V, U5V_CURRENT,		//kanál 8, 1
 	U_BAT,					//kanál 6
+	U48V_CURRENT,			//kanál 3
+	INTERNAL_REF,			//kanál 17
 	PAD9, PAD15,			//kanál 4, 13
-	U48V_CURRENT			//kanál 3
 }ADC_State_Type;
 
 /* Přiřazení kanálů ADC k měřené hodnotě */
@@ -32,5 +33,6 @@ typedef enum{
 #define PAD9_CHANNEL			ADC_CHSELR_CHSEL4
 #define PAD15_CHANNEL			ADC_CHSELR_CHSEL13
 #define U48V_CURRENT_CHANNEL	ADC_CHSELR_CHSEL3
+#define INTERNAL_REF_CHANNEL	ADC_CHSELR_CHSEL17
 
 #endif //__ADC_DEFINES_H__

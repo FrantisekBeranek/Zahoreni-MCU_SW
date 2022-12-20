@@ -127,20 +127,20 @@ void Error_Handler(void);
 
 //_____Funkce pro řízení �?asování_____//
 /* Nastavuje flagy ve struktuře time */
-void clkHandler(void);
+//void clkHandler(void);
 
 //_____Funkce pro debouncing tla�?ítek_____//
 /* Nastavuje flagy ve struktuře buttons */
-void buttonDebounce(void);
+//void buttonDebounce(void);
 
 //_____Funkce pro obsluhu uživatelského rozhraní (buzzer a podsvícení displeje)_____//
 /* �?ídí se pomocí nastavení flagů struktury ui */
-void UI_Handler(void);
+//void UI_Handler(void);
 
 //_____Funkce pro řízení ADC převodníků_____//
 /* �?ídí se pomocí flagů measRequest a onlyBat struktury meas */
 /* Zbylé flagy struktury meas nastavuje */
-void measHandler(void);
+//void measHandler(void);
 
 /* USER CODE END EFP */
 
@@ -191,12 +191,15 @@ void measHandler(void);
 //#define __DEBUG_TIME__			//Posílání zpravy s �?asem od zapnutí
 //#define __DEBUG_BUTT__			//Tla�?ítka mění podsvícení displeje
 //#define __DEBUG_INST__			//Po přijetí instrukce posílá řetězec zprávu o vyhodnocení
-#define __SILENT__				//Zakazuje pípání
+//#define __SILENT__				//Zakazuje pípání
 //#define __DEBUG_TEST__			//Test běží v zkáceném režimu
 //#define __DEBUG_FAST__			//Čas je desetkrát zrychlen
-//#define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
+#define __APP_COMPATIBILITY__		//Spouští posílání pravidelné zprávy
 //#define __ADC_DEBUG__
-#define __TIME_WRITE__
+//#define __TIME_WRITE__
+
+/* Adresa kalibracni konstanty pro interni referenci ADC */
+#define CALIB_VALUE_PTR 0x1FFFF7BAUL
 
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bytu x
