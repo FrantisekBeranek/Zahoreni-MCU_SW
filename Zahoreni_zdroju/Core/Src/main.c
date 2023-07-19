@@ -55,7 +55,7 @@ UART_HandleTypeDef huart3;
 extern	RING_BUFFER* USB_Rx_Buffer;
 extern	RING_BUFFER* USB_Tx_Buffer;
 
-volatile uint32_t ADC_Buffer[20];
+volatile uint32_t ADC_Buffer[17][NUMBER_OF_SAMPLES];	//get samples of each channel
 volatile uint32_t ADC_Results[17] = {0};
 
 const uint32_t ADC_ChannelConf[] = 	{U15V_CHANNEL, U15V_CURRENT_CHANNEL,
@@ -68,14 +68,6 @@ const uint32_t ADC_ChannelConf[] = 	{U15V_CHANNEL, U15V_CURRENT_CHANNEL,
 									 U48V_CURRENT_CHANNEL,
 									 INTERNAL_REF_CHANNEL,
 									 PAD9_CHANNEL, PAD15_CHANNEL};
-
-/*const float transferConsts[] =		{U15V_TRANSFER_CONSTANT,
-									 U12V_TRANSFER_CONSTANT,
-									 U24V_TRANSFER_CONSTANT,
-									 U24V_TRANSFER_CONSTANT,
-									 U5V_TRANSFER_CONSTANT,
-									 U5V_TRANSFER_CONSTANT,
-									 UBAT_TRANSFER_CONSTANT};*/
 
 //extern const uint8_t regCount;
 
@@ -1079,6 +1071,7 @@ static void UI_Handler(void)
 static void measHandler(void)
 {
 	static ADC_State_Type ADC_State;
+	static uint8_t numOfSamples = 0;
 
 	//___Nulování flagů___//
 	flags.meas.measComplete = 0;
@@ -1117,17 +1110,27 @@ static void measHandler(void)
 
 		flags.meas.measDataReady = 0;
 
+		ADC_Buffer[ADC_State-1][numOfSamples] = HAL_ADC_GetValue(&hadc);
 		if(ADC_State == INTERNAL_REF)	//interni reference je vždy měřena jako poslední
 		{
-			ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
-			ADC_dataProcessing();
-			flags.meas.measComplete = 1;
-			flags.meas.measRunning = 0;
-			ADC_State = ADC_WAITING;
+			numOfSamples++;
+			if(numOfSamples == NUMBER_OF_SAMPLES)	//Naměřen dostatečný počet vzorků
+			{
+				ADC_dataProcessing();
+				flags.meas.measComplete = 1;
+				flags.meas.measRunning = 0;
+				ADC_State = ADC_WAITING;
+				numOfSamples = 0;
+			}
+			else
+			{
+				ADC_State = flags.meas.onlyBattery? U_BAT : U15V;
+				ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];
+				HAL_ADC_Start_IT(&hadc);
+			}
 		}
 		else
 		{
-			ADC_Results[ADC_State-1] = HAL_ADC_GetValue(&hadc);
 			ADC_State += 2;	//Měř další kanál (měření proudů se přeskakuje)
 
 			ADC1->CHSELR = ADC_ChannelConf[ADC_State-1];	//Nastav měřený kanál
@@ -1186,16 +1189,41 @@ static void calibHandler()
 //_____Zpracování naměřených dat_____//
 static void ADC_dataProcessing()
 {
-	//uint16_t interRef = ADC_Results[INTERNAL_REF-1];
-	//uint32_t vMeas[7] = {0};
-	//uint32_t vMeasT[7] = {0};
-	/*for(uint8_t i = 0; i < 7; i++)
+	uint32_t max[17] = {0};
+	uint32_t min[17] = {ADC_MAX};
+
+	uint8_t max_pos[17];
+	uint8_t min_pos[17];
+	//Nalezni max a min naměřenou hodnotu a jejich pozice
+	for(uint8_t i = 0; i < NUMBER_OF_SAMPLES; i++)
 	{
-		vMeas[i] = ADC_Results[2*i]*330*calibValue;
-		vMeas[i] += interRef*2048;
-		vMeas[i] /= interRef*4095;
-		vMeasT[i] = vMeas[i] * transferConsts[i];
-	}*/
+		for(uint8_t j =0; j < 17; j++)
+		{
+			if(ADC_Buffer[j][i] > max[j])
+			{
+				max[j] = ADC_Buffer[j][i];
+				max_pos[j] = i;
+			}
+			if(ADC_Buffer[j][i] < min[j])
+			{
+				min[j] = ADC_Buffer[j][i];
+				min_pos[j] = i;
+			}
+		}
+	}
+	//Udělej průměr z naměřených hodnot kromě max a min
+	for(uint8_t i = 0; i < NUMBER_OF_SAMPLES; i++)
+	{
+		for(uint8_t j =0; j < 17; j++)
+		{
+			if(i != max_pos[j] && i != min_pos[j])
+				ADC_Results[j] += ADC_Buffer[j][i];
+		}
+	}
+	for(uint8_t j =0; j < 17; j++)
+	{
+		ADC_Results[j] /= 17;
+	}
 
 	return;
 	//return ADC_Buffer[10];

@@ -201,6 +201,10 @@ void Error_Handler(void);
 /* Adresa kalibracni konstanty pro interni referenci ADC */
 #define CALIB_VALUE_PTR 0x1FFFF7BAUL
 
+/* Počet vzorků k zprůměrování */
+#define NUMBER_OF_SAMPLES 10
+#define ADC_MAX 2^12
+
 /* Prace s bitovými proměnnými */
 #define SetBit(x,y) x|=(1<<y)			//nastav bit y bytu x
 #define ClearBit(x,y) x&=~(1 << y)		//vynuluj bit y bytu x
