@@ -1,58 +1,24 @@
-16:24:08 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
+16:22:39 **** Incremental Build of configuration Debug for project Zahoreni_zdroju ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/comHandle.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/comHandle.d" -MT"Core/Src/comHandle.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/comHandle.o"
-../Core/Src/comHandle.c: In function 'comHandler':
-../Core/Src/comHandle.c:92:26: warning: pointer targets in passing argument 2 of 'pop' differ in signedness [-Wpointer-sign]
-   92 |       pop(USB_Rx_Buffer, &tmp[y]);
-      |                          ^~~~~~~
-      |                          |
-      |                          uint8_t * {aka unsigned char *}
-In file included from ../Core/Inc/comHandle.h:11,
-                 from ../Core/Src/comHandle.c:8:
-../Core/Inc/ringBuffer.h:64:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-   64 | BUFFER_STATE pop(RING_BUFFER*, char*);
-      |                                ^~~~~
-../Core/Src/comHandle.c:136:39: warning: pointer targets in passing argument 3 of 'fillPaket' differ in signedness [-Wpointer-sign]
-  136 |   fillPaket(&paket, TEST_PHASE_PAKET, &testPhaseChr, 1);
-      |                                       ^~~~~~~~~~~~~
-      |                                       |
-      |                                       char *
-../Core/Src/comHandle.c:31:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-   31 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
-      |                                                        ~~~~~~~~~^~~~
-../Core/Src/comHandle.c:146:38: warning: passing argument 3 of 'fillPaket' from incompatible pointer type [-Wincompatible-pointer-types]
-  146 |    fillPaket(&paket, TEST_NUM_PAKET, &testNum, 1);
-      |                                      ^~~~~~~~
-      |                                      |
-      |                                      int *
-../Core/Src/comHandle.c:31:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int *'
-   31 | static void fillPaket(Paket* paket, outPaketType type, uint8_t* data, uint8_t dataLength);
-      |                                                        ~~~~~~~~~^~~~
-../Core/Src/comHandle.c:203:3: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
-  203 |   CDC_Transmit_FS(msg, strlen(msg));
-      |   ^~~~~~~~~~~~~~~
-../Core/Src/comHandle.c: In function 'pushPaket':
-../Core/Src/comHandle.c:259:18: warning: pointer targets in passing argument 2 of 'pushStr' differ in signedness [-Wpointer-sign]
-  259 |  pushStr(buffer, toSend, sizeof(toSend)-1);
-      |                  ^~~~~~
-      |                  |
-      |                  uint8_t * {aka unsigned char *}
-In file included from ../Core/Inc/comHandle.h:11,
-                 from ../Core/Src/comHandle.c:8:
-../Core/Inc/ringBuffer.h:59:36: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-   59 | BUFFER_STATE pushStr(RING_BUFFER*, char*, int);
-      |                                    ^~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F072xB -c -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ADC_dataProcessing':
+../Core/Src/main.c:1193:11: warning: unused variable 'min' [-Wunused-variable]
+ 1193 |  uint32_t min[17] = {ADC_MAX};
+      |           ^~~
+../Core/Src/main.c:1192:11: warning: unused variable 'max' [-Wunused-variable]
+ 1192 |  uint32_t max[17] = {0};
+      |           ^~~
 arm-none-eabi-gcc -o "Zahoreni_zdroju.elf" @"objects.list"   -mcpu=cortex-m0 -T"D:\frant\Documents\TSE\projekty\zahoreni\verze 3\SW\Zahoreni-MCU_SW\Zahoreni_zdroju\STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Zahoreni_zdroju.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Zahoreni_zdroju.elf
  
 arm-none-eabi-size   Zahoreni_zdroju.elf 
 arm-none-eabi-objdump -h -S  Zahoreni_zdroju.elf  > "Zahoreni_zdroju.list"
    text	   data	    bss	    dec	    hex	filename
-  58776	    488	   6664	  65928	  10188	Zahoreni_zdroju.elf
+  58900	    488	   7344	  66732	  104ac	Zahoreni_zdroju.elf
 Finished building: default.size.stdout
  
 Finished building: Zahoreni_zdroju.list
  
 
-16:24:10 Build Finished. 0 errors, 5 warnings. (took 2s.373ms)
+16:22:41 Build Finished. 0 errors, 2 warnings. (took 1s.949ms)
 
